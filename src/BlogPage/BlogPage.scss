@@ -73,4 +73,41 @@
         gap: 40px;
         flex-wrap: wrap;
     }
+    &__pagination {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+      
+        &_arrow {
+          background: none;
+          border: none;
+          cursor: pointer;
+          opacity: 0.7;
+          transition: opacity 300ms;
+          &_img2{
+            transform: rotate(180deg);
+          }
+          &:disabled {
+            opacity: 0.3;
+            cursor: default;
+          }
+        }
+      
+        &_item {
+          background: transparent;
+          border: none;
+          color: rgba($color: #FFFFFF, $alpha: .4);
+          font-size: 16px;
+          cursor: pointer;
+          transform: color 300ms;
+      
+          &.active {
+            color: #fff;
+            font-weight: 600;
+            font-size: 25px;
+          }
+        }
+      }
 }
