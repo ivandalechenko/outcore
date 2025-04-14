@@ -1,0 +1,105 @@
+.AboutUs {
+    margin-top: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &_decor {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        // position: relative;
+        // z-index: ;
+    }
+
+    &_abstract {
+        // mix-blend-mode: hard-light;
+        top: -250px;
+
+        img {
+            rotate: 8deg;
+            min-width: 200vw;
+        }
+    }
+
+    &_header {
+        position: relative;
+        z-index: 1;
+        width: 500px;
+        font-size: 200px;
+        font-weight: 500;
+        line-height: 180px;
+    }
+
+    &_content {
+        width: 800px;
+        position: relative;
+        z-index: 1;
+    }
+
+    &_element {
+        border-radius: 16px;
+        padding: 40px 60px;
+        padding-bottom: 60px;
+        margin-bottom: -20px;
+
+        &_header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 600;
+            font-size: 30px;
+        }
+
+        &_content {
+            font-size: 20px;
+            margin-top: 32px;
+        }
+
+        &_0 {
+            background: radial-gradient(circle at 30%, rgba(2, 1, 255, 1) 0%, rgba(16, 16, 61, 1) 100%);
+        }
+
+        &_3 {
+            background: radial-gradient(circle at 70%, rgba(2, 1, 255, 1) 0%, rgba(16, 16, 61, 1) 100%);
+        }
+
+        &_1 {
+            background: radial-gradient(circle at 70%, #23CCCD, #152E2E 100%);
+        }
+
+        &_4 {
+            background: radial-gradient(circle at 30%, #23CCCD, #152E2E 100%);
+        }
+
+        &_2 {
+            background: radial-gradient(circle at 30%, #EFEDF4, #a1a1a1 100%);
+        }
+
+        &_5 {
+            background: radial-gradient(circle at 70%, #EFEDF4, #a1a1a1 100%);
+        }
+
+        &_2,
+        &_5 {
+            .AboutUs_element_header_text {
+                color: #000;
+            }
+
+            .AboutUs_element_header_num {
+                color: #000;
+            }
+        }
+    }
+
+    &_cta {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-right: 800px;
+        top: -200px;
+        position: relative;
+        z-index: 1;
+    }
+}

@@ -1,0 +1,140 @@
+.MiniBlog {
+    margin-top: 500px;
+
+    &_note {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 120px;
+
+        &_content {
+            font-size: 20px;
+            text-align: center;
+            max-width: 370px;
+        }
+
+        &_duga {
+            scale: .7;
+
+            &_right {
+                rotate: 180deg;
+            }
+        }
+    }
+
+    &_arrow {
+        background-color: #fff0;
+        width: 70px;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 200ms;
+        cursor: pointer;
+        border-radius: 8px;
+        user-select: none;
+
+        &:hover {
+            background-color: #fff2;
+        }
+
+        &_right {
+            img {
+                rotate: 180deg;
+            }
+        }
+
+
+        &s {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+        }
+    }
+
+    &_header {
+        font-size: 80px;
+        color: white;
+        text-align: center;
+        max-width: 1150px;
+        margin: 0 auto;
+        font-weight: 500;
+    }
+
+    &_slider {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        height: 700px;
+
+        margin-top: 80px;
+    }
+
+    &_element {
+        min-width: 580px;
+        max-width: 580px;
+        min-height: 600px;
+        // max-height: 600px;
+        background: white;
+        border-radius: 10px;
+        padding: 40px;
+
+        &_wrapper {
+            align-items: start !important;
+            transition: transform 500ms, opacity 500ms;
+        }
+
+        &_header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &_date,
+        &_minutesToRead {
+            font-size: 18px;
+            color: #0008;
+        }
+
+        &_img {
+            margin-top: 16px;
+
+            img {
+                width: 100%;
+                border-radius: 10px;
+            }
+        }
+
+        &_tag {
+            color: black;
+            font-size: 18px;
+            font-weight: 600;
+
+            &s {
+                margin-top: 24px;
+                display: flex;
+                flex-wrap: wrap;
+                column-gap: 8px;
+                row-gap: 4px;
+            }
+        }
+
+        &_header {
+            margin-top: 16px;
+            color: #0201FF;
+            font-size: 30px;
+            font-weight: 700;
+        }
+
+        &_text {
+            margin-top: 16px;
+            font-size: 20px;
+            color: #000;
+        }
+
+    }
+
+
+
+}

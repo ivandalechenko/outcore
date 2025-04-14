@@ -1,0 +1,123 @@
+.Hero {
+
+    &_decor {
+        position: relative;
+        z-index: -1;
+        width: 100%;
+        min-height: 600px;
+        pointer-events: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &_crystall {
+
+            animation: levitating 60s infinite linear;
+
+            @keyframes levitating {
+                0% {
+                    transform: translate(0px, 0px);
+                }
+
+                30% {
+                    transform: translate(0px, 50px);
+                }
+
+                60% {
+                    transform: translate(0px, -50px);
+                }
+
+                100% {
+                    transform: translate(0px, 0px);
+                }
+            }
+
+            &_item {
+                animation: crystall 20s infinite ease-in-out;
+
+                @keyframes crystall {
+                    0% {
+                        rotate: 0deg;
+                    }
+
+                    30% {
+                        rotate: 5deg;
+                    }
+
+                    60% {
+                        rotate: -7deg;
+                    }
+
+                    100% {
+                        rotate: 0deg;
+                    }
+                }
+            }
+
+            &_light {
+                &_large {
+                    &_inner {
+                        min-width: 200px;
+                        min-height: 400px;
+                        background: #0149ffaa;
+                        filter: blur(100px);
+                        animation: rotate 10s infinite linear;
+
+                    }
+
+                    // background: linear-gradient(to right, #fff, #0201FF, #23CCCD, #fff);
+
+                }
+
+                &_blue {
+                    top: 50px;
+                    left: -50px;
+
+                    &_inner {
+                        min-width: 200px;
+                        min-height: 300px;
+                        background: #0201FF88;
+                        animation: rotate 20s infinite linear;
+                        filter: blur(70px);
+                    }
+                }
+
+                &_green {
+                    top: -50px;
+                    left: 50px;
+
+                    &_inner {
+                        min-width: 200px;
+                        min-height: 300px;
+                        background: #23CCCD88;
+                        filter: blur(70px);
+                        animation: rotate 15s infinite linear;
+                    }
+                }
+            }
+
+        }
+
+        &_leftHand {
+            left: -500px;
+            top: -150px;
+        }
+
+        &_rightHand {
+            left: 500px;
+            top: 100px;
+        }
+    }
+
+    @keyframes rotate {
+        0% {
+            rotate: 0deg;
+        }
+
+        100% {
+            rotate: 360deg;
+        }
+    }
+
+
+}

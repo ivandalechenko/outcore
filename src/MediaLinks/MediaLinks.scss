@@ -1,0 +1,28 @@
+.MediaLinks {
+    &_inline {
+        display: flex;
+        column-gap: 20px;
+
+    }
+
+    &_element {
+
+        img {
+            width: 48px;
+            height: 48px;
+        }
+
+        &s {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+    }
+
+    &_cta {
+        margin-top: 8px;
+        font-size: 18px;
+        font-weight: 300;
+        max-width: 200px;
+    }
+}

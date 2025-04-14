@@ -1,0 +1,36 @@
+.LangChanger {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 8px;
+    border: 1px solid #fff8;
+    padding: 3px;
+    border-radius: 36px;
+    max-width: 42px;
+
+    &_element {
+        min-width: 36px;
+        max-width: 36px;
+        min-height: 36px;
+        max-height: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff8;
+        border-radius: 36px;
+        padding-top: 3px;
+        cursor: pointer;
+        user-select: none;
+        background-color: #0201FF00;
+        transition: color 500ms, background-color 500ms;
+
+        &:hover {
+            color: #fff;
+            background-color: #0201FF88;
+        }
+
+        &_active {
+            color: #fff;
+            background-color: #0201FF !important;
+        }
+    }
+}

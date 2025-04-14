@@ -1,0 +1,13 @@
+.PolicyAndRights {
+    &_policy {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    div,
+    a {
+        font-size: 18px;
+        font-weight: 300;
+        color: #fff8;
+    }
+}

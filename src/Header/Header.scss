@@ -1,0 +1,32 @@
+.Header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    align-items: start;
+
+    &_side {
+        display: flex;
+        align-items: center;
+        column-gap: 80px;
+    }
+
+    &_links {
+        display: flex;
+        align-items: center;
+        column-gap: 50px;
+    }
+
+
+    &_right {
+        align-items: start;
+    }
+
+    &_logo {
+        background: linear-gradient(to right, #0201FF, #23CCCD, #fff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline;
+        font-weight: 600;
+        font-size: 30px;
+    }
+}

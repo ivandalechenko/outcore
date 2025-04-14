@@ -1,0 +1,80 @@
+.CTA {
+    width: 360px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid white;
+    border-radius: 90px;
+    padding-left: 40px;
+    background: linear-gradient(to right, #000 40%, #fff 60%);
+    background-size: 250% 100%;
+    background-position: 0% 0%;
+    transition: background-position 500ms;
+
+    pointer-events: all;
+
+    &_text {
+        font-size: 28px;
+        font-weight: 600;
+        transition: color 300ms;
+    }
+
+    &:hover {
+        background-position: 100% 0%;
+        cursor: pointer;
+
+        .CTA_text {
+            color: black;
+        }
+    }
+
+
+    &_arrow {
+        min-width: 90px;
+        min-height: 90px;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 180px;
+
+        &_wrapper {
+            left: -45px;
+        }
+
+        &_inner {
+            border-radius: 180px;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #0B36F2, #21BDD1);
+        }
+    }
+
+
+    &_blue {
+        background: linear-gradient(45deg, #0B36F2, #21BDD1 40%, #333 60%, #111);
+        background-size: 250% 100%;
+
+        .CTA_arrow {
+            background: transparent;
+        }
+
+        .CTA_arrow_inner {
+            background: white;
+
+            img {
+                filter: invert(1);
+            }
+        }
+
+        &:hover {
+            .CTA_text {
+                color: white;
+            }
+        }
+    }
+}
