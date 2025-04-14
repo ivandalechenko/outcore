@@ -145,3 +145,17 @@ html {
 .container {
     padding: 0px 50px;
 }
+
+.text__gradient{
+    background: linear-gradient(
+                to right,
+                #0201ff 17%,
+                #23cccd 40%,
+                #23cccd 90%,
+                #efedf4 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}

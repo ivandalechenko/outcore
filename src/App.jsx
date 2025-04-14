@@ -5,6 +5,9 @@ import HomePage from './HomePage/HomePage';
 import { BrowserRouter as Router, Routes, Route, Link, useParams, useLocation } from "react-router-dom";
 import RequestPage from './RequestPage/RequestPage';
 import BlogPage from './BlogPage/BlogPage';
+import Accounts from './Pages/Accounts/Accounts';
+import Services from './Pages/Services/Services';
+
 
 
 export default () => {
@@ -19,6 +22,8 @@ export default () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/request" element={<RequestPage />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route path='/accounts' element={<Accounts />} />
+          <Route path='/services' element={<Services />} />
         </Routes>
         <Footer />
       </Router>

@@ -1,0 +1,58 @@
+.Line {
+    padding: 16px;
+    border-radius: 8px;
+    font-family: sans-serif;
+    width: 100%;
+    max-width: 400px;
+    &__label{
+        color: rgba($color: #FFF, $alpha: .5);
+        font-size: 20px;
+        font-family: 'Gilroy';
+        font-weight: 500;
+    }
+    &__range{
+        color: rgba($color: #FFF, $alpha: .5);
+        font-size: 18px;
+        font-family: 'Gilroy';
+        font-weight: 400;
+    }
+    &__row{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        font-size: 14px;
+        color: #ccc;
+    }
+    &__display{
+        text-align: center;
+        margin-top: 8px;
+        font-weight: bold;
+    }
+    &__slider{
+        width: 100%;
+        height: 6px;
+        border-radius: 5px;
+        appearance: none;
+        background: linear-gradient(to right, #0000ff, #00ffff);
+        outline: none;
+        margin: 0;
+        &::-webkit-slider-thumb{
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #00ffff;
+            border: 2px solid #0000ff;
+            cursor: pointer;
+            margin-top: -5px;
+        }
+        &::-moz-range-thumb{
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #00ffff;
+            border: 2px solid #0000ff;
+            cursor: pointer;
+        }
+    }
+  }  
