@@ -146,31 +146,34 @@ export default () => {
                 ))}
             </div>
             <div className="BlogPage__pagination">
-                <button 
-                    onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-                    disabled={currentPage === 1}
-                    className="BlogPage__pagination_arrow"
-                >
-                    <img src="/arrowGallery.svg" alt="" />
-                </button>
-
-                {[...Array(totalPages)].map((_, index) => (
-                    <button
-                    key={index}
-                    onClick={() => setCurrentPage(index + 1)}
-                    className={`BlogPage__pagination_item ${currentPage === index + 1 ? 'active' : ''}`}
+                <div className='BlogPage__pagination_wrapper'>
+                    <button 
+                        onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                        disabled={currentPage === 1}
+                        className="BlogPage__pagination_arrow"
                     >
-                    {index + 1}
+                        <img src="/arrowGallery.svg" alt="" />
                     </button>
-                ))}
+                    <div className='BlogPage__pagination_number'>
+                        {[...Array(totalPages)].map((_, index) => (
+                            <button
+                            key={index}
+                            onClick={() => setCurrentPage(index + 1)}
+                            className={`BlogPage__pagination_item ${currentPage === index + 1 ? 'active' : ''}`}
+                            >
+                            {index + 1}
+                            </button>
+                        ))}
+                    </div>
 
-                <button 
-                    onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-                    disabled={currentPage === totalPages}
-                    className="BlogPage__pagination_arrow"
-                >
-                    <img src="/arrowGallery.svg" alt="" className='BlogPage__pagination_arrow_img2'/>
-                </button>
+                    <button 
+                        onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                        disabled={currentPage === totalPages}
+                        className="BlogPage__pagination_arrow"
+                    >
+                        <img src="/arrowGallery.svg" alt="" className='BlogPage__pagination_arrow_img2'/>
+                    </button>
+                    </div>
                 </div>
         </div>
     )

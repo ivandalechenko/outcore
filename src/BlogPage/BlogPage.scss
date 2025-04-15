@@ -79,7 +79,20 @@
         align-items: center;
         gap: 8px;
         width: 100%;
-      
+        &_wrapper{
+            width: 50%;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+        }
+        &_number{
+            width: 33%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
         &_arrow {
           background: none;
           border: none;
@@ -99,7 +112,7 @@
           background: transparent;
           border: none;
           color: rgba($color: #FFFFFF, $alpha: .4);
-          font-size: 16px;
+          font-size: 25px;
           cursor: pointer;
           transform: color 300ms;
       

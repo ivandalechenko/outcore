@@ -1,6 +1,6 @@
-import ServiceBtn from './ServiceBtn/ServiceBtn';
 import './Services.scss';
 import { useState } from 'react';
+import CTA from '../../CTA/CTA';
 export default () => {
 
     const [openedIndex, setOpenedIndex] = useState(null);
@@ -78,7 +78,7 @@ export default () => {
                     <a><li className='Services__proxy_text_li'>Какие инструменты использовать?</li></a>
                 </div>
                 <div className='Services__proxy_btn'>
-                    <ServiceBtn />
+                    <CTA text='Хочу'/>
                 </div>
               </div>
             </>
@@ -116,7 +116,8 @@ export default () => {
                                 </p>
                             </div>
                             <div className='Services__proxy_btn'>
-                                <ServiceBtn />
+                                {/* <CTA text='Хочу'/> */}
+                                <CTA text='Хочу'/>
                             </div>
                         </div>
                     </>
@@ -158,7 +159,7 @@ export default () => {
                                 </div>
                             </div>
                             <div className='Services__proxy_btn'>
-                                <ServiceBtn />
+                                <CTA text='Хочу'/>
                             </div>
                         </div>
                     </>
@@ -184,7 +185,7 @@ export default () => {
                             </div>
                         </div>
                         <div className='Services__proxy_btn'>
-                            <ServiceBtn />
+                            <CTA text='Хочу'/>
                         </div>
                     </div>
                 </>
@@ -201,7 +202,7 @@ export default () => {
                                 </div>
                             </div>
                             <div className='Services__proxy_btn'>
-                            <ServiceBtn />
+                            <CTA text='Хочу'/>
                         </div>
                         </div>
                     </>
@@ -225,7 +226,7 @@ export default () => {
                                     </div>
                                 </div>
                                 <div className='Services__proxy_btn'>
-                                    <ServiceBtn />
+                                    <CTA text='Хочу'/>
                                 </div>
                                 </div>
                         </div>
@@ -244,7 +245,7 @@ export default () => {
                             </div>
                             </div>
                             <div className='Services__proxy_btn'>
-                            <ServiceBtn />
+                            <CTA text='Хочу'/>
                             </div>
                         </div>
                     </>
@@ -262,7 +263,7 @@ export default () => {
                             </div>
                             </div>
                             <div className='Services__proxy_btn'>
-                            <ServiceBtn />
+                            <CTA text='Хочу'/>
                             </div>
                         </div>
                     </>
