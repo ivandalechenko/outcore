@@ -151,6 +151,7 @@
                 display: flex;
                 justify-content: space-between;
                 gap: 10px;
+                background-color: #0F0F0F;
 
                 &_item {
                     width: calc(100% / 7 - 10px);
@@ -160,7 +161,6 @@
                     padding: 18px 0px;
                     font-size: 20px;
                     text-align: center;
-                    background-color: #0F0F0F;
                     border-radius: 6px;
                     @media(max-width: 870px) {
                         font-size: 16px;
