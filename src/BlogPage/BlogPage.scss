@@ -5,7 +5,45 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 100px;
+    gap: 50px;
+    &__decor{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        align-items: start !important;
+
+        &_abstract{
+            z-index: -1;
+            top: 200px;
+            @media(max-width: 950px){
+                top: 500px;
+            }
+            img{
+                min-width: 160vw;
+                mix-blend-mode: hard-light;
+                @media(max-width: 950px){
+                    min-width: 500vw;
+                    rotate: -50deg;
+                }
+            }
+        }
+        &_abstract2{
+            z-index: -2;
+            opacity: 0;
+            @media(max-width: 950px){
+                opacity: 1;
+                z-index: -1;
+                top: 1200px;
+                img{
+                    min-width: 160vw;
+                    mix-blend-mode: hard-light;
+                    min-width: 500vw;
+                    rotate: -50deg;
+                }
+            }
+        }
+    }
     &__title{
         width: 100%;
         font-size: 260px;
@@ -79,7 +117,20 @@
         align-items: center;
         gap: 8px;
         width: 100%;
-      
+        &_wrapper{
+            width: 50%;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+        }
+        &_number{
+            width: 33%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
         &_arrow {
           background: none;
           border: none;
@@ -99,7 +150,7 @@
           background: transparent;
           border: none;
           color: rgba($color: #FFFFFF, $alpha: .4);
-          font-size: 16px;
+          font-size: 25px;
           cursor: pointer;
           transform: color 300ms;
       

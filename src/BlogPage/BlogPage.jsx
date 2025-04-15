@@ -121,6 +121,14 @@ export default () => {
             <h2 className='BlogPage__title text__gradient'>
                 Блог Outcore
             </h2>
+            <div className='BlogPage__decor'>
+                <div className='BlogPage__decor_abstract free_img'>
+                    <img src="/abstract1.webp" alt="" />
+                </div>
+                <div className='BlogPage__decor_abstract2 free_img'>
+                    <img src="/abstract1.webp" alt="" />
+                </div>
+            </div>
             <div className='BlogPage__nav'>
                 <p className='BlogPage__nav_title'>Filters</p>
                 <div className='BlogPage__nav_items'>
@@ -146,31 +154,34 @@ export default () => {
                 ))}
             </div>
             <div className="BlogPage__pagination">
-                <button 
-                    onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-                    disabled={currentPage === 1}
-                    className="BlogPage__pagination_arrow"
-                >
-                    <img src="/arrowGallery.svg" alt="" />
-                </button>
-
-                {[...Array(totalPages)].map((_, index) => (
-                    <button
-                    key={index}
-                    onClick={() => setCurrentPage(index + 1)}
-                    className={`BlogPage__pagination_item ${currentPage === index + 1 ? 'active' : ''}`}
+                <div className='BlogPage__pagination_wrapper'>
+                    <button 
+                        onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                        disabled={currentPage === 1}
+                        className="BlogPage__pagination_arrow"
                     >
-                    {index + 1}
+                        <img src="/arrowGallery.svg" alt="" />
                     </button>
-                ))}
+                    <div className='BlogPage__pagination_number'>
+                        {[...Array(totalPages)].map((_, index) => (
+                            <button
+                            key={index}
+                            onClick={() => setCurrentPage(index + 1)}
+                            className={`BlogPage__pagination_item ${currentPage === index + 1 ? 'active' : ''}`}
+                            >
+                            {index + 1}
+                            </button>
+                        ))}
+                    </div>
 
-                <button 
-                    onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-                    disabled={currentPage === totalPages}
-                    className="BlogPage__pagination_arrow"
-                >
-                    <img src="/arrowGallery.svg" alt="" className='BlogPage__pagination_arrow_img2'/>
-                </button>
+                    <button 
+                        onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                        disabled={currentPage === totalPages}
+                        className="BlogPage__pagination_arrow"
+                    >
+                        <img src="/arrowGallery.svg" alt="" className='BlogPage__pagination_arrow_img2'/>
+                    </button>
+                    </div>
                 </div>
         </div>
     )

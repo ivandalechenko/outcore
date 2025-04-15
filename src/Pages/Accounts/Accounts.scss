@@ -2,12 +2,29 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 100px;
+    gap: 50px;
 
     @media(max-width: 900px) {
         padding: 0 !important;
     }
-
+    &__decor{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        align-items: start !important;
+        &_abstract{
+            top: 400px;
+            z-index: -1;
+            @media(max-width: 950px){
+                top: 0px;
+            }
+            img{
+                mix-blend-mode: hard-light;
+                min-width: 160vw;
+            }
+        }
+    }
     &__title {
         width: 100%;
         font-size: 100px;
@@ -38,17 +55,17 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        padding: 24px;
+        padding: 50px;
         border-radius: 25px;
         // gap: 50px;
-        border: 1px solid #fff2;
+        // border: 1px solid #fff2;
 
-        // &_border{
-        //     background: linear-gradient(to bottom, #ffffff9c 0%, #9999999c 100%);
-        //     width: 100%;
-        //     border-radius: 25px;
-        //     padding: 1px;
-        // }
+        &_border{
+            background: linear-gradient(to bottom, #ffffff00 0%, #9999999c 100%);
+            width: 100%;
+            border-radius: 25px;
+            padding: 1px;
+        }
         &_links {
             width: 100%;
             display: flex;
@@ -122,6 +139,7 @@
                 font-family: 'Gilroy';
                 font-weight: 600px;
                 color: rgba($color: #FFF, $alpha: .5);
+                text-align: center;
 
                 @media(max-width: 870px) {
                     font-size: 16px;
@@ -141,9 +159,24 @@
                     font-weight: 600px;
                     padding: 18px 0px;
                     font-size: 20px;
-
+                    text-align: center;
+                    background-color: #0F0F0F;
+                    border-radius: 6px;
                     @media(max-width: 870px) {
                         font-size: 16px;
+                    }
+                    &_country{
+                        text-transform: uppercase;
+                        display: flex;
+                        gap: 5px;
+                        width: calc(100% / 7 - 10px);
+                        justify-content: center;
+                        align-items: center;
+                        img{
+                            width: 20px;
+                            height: 15px;
+                            border-radius: 2px;
+                        }
                     }
                 }
             }

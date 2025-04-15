@@ -35,29 +35,7 @@
         justify-content: center;
         align-items: center;
         img{
-            max-width: 500px;
-            max-height: 277px;
-            // min-width: 500px;
-            // min-height: 277px;
-            border-radius: 10px;
-            @media(max-width: 1760px){
-                max-width: 400px;
-            }
-            @media(max-width: 1470px){
-                max-width: 300px;
-            }
-            @media(max-width: 1150px){
-                max-width: 200px;
-            }
-            @media(max-width: 950px){
-                max-width: 400px;
-            }
-            @media(max-width: 550px){
-                max-width: 200px;
-            }
-            @media(max-width: 340px){
-                max-width: 150px;
-            }
+            width: 100%;
         }
     }
     &__tag{
