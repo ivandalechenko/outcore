@@ -29,7 +29,7 @@ export default () => {
                         return <>
                             {(index > 0 && index % 2 === 0) && <div className='Advantages_element_del'></div>}
                             {index === 4 && <div className='Advantages_element'></div>}
-                            <div className='Advantages_element' key={`advantage-${index}`}>
+                            <div className={`Advantages_element ${index % 2 === 0 && 'Advantages_element_odd'}`} key={`advantage-${index}`}>
                                 <div className='Advantages_element_title'>
                                     {el.title}
                                 </div>
@@ -45,12 +45,12 @@ export default () => {
                 <div className='Advantages_decor_abstract free_img'>
                     <img src="/abstract1.webp" alt="" />
                 </div>
-                <div className='Advantages_decor_text_large free_img'>
+                <div className='Advantages_decor_text_large Advantages_decor_text free_img'>
                     <div className='Advantages_decor_text_large_inner'>
                         Outcore
                     </div>
                 </div>
-                <div className='Advantages_decor_text_small free_img'>
+                <div className='Advantages_decor_text_small Advantages_decor_text free_img'>
                     В цифрах
                 </div>
             </div>
