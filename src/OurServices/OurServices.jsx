@@ -44,7 +44,7 @@ export default () => {
                         'ПЛАТЕЖНЫЕ РЕШЕНИЯ'
                     ].map((el, index) => {
                         return <div className={`OurServices_element ${index === activeElement && 'OurServices_element_active'}`}>
-                            <div className='OurServices_element_arrow free_img'>
+                            <div className='OurServices_element_arrow OurServices_element_arrow_right free_img'>
                                 <img src="/triangle.svg" alt="" />
                             </div>
                             <div className='OurServices_element_content'>
