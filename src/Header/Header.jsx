@@ -36,7 +36,9 @@ export default () => {
                 <div className='Header_mm_manager'>
                     <MessageToManager />
                 </div>
-                <LangChanger />
+                <div className='Header_mm_lang'>
+                    <LangChanger />
+                </div>
             </div>
             <div className='Header container'>
                 <div className='Header_side'>

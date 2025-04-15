@@ -6,40 +6,49 @@
     justify-content: center;
     align-items: center;
     gap: 50px;
-    @media(max-width: 950px){
+
+    @media(max-width: 950px) {
         padding: 0px;
         margin-top: 50px;
     }
-    &__decor{
+
+    &__decor {
         width: 100%;
         display: flex;
         justify-content: center;
         position: relative;
         align-items: start !important;
 
-        &_abstract{
+
+        &_abstract {
             z-index: -1;
-            top: 200px;
-            @media(max-width: 950px){
+            top: 400px;
+
+            @media(max-width: 950px) {
                 top: 500px;
             }
-            img{
+
+            img {
                 min-width: 160vw;
                 mix-blend-mode: hard-light;
-                @media(max-width: 950px){
+
+                @media(max-width: 950px) {
                     min-width: 500vw;
                     rotate: -50deg;
                 }
             }
         }
-        &_abstract2{
+
+        &_abstract2 {
             z-index: -2;
             opacity: 0;
-            @media(max-width: 950px){
+
+            @media(max-width: 950px) {
                 opacity: 1;
                 z-index: -1;
                 top: 1200px;
-                img{
+
+                img {
                     min-width: 160vw;
                     mix-blend-mode: hard-light;
                     min-width: 500vw;
@@ -48,73 +57,97 @@
             }
         }
     }
-    &__title{
+
+    &__title {
         width: 100%;
         font-size: 260px;
         font-weight: 500;
         text-align: center;
-        @media(max-width: 1700px){
+
+        @media(max-width: 1700px) {
             font-size: 200px;
         }
-        @media(max-width: 1340px){
+
+        @media(max-width: 1340px) {
             font-size: 150px;
         }
-        @media(max-width: 1200px){
+
+        @media(max-width: 1200px) {
             font-size: 100px;
         }
-        @media(max-width: 720px){
+
+        @media(max-width: 720px) {
             font-size: 50px;
         }
     }
-    &__nav{
+
+    &__nav {
         width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        @media(max-width: 1040px){
+
+        @media(max-width: 1040px) {
             flex-wrap: wrap;
             gap: 20px;
             // overflow-x: auto;
         }
-        &_title{
+
+        &_title {
             font-weight: 500;
             font-size: 35px;
-            @media(max-width: 1040px){
+
+            @media(max-width: 1040px) {
                 width: 100%;
                 text-align: center;
             }
         }
-        &_items{
+
+        &_items {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 10px;
-            @media(max-width: 1040px){
+
+
+            @media(max-width: 1040px) {
                 width: 100%;
                 min-width: 980px;
                 justify-content: start;
                 overflow-x: auto;
             }
-            @media(max-width: 950px){
+
+            @media(max-width: 950px) {
                 min-width: 0px;
                 padding-left: 20px;
             }
-            &_item{
+
+            &_item {
+                cursor: pointer;
                 background-color: rgba($color: #FFFFFF, $alpha: .33);
                 border-radius: 100px;
                 padding: 15px 20px;
                 color: #FFF;
-                &_active{
-                    background-color: #FFF;
+
+                transition: background-color 300ms, color 300ms;
+
+                &:hover {
+                    background-color: rgba($color: #FFFFFF, $alpha: .6);
+                }
+
+                &_active {
+                    background-color: #FFF !important;
                     color: #0201FF;
                 }
-                @media(max-width: 950px){
+
+                @media(max-width: 950px) {
                     min-width: fit-content;
                 }
             }
         }
     }
-    &__gallery{
+
+    &__gallery {
         width: 100%;
         display: flex;
         justify-content: center;
@@ -122,13 +155,15 @@
         gap: 40px;
         flex-wrap: wrap;
     }
+
     &__pagination {
         display: flex;
         justify-content: space-around;
         align-items: center;
         gap: 8px;
         width: 100%;
-        &_wrapper{
+
+        &_wrapper {
             width: 50%;
             min-width: 300px;
             display: flex;
@@ -136,40 +171,44 @@
             align-items: center;
             gap: 50px;
         }
-        &_number{
+
+        &_number {
             width: 33%;
             display: flex;
             justify-content: center;
             gap: 20px;
         }
+
         &_arrow {
-          background: none;
-          border: none;
-          cursor: pointer;
-          opacity: 0.7;
-          transition: opacity 300ms;
-          &_img2{
-            transform: rotate(180deg);
-          }
-          &:disabled {
-            opacity: 0.3;
-            cursor: default;
-          }
+            background: none;
+            border: none;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 300ms;
+
+            &_img2 {
+                transform: rotate(180deg);
+            }
+
+            &:disabled {
+                opacity: 0.3;
+                cursor: default;
+            }
         }
-      
+
         &_item {
-          background: transparent;
-          border: none;
-          color: rgba($color: #FFFFFF, $alpha: .4);
-          font-size: 25px;
-          cursor: pointer;
-          transform: color 300ms;
-      
-          &.active {
-            color: #fff;
-            font-weight: 600;
+            background: transparent;
+            border: none;
+            color: rgba($color: #FFFFFF, $alpha: .4);
             font-size: 25px;
-          }
+            cursor: pointer;
+            transform: color 300ms;
+
+            &.active {
+                color: #fff;
+                font-weight: 600;
+                font-size: 25px;
+            }
         }
-      }
+    }
 }

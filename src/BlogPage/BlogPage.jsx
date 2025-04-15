@@ -1,6 +1,9 @@
 import BlogItem from './BlogItem/BlogItem';
 import './BlogPage.scss';
 import React, { useState, useEffect, useRef } from 'react';
+
+import BlogElements from "../BlogElements";
+
 export default () => {
 
     const useIsLandscape = () => {
@@ -24,81 +27,7 @@ export default () => {
         return isLandscape;
     };
 
-    const filters = [
-        { name: 'All' },
-        { name: 'Outcore Academy' },
-        { name: 'Event Insights' },
-        { name: 'Expert Talks' },
-        { name: 'iGaming News' },
-        { name: 'Point of View' },
-    ]
-
-    const gallery = [
-        {
-            src: '/blog/1.webp',
-            date: '02.02.2025',
-            time: 'Время чтения: 5 мин',
-            hashtag: '#Event Insights',
-            title: 'Typical SEO Mistakes: Why your website ranks low',
-            description: 'SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s...'
-        },
-        {
-            src: '/blog/2.webp',
-            date: '02.02.2025',
-            time: 'Время чтения: 5 мин',
-            hashtag: '#Event Insights',
-            title: 'Typical SEO Mistakes: Why your website ranks low',
-            description: 'SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s...'
-        },
-        {
-            src: '/blog/3.webp',
-            date: '02.02.2025',
-            time: 'Время чтения: 5 мин',
-            hashtag: '#Event Insights',
-            title: 'Typical SEO Mistakes: Why your website ranks low',
-            description: 'SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s...'
-        },
-        {
-            src: '/blog/4.webp',
-            date: '02.02.2025',
-            time: 'Время чтения: 5 мин',
-            hashtag: '#Event Insights',
-            title: 'Typical SEO Mistakes: Why your website ranks low',
-            description: 'SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s...'
-        },
-        {
-            src: '/blog/5.webp',
-            date: '02.02.2025',
-            time: 'Время чтения: 5 мин',
-            hashtag: '#Event Insights',
-            title: 'Typical SEO Mistakes: Why your website ranks low',
-            description: 'SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s...'
-        },
-        {
-            src: '/blog/6.webp',
-            date: '02.02.2025',
-            time: 'Время чтения: 5 мин',
-            hashtag: '#Event Insights',
-            title: 'Typical SEO Mistakes: Why your website ranks low',
-            description: 'SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s...'
-        },
-        {
-            src: '/blog/6.webp',
-            date: '02.02.2025',
-            time: 'Время чтения: 5 мин',
-            hashtag: '#Event Insights',
-            title: 'Typical SEO Mistakes: Why your website ranks low',
-            description: 'SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s...'
-        },
-        {
-            src: '/blog/6.webp',
-            date: '02.02.2025',
-            time: 'Время чтения: 5 мин',
-            hashtag: '#Event Insights',
-            title: 'Typical SEO Mistakes: Why your website ranks low',
-            description: 'SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s...'
-        },
-    ]
+    const filters = [...new Set(BlogElements.flatMap(item => item.tags))];
 
     const [activeFilter, setActiveFilter] = useState('All');
 
@@ -110,11 +39,13 @@ export default () => {
     const isLandscape = useIsLandscape();
     const itemsPerPage = isLandscape ? 6 : 3;
 
-    const totalPages = Math.ceil(gallery.length / itemsPerPage);
+    const totalPages = Math.ceil(BlogElements.length / itemsPerPage);
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentGallery = gallery.slice(indexOfFirstItem, indexOfLastItem);
+    const currentGallery = BlogElements.slice(indexOfFirstItem, indexOfLastItem);
+
+    // useEffect(() => {}, [])
 
     const blogStart = useRef(null)
     useEffect(() => {
@@ -134,7 +65,7 @@ export default () => {
                 </div>
             </div>
             <div className='BlogPage__nav' ref={blogStart}>
-                <p className='BlogPage__nav_title'>Filters</p>
+                <p className='BlogPage__nav_title'>Фильтры</p>
                 <div className='BlogPage__nav_items'>
                     {filters.map((el, index) => (
                         <div className={`BlogPage__nav_items_item ${activeFilter === el.name ? 'BlogPage__nav_items_item_active' : ''

@@ -46,6 +46,15 @@
         &_manager {
             width: 100%;
         }
+
+        &_lang {
+            width: 100%;
+
+            @media(max-width: 670px) {
+                justify-content: center;
+                display: flex;
+            }
+        }
     }
 
     &_side {
