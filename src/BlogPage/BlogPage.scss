@@ -6,6 +6,10 @@
     justify-content: center;
     align-items: center;
     gap: 50px;
+    @media(max-width: 950px){
+        padding: 0px;
+        margin-top: 50px;
+    }
     &__decor{
         width: 100%;
         display: flex;
@@ -91,6 +95,10 @@
                 justify-content: start;
                 overflow-x: auto;
             }
+            @media(max-width: 950px){
+                min-width: 0px;
+                padding-left: 20px;
+            }
             &_item{
                 background-color: rgba($color: #FFFFFF, $alpha: .33);
                 border-radius: 100px;
@@ -99,6 +107,9 @@
                 &_active{
                     background-color: #FFF;
                     color: #0201FF;
+                }
+                @media(max-width: 950px){
+                    min-width: fit-content;
                 }
             }
         }
