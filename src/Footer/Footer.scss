@@ -1,6 +1,7 @@
 .Footer {
     overflow: hidden;
 
+
     &_decor {
         display: flex;
         justify-content: center;
@@ -8,6 +9,10 @@
         position: relative;
         z-index: -1;
         height: 600px;
+
+        @media(max-width: 1000px) {
+            height: 300px;
+        }
 
 
         &_abstract {
@@ -35,6 +40,46 @@
         column-gap: 100px;
         justify-content: space-between;
         margin-top: 200px;
+
+        @media(max-width: 1000px) {
+            display: none;
+        }
+
+    }
+
+    &_mob {
+        display: none;
+        flex-wrap: wrap;
+        margin-top: 200px;
+        row-gap: 30px;
+
+        @media(max-width: 1000px) {
+            display: flex;
+        }
+
+        &_media {
+            margin-top: 20px;
+        }
+
+        &_right {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+
+            .NavLink {
+                width: 100%;
+                text-align: right;
+            }
+        }
+
+        &_row {
+            width: 100%;
+
+            &_top {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
     }
 
     &_content {

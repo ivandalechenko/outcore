@@ -34,6 +34,33 @@ export default () => {
                     </div>
                 </div>
             </div>
+            <div className='Footer_mob'>
+                <div className='Footer_mob_row Footer_mob_row_top'>
+                    <div className='Footer_mob_left'>
+                        <div className='Footer_header'>
+                            Контакты
+                        </div>
+                        <div className='Footer_mob_media'>
+                            <MediaLinks />
+                        </div>
+                    </div>
+                    <div className='Footer_mob_right'>
+                        <NavLinks />
+                    </div>
+                </div>
+                <div className='Footer_mob_row'>
+                    <MessageToManager />
+                </div>
+                <div className='Footer_mob_row'>
+                    <LangChanger />
+                </div>
+                <div className='Footer_mob_row'>
+                    <PolicyAndRights />
+                </div>
+                <div className='Footer_mob_row'>
+                    <img src="/designBy.svg" alt="" />
+                </div>
+            </div>
             <div className='Footer_decor'>
                 <div className='Footer_decor_abstract free_img'>
                     <img src="/abstract3.webp" alt="" />
