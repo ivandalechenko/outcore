@@ -1,7 +1,7 @@
 import './MiniBlog.scss';
 
 import BlogElements from "../BlogElements";
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 export default () => {
 
@@ -14,6 +14,20 @@ export default () => {
         setcurrentSlide(prev => (prev - 1) < 0 ? BlogElements.length - 1 : prev - 1)
     }
 
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const scrollOffset = useMemo(() => {
+        if (windowWidth <= 470) return 260;
+        if (windowWidth <= 650) return 400;
+        return 570;
+    }, [windowWidth]);
+
     return (
         <div className='MiniBlog'>
             <div className='MiniBlog_header'>
@@ -23,7 +37,7 @@ export default () => {
                 {
                     BlogElements.map((el, index) => {
                         return <div key={`miniBlogEl-${index}`} className='MiniBlog_element_wrapper free_img' style={{
-                            transform: `translate(${(index - currentSlide) * 570}px, 0px) scale(${(currentSlide - index) === 0 ? 1 : 0.9})`,
+                            transform: `translate(${(index - currentSlide) * scrollOffset}px, 0px) scale(${(currentSlide - index) === 0 ? 1 : 0.9})`,
                             opacity: (index - currentSlide) === 0 ? 1 : .5
                         }}>
                             <div className='MiniBlog_element'>

@@ -2,7 +2,7 @@ export default [
     {
         tags: ['Event Insights', 'Shoto'],
         name: 'Typical SEO Mistakes: Why your website ranks low',
-        img: '/blog/1.png',
+        img: '/blog/1.webp',
         date: '02.02.2025',
         minutesToRead: '5',
         text: 'SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow. SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow. SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow. SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow.',
@@ -10,7 +10,7 @@ export default [
     {
         tags: ['Event Insights', 'Shoto'],
         name: 'Typical SEO Mistakes: Why your website ranks low',
-        img: '/blog/1.png',
+        img: '/blog/2.webp',
         date: '02.02.2025',
         minutesToRead: '5',
         text: 'SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow. SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow. SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow. SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow.',
@@ -18,7 +18,7 @@ export default [
     {
         tags: ['Event Insights', 'Shoto'],
         name: 'Typical SEO Mistakes: Why your website ranks low',
-        img: '/blog/1.png',
+        img: '/blog/3.webp',
         date: '02.02.2025',
         minutesToRead: '5',
         text: 'SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow. SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow. SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow. SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow.',
@@ -26,7 +26,7 @@ export default [
     {
         tags: ['Event Insights', 'Shoto'],
         name: 'Typical SEO Mistakes: Why your website ranks low',
-        img: '/blog/1.png',
+        img: '/blog/4.webp',
         date: '02.02.2025',
         minutesToRead: '5',
         text: 'SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow. SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow. SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow. SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow.',
@@ -34,7 +34,7 @@ export default [
     {
         tags: ['Event Insights', 'Shoto'],
         name: 'Typical SEO Mistakes: Why your website ranks low',
-        img: '/blog/1.png',
+        img: '/blog/5.webp',
         date: '02.02.2025',
         minutesToRead: '5',
         text: 'SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow. SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow. SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow. SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow.',
@@ -42,7 +42,7 @@ export default [
     {
         tags: ['Event Insights', 'Shoto'],
         name: 'Typical SEO Mistakes: Why your website ranks low',
-        img: '/blog/1.png',
+        img: '/blog/6.webp',
         date: '02.02.2025',
         minutesToRead: '5',
         text: 'SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow. SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow. SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow. SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow.',
@@ -50,7 +50,7 @@ export default [
     {
         tags: ['Event Insights', 'Shoto'],
         name: 'Typical SEO Mistakes: Why your website ranks low',
-        img: '/blog/1.png',
+        img: '/blog/1.webp',
         date: '02.02.2025',
         minutesToRead: '5',
         text: 'SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow. SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow. SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow. SEO is a complex strategy, and no strategy comes without risks. When improving a website’s position, it’s meow.',
