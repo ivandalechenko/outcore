@@ -25,9 +25,13 @@ export default () => {
                 </div>
             </div>
             <div className='Header_side Header_right'>
+                <div className='Header_right_content'>
+                    <MessageToManager />
+                    <LangChanger />
+                </div>
+                <div className='Header_opener'>
 
-                <MessageToManager />
-                <LangChanger />
+                </div>
             </div>
         </div>
     )

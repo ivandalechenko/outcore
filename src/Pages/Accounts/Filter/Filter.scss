@@ -1,16 +1,19 @@
-.Filter{
+.Filter {
     width: 100%;
     display: flex;
     gap: 10px;
     justify-content: space-between;
     align-items: center;
-    &__btn{
+    margin-top: 24px;
+
+    &__btn {
         text-decoration: underline;
         font-size: 20px;
         font-family: 'Gilroy';
         font-weight: 600;
         transition: color 300ms, scale 300ms;
-        &:hover{
+
+        &:hover {
             color: #23cccd;
             scale: (1.05);
         }
