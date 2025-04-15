@@ -2,12 +2,29 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 100px;
+    gap: 50px;
 
     @media(max-width: 900px) {
         padding: 0 !important;
     }
-
+    &__decor{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        align-items: start !important;
+        &_abstract{
+            top: 400px;
+            z-index: -1;
+            @media(max-width: 950px){
+                top: 0px;
+            }
+            img{
+                mix-blend-mode: hard-light;
+                min-width: 160vw;
+            }
+        }
+    }
     &__title {
         width: 100%;
         font-size: 100px;

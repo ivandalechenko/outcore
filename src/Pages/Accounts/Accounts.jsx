@@ -72,9 +72,15 @@ export default () => {
     return (
         <div className='Accounts container'>
             <Line title={'meow'} min={10} max={200} />
+            
             <h2 className='Accounts__title'>
                 <span className='text__gradient'>Выберите</span> идеальный <br /> Google аккаунт для залива
             </h2>
+            <div className='Accounts__decor'>
+                <div className='Accounts__decor_abstract free_img'>
+                    <img src="/abstract1.webp" alt="" />
+                </div>
+            </div>
             <div className='Accounts__form_border'>
                 <div className='Accounts__form'>
                     <div className='Accounts__form_links'>

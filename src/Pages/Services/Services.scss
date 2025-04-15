@@ -3,9 +3,57 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 140px;
+    gap: 50px;
     @media(max-width: 950px){
         padding: 0px 10px 0px 10px !important;
+    }
+    &__decor{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        align-items: start !important;
+        &_abstract{
+            z-index: -1;
+            top: 300px;
+            img{
+                min-width: 160vw;
+                mix-blend-mode: hard-light;
+                rotate: -10deg;
+                @media(max-width: 950px){
+                    min-width: 400vw;
+                    rotate: -45deg;
+                }
+            }
+        }
+        &_abstract2{
+            z-index: -999;
+            opacity: 0;
+            @media(max-width: 950px){
+                z-index: -1;
+                opacity: 1;
+                top: 900px;
+                img{
+                    mix-blend-mode: hard-light;
+                    min-width: 400vw;
+                    rotate: -55deg;
+                }
+            }
+        }
+        &_abstract3{
+            z-index: -999;
+            opacity: 0;
+            @media(max-width: 950px){
+                z-index: -1;
+                opacity: 1;
+                top: 1400px;
+                img{
+                    mix-blend-mode: hard-light;
+                    min-width: 400vw;
+                    rotate: -55deg;
+                }
+            }
+        }
     }
     &__title{
         text-align: center;
@@ -44,6 +92,7 @@
         gap: 10px;
         flex-wrap: wrap;
         row-gap: 100px;
+        backdrop-filter: blur(10px);
         &:last-child{
             border: 1px solid #FFFFFF;
             border-radius: 25px 25px 25px 25px;

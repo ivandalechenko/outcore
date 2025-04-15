@@ -274,6 +274,17 @@ export default () => {
     return (
     <div className='Services container'>
         <h2 className='Services__title'><span className='text__gradient'>Услуги</span> для успешного <br />залива трафика</h2>
+        <div className='Services__decor'>
+            <div className='Services__decor_abstract free_img'>
+                <img src="/abstract1.webp" alt="" />
+            </div>
+            <div className='Services__decor_abstract2 free_img'>
+                <img src="/abstract1.webp" alt="" />
+            </div>
+            <div className='Services__decor_abstract3 free_img'>
+                <img src="/abstract1.webp" alt="" />
+            </div>
+        </div>
         <div className='Services__container'>
             {services.map((el, index) => {
                 const isOpen = openedIndex === index;

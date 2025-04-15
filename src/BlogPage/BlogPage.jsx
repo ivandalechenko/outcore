@@ -121,6 +121,14 @@ export default () => {
             <h2 className='BlogPage__title text__gradient'>
                 Блог Outcore
             </h2>
+            <div className='BlogPage__decor'>
+                <div className='BlogPage__decor_abstract free_img'>
+                    <img src="/abstract1.webp" alt="" />
+                </div>
+                <div className='BlogPage__decor_abstract2 free_img'>
+                    <img src="/abstract1.webp" alt="" />
+                </div>
+            </div>
             <div className='BlogPage__nav'>
                 <p className='BlogPage__nav_title'>Filters</p>
                 <div className='BlogPage__nav_items'>
