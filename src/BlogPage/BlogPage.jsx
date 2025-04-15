@@ -1,39 +1,39 @@
 import BlogItem from './BlogItem/BlogItem';
 import './BlogPage.scss';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 export default () => {
 
     const useIsLandscape = () => {
         const getIsLandscape = () => window.innerWidth > window.innerHeight;
         const [isLandscape, setIsLandscape] = useState(getIsLandscape());
-      
+
         useEffect(() => {
-          const handleResize = () => {
-            setIsLandscape(getIsLandscape());
-          };
-      
-          window.addEventListener('resize', handleResize);
-          window.addEventListener('orientationchange', handleResize);
-      
-          return () => {
-            window.removeEventListener('resize', handleResize);
-            window.removeEventListener('orientationchange', handleResize);
-          };
+            const handleResize = () => {
+                setIsLandscape(getIsLandscape());
+            };
+
+            window.addEventListener('resize', handleResize);
+            window.addEventListener('orientationchange', handleResize);
+
+            return () => {
+                window.removeEventListener('resize', handleResize);
+                window.removeEventListener('orientationchange', handleResize);
+            };
         }, []);
-      
+
         return isLandscape;
-      };
+    };
 
     const filters = [
-        {name: 'All'},
-        {name: 'Outcore Academy'},
-        {name: 'Event Insights'},
-        {name: 'Expert Talks'},
-        {name: 'iGaming News'},
-        {name: 'Point of View'},
+        { name: 'All' },
+        { name: 'Outcore Academy' },
+        { name: 'Event Insights' },
+        { name: 'Expert Talks' },
+        { name: 'iGaming News' },
+        { name: 'Point of View' },
     ]
 
-    const gallery =[
+    const gallery = [
         {
             src: '/blog/1.webp',
             date: '02.02.2025',
@@ -116,6 +116,10 @@ export default () => {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentGallery = gallery.slice(indexOfFirstItem, indexOfLastItem);
 
+    const blogStart = useRef(null)
+    useEffect(() => {
+        blogStart.current.scrollIntoView({ behavior: 'smooth' });
+    }, [currentPage]);
     return (
         <div className='BlogPage'>
             <h2 className='BlogPage__title text__gradient'>
@@ -129,37 +133,35 @@ export default () => {
                     <img src="/abstract1.webp" alt="" />
                 </div>
             </div>
-            <div className='BlogPage__nav'>
+            <div className='BlogPage__nav' ref={blogStart}>
                 <p className='BlogPage__nav_title'>Filters</p>
                 <div className='BlogPage__nav_items'>
                     {filters.map((el, index) => (
-                        <div className={`BlogPage__nav_items_item ${
-                            activeFilter === el.name ? 'BlogPage__nav_items_item_active' : ''
-                        }`}
-                        onClick={() => handleFilterClick(el.name)}>{el.name}</div>
+                        <div className={`BlogPage__nav_items_item ${activeFilter === el.name ? 'BlogPage__nav_items_item_active' : ''
+                            }`}
+                            onClick={() => handleFilterClick(el.name)}>{el.name}</div>
                     ))}
                 </div>
             </div>
             <div className='BlogPage__gallery'>
                 {currentGallery.map((el, index) => (
                     <BlogItem
-                    key={index}
-                    src={el.src}
-                    date={el.date}
-                    time={el.time}
-                    hashtag={el.hashtag}
-                    title={el.title}
-                    description={el.description}
+                        key={index}
+                        src={el.src}
+                        date={el.date}
+                        time={el.time}
+                        hashtag={el.hashtag}
+                        title={el.title}
+                        description={el.description}
                     />
                 ))}
             </div>
             <div className="BlogPage__pagination">
                 <div className='BlogPage__pagination_wrapper'>
-                    <button 
+                    <button
                         onClick={() => {
                             setCurrentPage(prev => Math.max(prev - 1, 1));
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                          }}
+                        }}
                         disabled={currentPage === 1}
                         className="BlogPage__pagination_arrow"
                     >
@@ -168,30 +170,28 @@ export default () => {
                     <div className='BlogPage__pagination_number'>
                         {[...Array(totalPages)].map((_, index) => (
                             <button
-                            key={index}
-                            onClick={() =>{ 
-                                setCurrentPage(index + 1);
-                                window.scrollTo({ top: 0, behavior: 'smooth' });
-                            }}
-                            className={`BlogPage__pagination_item ${currentPage === index + 1 ? 'active' : ''}`}
+                                key={index}
+                                onClick={() => {
+                                    setCurrentPage(index + 1);
+                                }}
+                                className={`BlogPage__pagination_item ${currentPage === index + 1 ? 'active' : ''}`}
                             >
-                            {index + 1}
+                                {index + 1}
                             </button>
                         ))}
                     </div>
 
-                    <button 
-                        onClick={() =>{ 
+                    <button
+                        onClick={() => {
                             setCurrentPage(prev => Math.min(prev + 1, totalPages));
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
                         }}
                         disabled={currentPage === totalPages}
                         className="BlogPage__pagination_arrow"
                     >
-                        <img src="/arrowGallery.svg" alt="" className='BlogPage__pagination_arrow_img2'/>
+                        <img src="/arrowGallery.svg" alt="" className='BlogPage__pagination_arrow_img2' />
                     </button>
-                    </div>
                 </div>
+            </div>
         </div>
     )
 }
