@@ -8,6 +8,45 @@
         margin-top: 20px;
     }
 
+    &_mm {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        transition: transform 500ms;
+        z-index: 999;
+        width: 100vw;
+        height: 100vh;
+        backdrop-filter: blur(10px);
+        background: #0008;
+        padding: 36px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        align-content: start;
+        row-gap: 36px;
+        display: none;
+
+        @media(max-width: 1000px) {
+            display: flex;
+        }
+
+        &_links {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            align-content: center;
+            gap: 24px;
+
+            .NavLink {
+                width: 100%;
+            }
+        }
+
+        &_manager {
+            width: 100%;
+        }
+    }
 
     &_side {
         display: flex;
@@ -16,6 +55,22 @@
 
         @media(max-width: 1300px) {
             column-gap: 20px;
+        }
+    }
+
+    &_opener {
+        position: fixed;
+        z-index: 999;
+        right: 26px;
+        top: 26px;
+        cursor: pointer;
+
+        @media(min-width: 1000px) {
+            display: none;
+        }
+
+        img {
+            transition: transform 400ms ease-in-out;
         }
     }
 
@@ -35,7 +90,14 @@
     }
 
     &_right {
-        align-items: start;
+        &_content {
+            align-items: start;
+            display: flex;
+
+            @media(max-width: 1000px) {
+                display: none;
+            }
+        }
     }
 
     &_logo {

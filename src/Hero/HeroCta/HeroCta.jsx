@@ -12,7 +12,9 @@ export default () => {
                 <br />
                 хаосе Google Ads
             </div>
-            <CTA />
+            <div className='HeroCta_wrapper'>
+                <CTA />
+            </div>
         </div>
     )
 }

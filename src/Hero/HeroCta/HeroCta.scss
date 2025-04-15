@@ -3,10 +3,42 @@
     justify-content: space-between;
     align-items: end;
 
+    @media(max-width: 950px) {
+        flex-wrap: wrap;
+        row-gap: 24px;
+    }
+
+    &_wrapper {
+        @media(max-width: 950px) {
+            width: 100%;
+            display: flex;
+            justify-content: right;
+        }
+    }
+
     &_text {
         font-weight: 500;
         font-size: 80px;
         line-height: 80px;
+
+        @media(max-width: 1250px) {
+            font-size: 60px;
+            line-height: 60px;
+        }
+
+        @media(max-width: 950px) {
+            width: 100%;
+        }
+
+        @media(max-width: 700px) {
+            font-size: 40px;
+            line-height: 40px;
+        }
+
+        @media(max-width: 470px) {
+            font-size: 30px;
+            line-height: 30px;
+        }
 
         span {
             background: linear-gradient(to right, #0201FF, #23CCCD, #fff);

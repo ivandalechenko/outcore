@@ -4,6 +4,7 @@ import LangChanger from '../LangChanger/LangChanger';
 import MessageToManager from '../MessageToManager/MessageToManager';
 import NavLinks from '../NavLinks/NavLinks';
 import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 
 
@@ -14,25 +15,50 @@ export default () => {
     const hideLayout = location.pathname === '/request';
     if (hideLayout) return
 
+    const [mmOpened, setmmOpened] = useState(false);
+
+    const [showedMMButton, setshowedMMButton] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setshowedMMButton(mmOpened)
+        }, 200);
+    }, [mmOpened])
+
     return (
-        <div className='Header container'>
-            <div className='Header_side'>
-                <div className='Header_logo'>
-                    Outcore
-                </div>
-                <div className='Header_links'>
+        <>
+            <div className='Header_mm' style={{
+                transform: `translate(${mmOpened ? 0 : -100}vh, 0px)`
+            }}>
+                <div className='Header_mm_links'>
                     <NavLinks />
                 </div>
-            </div>
-            <div className='Header_side Header_right'>
-                <div className='Header_right_content'>
+                <div className='Header_mm_manager'>
                     <MessageToManager />
-                    <LangChanger />
                 </div>
-                <div className='Header_opener'>
-
+                <LangChanger />
+            </div>
+            <div className='Header container'>
+                <div className='Header_side'>
+                    <div className='Header_logo'>
+                        Outcore
+                    </div>
+                    <div className='Header_links'>
+                        <NavLinks />
+                    </div>
+                </div>
+                <div className='Header_side Header_right'>
+                    <div className='Header_side Header_right_content'>
+                        <MessageToManager />
+                        <LangChanger />
+                    </div>
+                    <div className='Header_opener' onClick={() => { setmmOpened(!mmOpened) }}>
+                        <img src={`/mm${showedMMButton ? 'Closer' : 'Opener'}.svg`} alt="" style={{
+                            transform: `rotate(${mmOpened ? 720 : 0}deg)`
+                        }} />
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
