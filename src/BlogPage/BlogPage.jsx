@@ -156,7 +156,10 @@ export default () => {
             <div className="BlogPage__pagination">
                 <div className='BlogPage__pagination_wrapper'>
                     <button 
-                        onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                        onClick={() => {
+                            setCurrentPage(prev => Math.max(prev - 1, 1));
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                          }}
                         disabled={currentPage === 1}
                         className="BlogPage__pagination_arrow"
                     >
@@ -166,7 +169,10 @@ export default () => {
                         {[...Array(totalPages)].map((_, index) => (
                             <button
                             key={index}
-                            onClick={() => setCurrentPage(index + 1)}
+                            onClick={() =>{ 
+                                setCurrentPage(index + 1);
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }}
                             className={`BlogPage__pagination_item ${currentPage === index + 1 ? 'active' : ''}`}
                             >
                             {index + 1}
@@ -175,7 +181,10 @@ export default () => {
                     </div>
 
                     <button 
-                        onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                        onClick={() =>{ 
+                            setCurrentPage(prev => Math.min(prev + 1, totalPages));
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
                         disabled={currentPage === totalPages}
                         className="BlogPage__pagination_arrow"
                     >
