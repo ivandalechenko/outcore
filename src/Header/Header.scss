@@ -4,21 +4,35 @@
     margin-top: 50px;
     align-items: start;
 
+    @media(max-width: 1500px) {
+        margin-top: 20px;
+    }
+
+
     &_side {
         display: flex;
         align-items: center;
         column-gap: 80px;
+
+        @media(max-width: 1300px) {
+            column-gap: 20px;
+        }
     }
 
     &_links {
         display: flex;
         align-items: center;
         column-gap: 50px;
-        @media(max-width: 1210px){
+        margin-top: 5px;
+
+        @media(max-width: 1300px) {
+            column-gap: 20px;
+        }
+
+        @media(max-width: 1000px) {
             display: none;
         }
     }
-
 
     &_right {
         align-items: start;

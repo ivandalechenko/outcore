@@ -1,34 +1,74 @@
 .Line {
-    padding: 16px;
+    padding: 10px 12px;
     border-radius: 8px;
     font-family: sans-serif;
     width: 100%;
     max-width: 400px;
-    &__label{
+
+    height: 52px;
+
+    background: #111;
+    color: #fff;
+    border: 1px solid #333;
+
+    &_content {
+        display: flex;
+        width: 100%;
+        min-height: 4px;
+    }
+
+    &_left,
+    &_right {
+        height: 4px;
+        background: #fff2;
+        // width: 100%;
+    }
+
+    &_center {
+        // width: 100%;
+        height: 4px;
+        background: red;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &_ball {
+            min-height: 20px;
+            min-width: 20px;
+            background: green;
+            border-radius: 20px;
+        }
+    }
+
+    &__label {
         color: rgba($color: #FFF, $alpha: .5);
         font-size: 20px;
         font-family: 'Gilroy';
         font-weight: 500;
     }
-    &__range{
+
+    &__range {
         color: rgba($color: #FFF, $alpha: .5);
         font-size: 18px;
         font-family: 'Gilroy';
         font-weight: 400;
     }
-    &__row{
+
+    &__row {
         display: flex;
         justify-content: space-between;
         margin-bottom: 8px;
         font-size: 14px;
         color: #ccc;
     }
-    &__display{
+
+    &__display {
         text-align: center;
         margin-top: 8px;
         font-weight: bold;
     }
-    &__slider{
+
+    &__slider {
         width: 100%;
         height: 6px;
         border-radius: 5px;
@@ -36,7 +76,8 @@
         background: linear-gradient(to right, #0000ff, #00ffff);
         outline: none;
         margin: 0;
-        &::-webkit-slider-thumb{
+
+        &::-webkit-slider-thumb {
             appearance: none;
             width: 16px;
             height: 16px;
@@ -46,7 +87,8 @@
             cursor: pointer;
             margin-top: -5px;
         }
-        &::-moz-range-thumb{
+
+        &::-moz-range-thumb {
             width: 16px;
             height: 16px;
             border-radius: 50%;
@@ -55,4 +97,4 @@
             cursor: pointer;
         }
     }
-  }  
+}

@@ -1,21 +1,22 @@
 import './Accounts.scss';
 import Filter from './Filter/Filter';
+import Line from './Filter/Line/Line';
 export default () => {
-    
+
     const links = [
-        {name: "Как выбрать аккаунт"},
-        {name: "Как запустить аккаунт"},
-        {name: "Как выбрать сетап"}
+        { name: "Как выбрать аккаунт" },
+        { name: "Как запустить аккаунт" },
+        { name: "Как выбрать сетап" }
     ]
 
     const names = [
-        {name: "Номер"},
-        {name: "Валюта"},
-        {name: "Спенд"},
-        {name: "Возраст"},
-        {name: "Платежный профиль"},
-        {name: "Гео"},
-        {name: "Цена $"},
+        { name: "Номер" },
+        { name: "Валюта" },
+        { name: "Спенд" },
+        { name: "Возраст" },
+        { name: "Платежный профиль" },
+        { name: "Гео" },
+        { name: "Цена $" },
     ]
 
     const items = [
@@ -66,10 +67,14 @@ export default () => {
         },
     ]
 
+
+
     return (
-    <div className='Accounts container'>
-        <h2 className='Accounts__title'><span className='text__gradient'>Выберите</span> идеальный <br /> Google аккаунт для залива</h2>
-        <div className='Accounts__form_border'>
+        <div className='Accounts container'>
+            <Line title={'meow'} min={10} max={200} />
+            <h2 className='Accounts__title'>
+                <span className='text__gradient'>Выберите</span> идеальный <br /> Google аккаунт для залива
+            </h2>
             <div className='Accounts__form'>
                 <div className='Accounts__form_links'>
                     {links.map((el, index) => (
@@ -97,5 +102,5 @@ export default () => {
                 </div>
             </div>
         </div>
-    </div>
-)}
+    )
+}
