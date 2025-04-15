@@ -1,4 +1,7 @@
 .Note {
+
+    max-width: 1500px;
+    margin: 0 auto;
     margin-top: 200px;
 
     &_content {
@@ -12,6 +15,14 @@
         text-align: justify;
         padding: 0px 70px;
         font-size: 50px;
+
+        @media(max-width: 1300px) {
+            font-size: 40px;
+        }
+
+        @media(max-width: 1000px) {
+            font-size: 30px;
+        }
 
         span {
             color: #fff8;
