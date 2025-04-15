@@ -47,6 +47,9 @@
             margin-top: 60px;
             gap: 15px;
         }
+        @media(max-width: 950px){
+            padding-left: 20px;
+        }
     }
 
     &_element {

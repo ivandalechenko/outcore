@@ -2,6 +2,16 @@
     &_policy {
         cursor: pointer;
         text-decoration: underline;
+        @media(max-width: 430px){
+            width: 100%;
+            text-align: center;
+        }
+    }
+    &_rights{
+        @media(max-width: 430px){
+            width: 100%;
+            text-align: center;
+        }
     }
 
     div,

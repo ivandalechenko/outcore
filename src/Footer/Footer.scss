@@ -35,6 +35,9 @@
         column-gap: 100px;
         justify-content: space-between;
         margin-top: 200px;
+        @media(max-width: 950px){
+            flex-wrap: wrap;
+        }
     }
 
     &_content {
@@ -52,6 +55,10 @@
 
         .NavLink {
             width: 100%;
+            @media(max-width: 670px){
+                display: flex;
+                justify-content: center;
+            }
         }
     }
 
@@ -59,6 +66,10 @@
         min-width: fit-content;
         font-size: 30px;
         font-weight: 700;
+        @media(max-width: 670px){
+            width: 100%;
+            text-align: center;
+        }
     }
 
     &_row {
@@ -67,9 +78,25 @@
         width: 100%;
 
         align-items: start;
+        @media(max-width: 950px){
+            flex-wrap: wrap;
+        }
 
         &_end {
             align-items: end;
+            @media(max-width: 950px){
+                order: 1;
+                margin-top: 20px;
+                row-gap: 20px;
+                justify-content: center;
+            }
+        }
+        &_upper{
+            @media(max-width: 950px){
+                order: 2;
+                row-gap: 20px;
+                justify-content: center;
+            }
         }
     }
 
