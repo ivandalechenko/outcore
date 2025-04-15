@@ -3,7 +3,7 @@ import './Header.scss';
 import LangChanger from '../LangChanger/LangChanger';
 import MessageToManager from '../MessageToManager/MessageToManager';
 import NavLinks from '../NavLinks/NavLinks';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 
@@ -40,9 +40,9 @@ export default () => {
             </div>
             <div className='Header container'>
                 <div className='Header_side'>
-                    <div className='Header_logo'>
+                    <Link to='/' className='Header_logo'>
                         Outcore
-                    </div>
+                    </Link>
                     <div className='Header_links'>
                         <NavLinks />
                     </div>

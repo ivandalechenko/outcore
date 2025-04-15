@@ -14,7 +14,7 @@ export default () => {
     const hideLayout = location.pathname === '/request';
     if (hideLayout) return
     return (
-        <div className='Footer container'>
+        <div className='Footer container' id='contacts'>
             <div className='Footer_info'>
                 <div className='Footer_header'>
                     Контакты

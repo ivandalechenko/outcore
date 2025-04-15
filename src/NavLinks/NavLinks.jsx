@@ -14,7 +14,9 @@ export default () => {
                 ].map((el, index) => {
                     return (
                         <div className='NavLink' key={`NavLink${index}`}>
-                            <Link to={el.path}>{el.name}</Link>
+                            {
+                                el.path === '/contacts' ? <a href="#contacts">{el.name}</a> : <Link to={el.path}>{el.name}</Link>
+                            }
                         </div>
                     )
                 })
