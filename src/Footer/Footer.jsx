@@ -20,7 +20,7 @@ export default () => {
                     Контакты
                 </div>
                 <div className='Footer_content'>
-                    <div className='Footer_row'>
+                    <div className='Footer_row Footer_row_upper'>
                         <div className='Footer_links'>
                             <NavLinks />
                         </div>

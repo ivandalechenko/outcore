@@ -79,43 +79,76 @@
                 display: flex;
                 justify-content: space-between;
             }
+
+            @media(max-width: 950px) {
+                flex-wrap: wrap;
+            }
         }
-    }
 
-    &_content {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        row-gap: 80px;
-        max-width: 1000px;
-    }
-
-    &_links {
-        display: flex;
-        flex-wrap: wrap;
-        row-gap: 12px;
-
-        .NavLink {
+        &_content {
             width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            row-gap: 80px;
+            max-width: 1000px;
         }
-    }
 
-    &_header {
-        min-width: fit-content;
-        font-size: 30px;
-        font-weight: 700;
-    }
+        &_links {
+            display: flex;
+            flex-wrap: wrap;
+            row-gap: 12px;
 
-    &_row {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
+            .NavLink {
+                width: 100%;
 
-        align-items: start;
-
-        &_end {
-            align-items: end;
+                @media(max-width: 670px) {
+                    display: flex;
+                    justify-content: center;
+                }
+            }
         }
-    }
 
+        &_header {
+            min-width: fit-content;
+            font-size: 30px;
+            font-weight: 700;
+
+            @media(max-width: 670px) {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        &_row {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+
+            align-items: start;
+
+            @media(max-width: 950px) {
+                flex-wrap: wrap;
+            }
+
+            &_end {
+                align-items: end;
+
+                @media(max-width: 950px) {
+                    order: 1;
+                    margin-top: 20px;
+                    row-gap: 20px;
+                    justify-content: center;
+                }
+            }
+
+            &_upper {
+                @media(max-width: 950px) {
+                    order: 2;
+                    row-gap: 20px;
+                    justify-content: center;
+                }
+            }
+        }
+
+    }
 }

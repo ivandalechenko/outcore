@@ -6,4 +6,9 @@
     font-size: 18px;
     padding-top: 10px;
     cursor: pointer;
+    @media(max-width: 650px){
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
 }

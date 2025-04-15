@@ -6,6 +6,11 @@
     padding: 3px;
     border-radius: 36px;
     max-width: 42px;
+    @media(max-width: 670px){
+        flex-wrap: nowrap;
+        justify-content: center;
+        max-width: 1000px;
+    }
 
     &_element {
         min-width: 36px;

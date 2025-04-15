@@ -1,5 +1,5 @@
 .AboutUs {
-    margin-top: 600px;
+    margin-top: 600px !important;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -20,6 +20,7 @@
     &_abstract {
         // mix-blend-mode: hard-light;
         top: -250px;
+        pointer-events: none;
 
         img {
             rotate: 8deg;

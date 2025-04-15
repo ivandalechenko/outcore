@@ -2,7 +2,7 @@ import CTA from '../CTA/CTA';
 import './AboutUs.scss';
 export default () => {
     return (
-        <div className='AboutUs container'>
+        <div className='AboutUs sizecontainer '>
             <div className='AboutUs_header'>
                 &nbsp;&nbsp;Про
                 <br />

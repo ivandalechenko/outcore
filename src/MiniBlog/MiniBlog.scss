@@ -98,12 +98,13 @@
             min-width: 400px;
             max-width: 400px;
             min-height: 500px;
+            padding: 20px;
         }
         @media(max-width: 470px){
             min-width: 250px;
             max-width: 250px;
             min-height: 300px;
-
+            padding: 10px;
         }
 
         &_wrapper {

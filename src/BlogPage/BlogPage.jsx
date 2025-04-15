@@ -121,7 +121,7 @@ export default () => {
         blogStart.current.scrollIntoView({ behavior: 'smooth' });
     }, [currentPage]);
     return (
-        <div className='BlogPage'>
+        <div className='BlogPage sizecontainer'>
             <h2 className='BlogPage__title text__gradient'>
                 Блог Outcore
             </h2>

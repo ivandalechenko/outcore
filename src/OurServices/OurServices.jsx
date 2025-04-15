@@ -17,7 +17,7 @@ export default () => {
     }, [])
 
     return (
-        <div className='OurServices'>
+        <div className='OurServices '>
             <div className='OurServices_note'>
                 <div className='OurServices_note_duga free_img'>
                     <img src="/coloredDuga.svg" alt="" />

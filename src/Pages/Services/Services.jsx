@@ -272,7 +272,7 @@ export default () => {
       };
 
     return (
-    <div className='Services container'>
+    <div className='Services container sizecontainer'>
         <h2 className='Services__title'><span className='text__gradient'>Услуги</span> для успешного <br />залива трафика</h2>
         <div className='Services__decor'>
             <div className='Services__decor_abstract free_img'>
