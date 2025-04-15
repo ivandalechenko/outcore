@@ -11,6 +11,9 @@
     background-size: 250% 100%;
     background-position: 0% 0%;
     transition: background-position 500ms;
+    @media(max-width: 370px){
+        min-width: 300px;
+    }
 
     pointer-events: all;
 
@@ -18,6 +21,9 @@
         font-size: 28px;
         font-weight: 600;
         transition: color 300ms;
+        @media(max-width: 370px){
+            font-size: 20px;
+        }
     }
 
     &:hover {

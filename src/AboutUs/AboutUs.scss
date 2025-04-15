@@ -3,7 +3,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
+    @media(max-width: 1280px){
+        gap: 20px;
+    }
     &_decor {
         width: 100%;
         display: flex;
@@ -15,7 +17,15 @@
     &_abstract {
         // mix-blend-mode: hard-light;
         top: -250px;
-
+        @media(max-width: 1050px){
+            top: -100px;
+        }
+        @media(max-width: 650px){
+            top: 0px;
+            img {
+                min-width: 400vw;
+            }
+        }
         img {
             rotate: 8deg;
             min-width: 200vw;
@@ -29,12 +39,33 @@
         font-size: 200px;
         font-weight: 500;
         line-height: 180px;
+        @media(max-width: 1800px){
+            font-size: 150px;
+        }
+        @media(max-width: 1560px){
+            font-size: 100px;
+            width: 400px;
+            line-height: 120px;
+        }
+        @media(max-width: 1280px){
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @media(max-width: 450px){
+            font-size: 60px;
+            line-height: 80px;
+        }
     }
 
     &_content {
         width: 800px;
         position: relative;
         z-index: 1;
+        @media(max-width: 1280px){
+            width: 100%;
+        }
     }
 
     &_element {
@@ -49,11 +80,20 @@
             justify-content: space-between;
             font-weight: 600;
             font-size: 30px;
+            @media(max-width: 720px){
+                font-size: 20px;
+            }
+            @media(max-width: 420px){
+                font-size: 16px;
+            }
         }
 
         &_content {
             font-size: 20px;
             margin-top: 32px;
+            @media(max-width: 550px){
+                font-size: 15px;
+            }
         }
 
         &_0 {
@@ -101,5 +141,12 @@
         top: -200px;
         position: relative;
         z-index: 1;
+        @media(max-width: 1280px){
+            top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-right: 0;
+        }
     }
 }
