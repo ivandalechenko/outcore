@@ -83,6 +83,8 @@ export default () => {
 
 
 
+
+
     return (
         <>
             <div className='Accounts__mm' style={{
@@ -102,37 +104,37 @@ export default () => {
                     <div className='Accounts__mm_filter_currency MobFilterEl'>
                         <div className='Accounts__mm_filter_currency__title'>Валюта</div>
                         {items.map((el, index) => (
-                            <MobFilterCurrrency currency={el.currency}/>
+                            <MobFilterCurrrency currency={el.currency} />
                         ))}
                     </div>
                     <div className='Accounts__mm_filter_spend MobFilterLine'>
-                        <Line title={'Спенд'} min={minSpend} max={maxSpend}/>
+                        <Line title={'Спенд'} minValue={100} maxValue={5000} />
                     </div>
                     <div className='Accounts__mm_filter_age MobFilterEl'>
                         <div className='Accounts__mm_filter_currency__title'>Возраст</div>
                         {/* Ниже сортировка по возрастанию и отсеевание дублей, затем мап*/}
                         {[...new Set(items.map(el => el.age))]
-                        .sort((a, b) => a - b)
-                        .map((age, index) => (
-                            <MobFilterCurrrency currency={age} />
-                        ))}
+                            .sort((a, b) => a - b)
+                            .map((age, index) => (
+                                <MobFilterCurrrency currency={age} />
+                            ))}
                     </div>
                     <div className='Accounts__mm_filter_profile MobFilterEl'>
                         <div className='Accounts__mm_filter_currency__title'>Платежный профиль</div>
                         {[...new Set(items.map(el => el.profile))]
-                        .sort()
-                        .map((profile, index) => (
-                            <MobFilterCurrrency currency={profile} />
-                        ))}
+                            .sort()
+                            .map((profile, index) => (
+                                <MobFilterCurrrency currency={profile} />
+                            ))}
                     </div>
                     <div className='Accounts__mm_filter_geo MobFilterEl'>
                         <div className='Accounts__mm_filter_currency__title'>Гео</div>
-                        {[...new Set(items.map(el => el.country))].sort().map((geo, index) =>(
-                            <MobFilterCurrrency currency={geo} type={'geo'}/>
+                        {[...new Set(items.map(el => el.country))].sort().map((geo, index) => (
+                            <MobFilterCurrrency currency={geo} type={'geo'} />
                         ))}
                     </div>
                     <div className='Accounts__mm_filter_price MobFilterLine'>
-                        <Line title={'Спенд'} min={minPrice} max={maxPrice}/>
+                        <Line title={'Спенд'} minValue={100} maxValue={5000} />
                     </div>
                     <div className='Accounts__mm_filter_btns MobFilterEl'>
                         <Btn title={'Clear'} />
@@ -141,8 +143,6 @@ export default () => {
                 </div>
             </div>
             <div className='Accounts container'>
-                <Line title={'meow'} min={10} max={200} />
-                
                 <h2 className='Accounts__title'>
                     <span className='text__gradient'>Выберите</span> идеальный <br /> Google аккаунт для залива
                 </h2>
@@ -167,7 +167,7 @@ export default () => {
                             </div>
                         </div>
                         <div className='Accounts__form_filter'>
-                            <Filter items={items} minPrice={minPrice} maxPrice={maxPrice} minSpend={minSpend} maxSpend={maxSpend}/>
+                            <Filter items={items} minPrice={minPrice} maxPrice={maxPrice} minSpend={minSpend} maxSpend={maxSpend} />
                         </div>
                         <div className='Accounts__form_form'>
                             <div className='Accounts__form_form_wrapper'>

@@ -43,7 +43,10 @@ export default () => {
                         'ВСЕ ВИДЫ ВЕРИФИКАЦИИ',
                         'ПЛАТЕЖНЫЕ РЕШЕНИЯ'
                     ].map((el, index) => {
-                        return <div className={`OurServices_element ${index === activeElement && 'OurServices_element_active'}`}>
+                        return <div className={`OurServices_element ${index === activeElement && 'OurServices_element_active'}`} style={{
+                            transform: `rotate3d(1, 0, 0, ${-(index - activeElement) * 15}deg)
+                             translate(0px, ${(index - activeElement) * 50}px)`,
+                        }}>
                             <div className='OurServices_element_arrow OurServices_element_arrow_right free_img'>
                                 <img src="/triangle.svg" alt="" />
                             </div>
