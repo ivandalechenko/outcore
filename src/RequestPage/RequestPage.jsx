@@ -4,20 +4,52 @@ import LangChanger from '../LangChanger/LangChanger';
 import MediaLinks from '../MediaLinks/MediaLinks';
 import NavLinks from '../NavLinks/NavLinks';
 import './RequestPage.scss';
+import Header from '../Header/Header';
+import MessageToManager from '../MessageToManager/MessageToManager';
+import { useEffect, useState } from 'react';
 export default () => {
 
     const handleSumbit = () => {
         console.log('meow');
     }
 
+    const [mmOpened, setmmOpened] = useState(false);
+
+    const [showedMMButton, setshowedMMButton] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setshowedMMButton(mmOpened)
+        }, 200);
+    }, [mmOpened])
+
     return (
-        <div className='RequestPage container'>
+        <>
+            <div className='RequestPage__mm' style={{
+                transform: `translate(${mmOpened ? 0 : -100}vw, 0px)`
+            }}>
+                <div className='RequestPage__mm_links'>
+                    <NavLinks />
+                </div>
+                <div className='RequestPage__mm_manager'>
+                    <MessageToManager />
+                </div>
+                <div className='RequestPage__mm_social'>
+                    <MediaLinks inline />
+                </div>
+                <div className='RequestPage__mm_lang'>
+                    <LangChanger />
+                </div>
+            </div>
+        <div className='RequestPage container sizecontainer'>
             <div className='RequestPage_header'>
                 <div className='RequestPage_header_side'>
-                    <Link to="/" className='RequestPage_header_home'>
-                        <img src="/arrow.svg" alt="" />
-                        На главную
-                    </Link>
+                    <div className='RequestPage_header_home_border'>
+                        <Link to="/" className='RequestPage_header_home'>
+                            <img src="/arrow.svg" alt="" />
+                            На главную
+                        </Link>
+                    </div>
                     <div className='RequestPage_header_links'>
                         <NavLinks />
                     </div>
@@ -25,6 +57,14 @@ export default () => {
                 <div className='RequestPage_header_side RequestPage_header_side_right'>
                     <MediaLinks inline />
                     <LangChanger />
+                </div>
+                <div className='RequestPage_header_mob'>
+                    <MessageToManager />
+                    <div className='Header_opener RequestPage_header_mob__mm' onClick={() => { setmmOpened(!mmOpened) }}>
+                        <img src={`/mm${showedMMButton ? 'Closer' : 'Opener'}.svg`} alt="" style={{
+                            transform: `rotate(${mmOpened ? 720 : 0}deg)`
+                        }} />
+                    </div>
                 </div>
             </div>
             <div className='RequestPage_decor'>
@@ -60,5 +100,6 @@ export default () => {
                 </div>
             </div>
         </div>
+    </>
     )
 }

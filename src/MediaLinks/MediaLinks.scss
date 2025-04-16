@@ -10,6 +10,10 @@
         img {
             width: 48px;
             height: 48px;
+            @media(max-width: 1310px){
+                width: 32px;
+                height: 32px;
+            }
         }
 
         &s {
@@ -24,5 +28,8 @@
         font-size: 18px;
         font-weight: 300;
         max-width: 200px;
+        @media(max-width: 1200px){
+            font-size: 12px;
+        }
     }
 }
