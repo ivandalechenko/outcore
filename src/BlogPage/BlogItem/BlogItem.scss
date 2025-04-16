@@ -47,6 +47,14 @@
         font-family: 'Gilroy';
         font-size: 18px;
         font-weight: 500;
+        display: flex;
+        gap: 10px;
+        &_item{
+            color: #000000;
+            font-family: 'Gilroy';
+            font-size: 18px;
+            font-weight: 500;
+        }
     }
     &__text{
         width: 100%;

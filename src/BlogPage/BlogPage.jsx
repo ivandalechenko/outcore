@@ -27,7 +27,7 @@ export default () => {
         return isLandscape;
     };
 
-    const filters = [...new Set(BlogElements.flatMap(item => item.tags))];
+    const filters = ['All', ...new Set(BlogElements.flatMap(item => item.tags))];
 
     const [activeFilter, setActiveFilter] = useState('All');
 
@@ -39,11 +39,24 @@ export default () => {
     const isLandscape = useIsLandscape();
     const itemsPerPage = isLandscape ? 6 : 3;
 
-    const totalPages = Math.ceil(BlogElements.length / itemsPerPage);
+    // const totalPages = Math.ceil(BlogElements.length / itemsPerPage);
 
+    // const indexOfLastItem = currentPage * itemsPerPage;
+    // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    // const currentGallery = BlogElements.slice(indexOfFirstItem, indexOfLastItem);
+
+    const filteredElements = activeFilter === 'All'
+    ? BlogElements
+    : BlogElements.filter(item => item.tags.includes(activeFilter));
+
+    const totalPages = Math.ceil(filteredElements.length / itemsPerPage);
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentGallery = BlogElements.slice(indexOfFirstItem, indexOfLastItem);
+    const currentGallery = filteredElements.slice(indexOfFirstItem, indexOfLastItem);
+
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [activeFilter]);
 
     // useEffect(() => {}, [])
 
@@ -68,9 +81,9 @@ export default () => {
                 <p className='BlogPage__nav_title'>Фильтры</p>
                 <div className='BlogPage__nav_items'>
                     {filters.map((el, index) => (
-                        <div className={`BlogPage__nav_items_item ${activeFilter === el.name ? 'BlogPage__nav_items_item_active' : ''
+                        <div className={`BlogPage__nav_items_item ${activeFilter === el ? 'BlogPage__nav_items_item_active' : ''
                             }`}
-                            onClick={() => handleFilterClick(el.name)}>{el.name}</div>
+                            onClick={() => handleFilterClick(el)}>{el}</div>
                     ))}
                 </div>
             </div>
@@ -78,12 +91,12 @@ export default () => {
                 {currentGallery.map((el, index) => (
                     <BlogItem
                         key={index}
-                        src={el.src}
+                        src={el.img}
                         date={el.date}
-                        time={el.time}
-                        hashtag={el.hashtag}
-                        title={el.title}
-                        description={el.description}
+                        time={el.minutesToRead}
+                        hashtag={el.tags}
+                        title={el.name}
+                        description={el.text}
                     />
                 ))}
             </div>
