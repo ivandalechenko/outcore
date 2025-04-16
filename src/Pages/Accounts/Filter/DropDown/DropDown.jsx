@@ -1,16 +1,9 @@
 import './DropDown.scss';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 
-export default ({ state }) => {
+export default ({ state, items }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItems, setSelectedItems] = useState([]);
-
-  const options = {
-    currency: ['EURO', 'USD', 'UAH', 'NOK', 'SWK'],
-    age: ['1', '2', '3', '4'],
-    profile: ['old pay', 'Reset'],
-    geo: ['UA', 'KZ', 'NO', 'SE', 'AZ']
-  };
 
   const titles = {
     currency: 'Валюта',
@@ -18,6 +11,23 @@ export default ({ state }) => {
     profile: 'Профиль',
     geo: 'Гео'
   };
+
+  const fieldMap = {
+    currency: 'currency',
+    age: 'age',
+    profile: 'profile',
+    geo: 'country'
+  };
+
+  // Вычисляем уникальные значения по нужному полю из items
+  const options = useMemo(() => {
+    if (!items) return [];
+    const field = fieldMap[state];
+    if (!field) return [];
+    return [...new Set(items.map(item => item[field]))];
+  }, [items, state]);
+
+  const title = titles[state] || 'Выбор';
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -31,9 +41,6 @@ export default ({ state }) => {
     }
   };
 
-  const currentOptions = options[state] || [];
-  const title = titles[state] || 'Выбор';
-
   return (
     <div className='DropDown'>
       <div className="DropDown__header" onClick={toggleDropdown}>
@@ -42,7 +49,7 @@ export default ({ state }) => {
       </div>
       {isOpen && (
         <div className="DropDown__list">
-          {currentOptions.map((item) => (
+          {options.map((item) => (
             <label key={item} className="DropDown__item">
               <input
                 type="checkbox"

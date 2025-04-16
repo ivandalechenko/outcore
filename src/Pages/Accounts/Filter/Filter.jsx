@@ -1,15 +1,20 @@
+import Btn from './Btn/Btn';
 import DropDown from './DropDown/DropDown';
 import './Filter.scss';
 import Line from './Line/Line';
-export default () => {return (
+export default ({ items, minPrice, maxPrice, minSpend, maxSpend }) => { 
+    
+    
+
+    return (
     <div className='Filter'>
-        <DropDown state={'currency'} />
-        <Line title={'Спенд'} min={1} max={1000000}/>
-        <DropDown state={'age'} />
-        <DropDown state={'profile'} />
-        <DropDown state={'geo'} />
-        <Line title={'Цена'} min={1} max={10000}/>
-        <div className='Filter__btn'>Apply</div>
-        <div className='Filter__btn'>Clear</div>
+        <DropDown state={'currency'} items={items}/>
+        <Line title={'Спенд'} min={minSpend} max={maxSpend}/>
+        <DropDown state={'age'} items={items}/>
+        <DropDown state={'profile'} items={items}/>
+        <DropDown state={'geo'} items={items}/>
+        <Line title={'Цена'} min={minPrice} max={maxPrice}/>
+        <Btn title={'Apply'} />
+        <Btn title={'Clear'} />
     </div>
 )}

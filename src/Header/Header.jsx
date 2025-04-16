@@ -28,7 +28,7 @@ export default () => {
     return (
         <>
             <div className='Header_mm' style={{
-                transform: `translate(${mmOpened ? 0 : -100}vh, 0px)`
+                transform: `translate(${mmOpened ? 0 : -100}vw, 0px)`
             }}>
                 <div className='Header_mm_links'>
                     <NavLinks />

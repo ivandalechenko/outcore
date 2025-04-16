@@ -1,0 +1,12 @@
+.Btn{
+    text-decoration: underline;
+        font-size: 20px;
+        font-family: 'Gilroy';
+        font-weight: 600;
+        transition: color 300ms, scale 300ms;
+
+        &:hover {
+            color: #23cccd;
+            scale: (1.05);
+        }
+}

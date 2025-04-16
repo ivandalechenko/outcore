@@ -1,0 +1,12 @@
+.MobFilterCurrrency{
+    width: 40%;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    &__container{
+        width: 100%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
+}

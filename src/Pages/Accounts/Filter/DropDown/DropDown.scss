@@ -9,6 +9,7 @@
   position: relative;
   z-index: 2;
   height: 52px;
+  
 
   &__header {
     padding: 12px;
@@ -52,7 +53,6 @@
     font-weight: 400;
 
     input {
-      margin-right: 8px;
       appearance: none;
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -62,10 +62,19 @@
       border: 2px solid #FFF;
       cursor: pointer;
       border-radius: 2px;
+      position: relative;
     }
-
-    &:hover {
-      background: #222;
+  
+    input:checked::after {
+      content: '';
+      position: absolute;
+      left: 3px;
+      bottom: 2px;
+      width: 4px;
+      height: 7px;
+      border: solid #FFF;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
     }
   }
 }

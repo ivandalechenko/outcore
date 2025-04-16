@@ -1,0 +1,36 @@
+.MobFilterCheckBox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  
+    input {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background: transparent;
+      width: 15px;
+      height: 15px;
+      border: 2px solid #FFF;
+      cursor: pointer;
+      border-radius: 2px;
+      position: relative;
+    }
+  
+    input:checked::after {
+      content: '';
+      position: absolute;
+      left: 3px;
+      bottom: 2px;
+      width: 4px;
+      height: 7px;
+      border: solid #FFF;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+    &__flag{
+        width: 18px;
+        height: 18px;
+        border-radius: 2px;
+    }
+  }
+  
