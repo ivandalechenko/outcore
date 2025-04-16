@@ -6,9 +6,12 @@ import NavLinks from '../NavLinks/NavLinks';
 import MediaLinks from '../MediaLinks/MediaLinks';
 import PolicyAndRights from '../PolicyAndRights/PolicyAndRights';
 import { useLocation } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 
+export default observer(() => {
 
-export default () => {
+    const { t } = useTranslation();
 
     const location = useLocation();
     const hideLayout = location.pathname === '/request';
@@ -17,7 +20,7 @@ export default () => {
         <div className='Footer container' id='contacts'>
             <div className='Footer_info'>
                 <div className='Footer_header'>
-                    Контакты
+                    {t('Контакты')}
                 </div>
                 <div className='Footer_content'>
                     <div className='Footer_row'>
@@ -38,7 +41,7 @@ export default () => {
                 <div className='Footer_mob_row Footer_mob_row_top'>
                     <div className='Footer_mob_left'>
                         <div className='Footer_header'>
-                            Контакты
+                            {t('Контакты')}
                         </div>
                         <div className='Footer_mob_media'>
                             <MediaLinks />
@@ -71,4 +74,4 @@ export default () => {
             </div>
         </div>
     )
-}
+})

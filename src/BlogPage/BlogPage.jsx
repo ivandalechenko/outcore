@@ -1,10 +1,14 @@
 import BlogItem from './BlogItem/BlogItem';
 import './BlogPage.scss';
 import React, { useState, useEffect, useRef } from 'react';
+import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 
 import BlogElements from "../BlogElements";
 
-export default () => {
+export default observer(() => {
+
+    const { t, i18n } = useTranslation();
 
     const useIsLandscape = () => {
         const getIsLandscape = () => window.innerWidth > window.innerHeight;
@@ -39,15 +43,9 @@ export default () => {
     const isLandscape = useIsLandscape();
     const itemsPerPage = isLandscape ? 6 : 3;
 
-    // const totalPages = Math.ceil(BlogElements.length / itemsPerPage);
-
-    // const indexOfLastItem = currentPage * itemsPerPage;
-    // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    // const currentGallery = BlogElements.slice(indexOfFirstItem, indexOfLastItem);
-
     const filteredElements = activeFilter === 'All'
-    ? BlogElements
-    : BlogElements.filter(item => item.tags.includes(activeFilter));
+        ? BlogElements
+        : BlogElements.filter(item => item.tags.includes(activeFilter));
 
     const totalPages = Math.ceil(filteredElements.length / itemsPerPage);
     const indexOfLastItem = currentPage * itemsPerPage;
@@ -58,16 +56,15 @@ export default () => {
         setCurrentPage(1);
     }, [activeFilter]);
 
-    // useEffect(() => {}, [])
-
-    const blogStart = useRef(null)
+    const blogStart = useRef(null);
     useEffect(() => {
         blogStart.current.scrollIntoView({ behavior: 'smooth' });
     }, [currentPage]);
+
     return (
         <div className='BlogPage sizecontainer'>
             <h2 className='BlogPage__title text__gradient'>
-                Блог Outcore
+                {t('Блог Outcore')}
             </h2>
             <div className='BlogPage__decor'>
                 <div className='BlogPage__decor_abstract free_img'>
@@ -78,11 +75,10 @@ export default () => {
                 </div>
             </div>
             <div className='BlogPage__nav' ref={blogStart}>
-                <p className='BlogPage__nav_title'>Фильтры</p>
+                <p className='BlogPage__nav_title'>{t('Фильтры')}</p>
                 <div className='BlogPage__nav_items'>
                     {filters.map((el, index) => (
-                        <div className={`BlogPage__nav_items_item ${activeFilter === el ? 'BlogPage__nav_items_item_active' : ''
-                            }`}
+                        <div className={`BlogPage__nav_items_item ${activeFilter === el ? 'BlogPage__nav_items_item_active' : ''}`}
                             onClick={() => handleFilterClick(el)}>{el}</div>
                     ))}
                 </div>
@@ -93,10 +89,10 @@ export default () => {
                         key={index}
                         src={el.img}
                         date={el.date}
-                        time={el.minutesToRead}
+                        time={el.minutesToRead[i18n.language]}
                         hashtag={el.tags}
-                        title={el.name}
-                        description={el.text}
+                        title={el.name[i18n.language]}
+                        description={el.text[i18n.language]}
                     />
                 ))}
             </div>
@@ -137,5 +133,5 @@ export default () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+});

@@ -2,9 +2,13 @@ import './MiniBlog.scss';
 
 import BlogElements from "../BlogElements";
 import { useEffect, useMemo, useState } from 'react';
+import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 import languageStore from '../languageStore';
 
-export default () => {
+export default observer(() => {
+
+    const { t } = useTranslation();
 
     const [currentSlide, setcurrentSlide] = useState(0);
 
@@ -32,7 +36,7 @@ export default () => {
     return (
         <div className='MiniBlog'>
             <div className='MiniBlog_header'>
-                Будьте в центре событий арбитражного мира
+                {t('Будьте в центре событий арбитражного мира')}
             </div>
             <div className='MiniBlog_slider'>
                 {
@@ -47,7 +51,7 @@ export default () => {
                                         {el.date}
                                     </div>
                                     <div className='MiniBlog_element_minutesToRead'>
-                                        Время чтения: {el.minutesToRead} мин
+                                        {t('Время чтения:')} {el.minutesToRead[languageStore.activeLanguage]} {t('мин')}
                                     </div>
                                 </div>
                                 <div className='MiniBlog_element_img'>
@@ -63,11 +67,11 @@ export default () => {
                                     }
                                 </div>
                                 <div className='MiniBlog_element_header'>
-                                    {el.name}
-                                    {/* {el.name[languageStore.activeLanguage]} */}
+                                    {el.name[languageStore.activeLanguage]}
                                 </div>
                                 <div className='MiniBlog_element_text'>
-                                    {el.text.slice(0, 120)}{el.text.length > 120 && '...'}
+                                    {typeof el.text === 'object' ? el.text[languageStore.activeLanguage].slice(0, 120) : el.text.slice(0, 120)}
+                                    {el.text.length > 120 && '...'}
                                 </div>
                             </div>
                         </div>
@@ -87,8 +91,7 @@ export default () => {
                     <img src="/aboutUsDuga.svg" alt="" />
                 </div>
                 <div className='MiniBlog_note_content'>
-                    Мы регулярно организуем мероприятия для арбитражников и маркетологов, где делимся опытом, последними трендами и лайфхаками.
-                    с Google Ads.
+                    {t('Мы регулярно организуем мероприятия для арбитражников и маркетологов, где делимся опытом, последними трендами и лайфхаками с Google Ads.')}
                 </div>
                 <div className='MiniBlog_note_duga MiniBlog_note_duga_right free_img'>
                     <img src="/aboutUsDuga.svg" alt="" />
@@ -96,4 +99,4 @@ export default () => {
             </div>
         </div>
     )
-}
+})

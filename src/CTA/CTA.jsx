@@ -1,11 +1,18 @@
 import { Link } from 'react-router-dom';
 import './CTA.scss';
-export default ({ skin = '', text = '' }) => {
+import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
+
+export default observer(({ skin = '', text = '' }) => {
+
+    const { t } = useTranslation();
+
     return (
         <Link to={'/request'} className={`CTA CTA_${skin}`}>
             <div className='CTA_text'>
                 {
-                    text ? text : 'Купить аккаунт'
+                    text ? text : t('Купить аккаунт')
+                    
                 }
             </div>
             <div className='CTA_arrow_wrapper free_img'>
@@ -17,4 +24,4 @@ export default ({ skin = '', text = '' }) => {
             </div>
         </Link>
     )
-}
+})

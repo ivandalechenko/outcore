@@ -1,15 +1,18 @@
 import './DropDown.scss';
 import { useState, useMemo } from 'react';
-
-export default ({ state, items }) => {
+import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
+export default observer(({ state, items }) => {
+  const { t } = useTranslation();
+  
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItems, setSelectedItems] = useState([]);
 
   const titles = {
-    currency: 'Валюта',
-    age: 'Возраст',
-    profile: 'Профиль',
-    geo: 'Гео'
+    currency: t('Валюта'),
+    age: t('Возраст'),
+    profile: t('Профиль'),
+    geo: t('Гео')
   };
 
   const fieldMap = {
@@ -63,4 +66,4 @@ export default ({ state, items }) => {
       )}
     </div>
   );
-}
+})

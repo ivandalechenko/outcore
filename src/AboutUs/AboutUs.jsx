@@ -1,41 +1,47 @@
 import CTA from '../CTA/CTA';
 import './AboutUs.scss';
-export default () => {
+import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
+
+export default observer(() => {
+
+    const { t } = useTranslation();
+
     return (
         <div className='AboutUs sizecontainer '>
             <div className='AboutUs_header'>
-                &nbsp;&nbsp;Про
+                &nbsp;&nbsp;{t('Про')}
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Наши
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{t('Наши')}
                 <br />
-                Аккаунты
+                {t('Аккаунты')}
             </div>
             <div className='AboutUs_content'>
                 {
                     [
                         {
-                            header: 'Топовые Tier 1 аккаунты',
-                            content: 'Все аккаунты получены напрямую от ведущих маркетинговых агентств Европы и США.'
+                            header:  t('Топовые Tier 1 аккаунты'),
+                            content: t('Все аккаунты получены напрямую от ведущих маркетинговых агентств Европы и США.')
                         },
                         {
-                            header: 'Максимальный траст и надежность',
-                            content: 'Мы работаем только с премиальными агентствами — Premier Partners Google, что гарантирует высокий уровень доверия к аккаунтам.'
+                            header: t('Максимальный траст и надежность'),
+                            content: t('Мы работаем только с премиальными агентствами — Premier Partners Google, что гарантирует высокий уровень доверия к аккаунтам.')
                         },
                         {
-                            header: 'Минимальная вероятность банов',
+                            header: t('Минимальная вероятность банов'),
                         },
                         {
-                            header: 'Высокие дневные лимиты',
+                            header: t('Высокие дневные лимиты'),
                         },
                         {
-                            header: 'Чистая рекламная история',
+                            header: t('Чистая рекламная история'),
                         },
                         {
-                            header: 'Идеально подходят для тестов и масштабирования',
+                            header: t('Идеально подходят для тестов и масштабирования'),
                         },
                         {
-                            header: 'Дополнительные инструменты',
-                            content: 'Помимо аккаунтов мы предоставляем необходимые сервисы и рекомендации для стабильной работы.'
+                            header: t('Дополнительные инструменты'),
+                            content: t('Помимо аккаунтов мы предоставляем необходимые сервисы и рекомендации для стабильной работы.')
                         }
                     ].map((el, index) => {
                         return <div className={`AboutUs_element AboutUs_element_${index % 6}`}>
@@ -64,4 +70,4 @@ export default () => {
             </div>
         </div>
     )
-}
+})

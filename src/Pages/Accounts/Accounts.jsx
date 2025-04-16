@@ -4,22 +4,26 @@ import Line from './Filter/Line/Line';
 import { useEffect, useState } from 'react';
 import MobFilterCurrrency from './MobFilterCurrrency/MobFilterCurrrency';
 import Btn from './Filter/Btn/Btn';
-export default () => {
+import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
+export default observer(() => {
+
+    const { t } = useTranslation();
 
     const links = [
-        { name: "Как выбрать аккаунт" },
-        { name: "Как запустить аккаунт" },
-        { name: "Как выбрать сетап" }
+        { name: t('Как выбрать аккаунт') },
+        { name: t('Как запустить аккаунт') },
+        { name: t('Как выбрать сетап') }
     ]
 
     const names = [
-        { name: "Номер" },
-        { name: "Валюта" },
-        { name: "Спенд" },
-        { name: "Возраст" },
-        { name: "Платежный профиль" },
-        { name: "Гео" },
-        { name: "Цена $" },
+        { name: t('Номер') },
+        { name: t('Валюта') },
+        { name: t('Спенд') },
+        { name: t('Возраст') },
+        { name: t('Платежный профиль') },
+        { name: t('Гео') },
+        { name: t('Цена $') },
     ]
 
     const items = [
@@ -93,7 +97,7 @@ export default () => {
                 <div className='Accounts__mm_wrapper'>
                     <div className='Accounts__mm_back' onClick={() => { setmmOpened(!mmOpened) }}>
                         <img src="/arrow.svg" alt="" />
-                        Фильтры
+                            {t('Фильтры')}
                     </div>
                     <div className='Accounts__mm_close' onClick={() => { setmmOpened(!mmOpened) }}>
                         <img src="/exitmm.svg" alt="" />
@@ -102,16 +106,16 @@ export default () => {
                 {/* <Filter /> */}
                 <div className='Accounts__mm_filter'>
                     <div className='Accounts__mm_filter_currency MobFilterEl'>
-                        <div className='Accounts__mm_filter_currency__title'>Валюта</div>
+                        <div className='Accounts__mm_filter_currency__title'>{t('Валюта')}</div>
                         {items.map((el, index) => (
                             <MobFilterCurrrency currency={el.currency} />
                         ))}
                     </div>
                     <div className='Accounts__mm_filter_spend MobFilterLine'>
-                        <Line title={'Спенд'} minValue={100} maxValue={5000} />
+                        <Line title={t('Спенд')} minValue={100} maxValue={5000} />
                     </div>
                     <div className='Accounts__mm_filter_age MobFilterEl'>
-                        <div className='Accounts__mm_filter_currency__title'>Возраст</div>
+                        <div className='Accounts__mm_filter_currency__title'>{t('Возраст')}</div>
                         {/* Ниже сортировка по возрастанию и отсеевание дублей, затем мап*/}
                         {[...new Set(items.map(el => el.age))]
                             .sort((a, b) => a - b)
@@ -120,7 +124,7 @@ export default () => {
                             ))}
                     </div>
                     <div className='Accounts__mm_filter_profile MobFilterEl'>
-                        <div className='Accounts__mm_filter_currency__title'>Платежный профиль</div>
+                        <div className='Accounts__mm_filter_currency__title'>{t('Платежный профиль')}</div>
                         {[...new Set(items.map(el => el.profile))]
                             .sort()
                             .map((profile, index) => (
@@ -128,23 +132,23 @@ export default () => {
                             ))}
                     </div>
                     <div className='Accounts__mm_filter_geo MobFilterEl'>
-                        <div className='Accounts__mm_filter_currency__title'>Гео</div>
+                        <div className='Accounts__mm_filter_currency__title'>{t('Гео')}</div>
                         {[...new Set(items.map(el => el.country))].sort().map((geo, index) => (
                             <MobFilterCurrrency currency={geo} type={'geo'} />
                         ))}
                     </div>
                     <div className='Accounts__mm_filter_price MobFilterLine'>
-                        <Line title={'Спенд'} minValue={100} maxValue={5000} />
+                        <Line title={t('Спенд')} minValue={100} maxValue={5000} />
                     </div>
                     <div className='Accounts__mm_filter_btns MobFilterEl'>
-                        <Btn title={'Clear'} />
-                        <Btn title={'Apply'} />
+                        <Btn title={t('Очистить')} />
+                        <Btn title={t('Применить')} />
                     </div>
                 </div>
             </div>
             <div className='Accounts container'>
                 <h2 className='Accounts__title'>
-                    <span className='text__gradient'>Выберите</span> идеальный <br /> Google аккаунт для залива
+                    <span className='text__gradient'>{t('Выберите')}</span>{t('идеальный')} <br /> {t('Google аккаунт для залива')}
                 </h2>
                 <div className='Accounts__decor'>
                     <div className='Accounts__decor_abstract free_img'>
@@ -162,7 +166,7 @@ export default () => {
                             <div className='Accounts__form_links_mob_wrapper'>
                                 <div className='Accounts__form_links_mob' onClick={() => { setmmOpened(!mmOpened) }}>
                                     <img src="/triangleFilter.svg" alt="" />
-                                    Фильтры
+                                    {t('Фильтры')}
                                 </div>
                             </div>
                         </div>
@@ -194,4 +198,4 @@ export default () => {
             </div>
         </>
     )
-}
+})

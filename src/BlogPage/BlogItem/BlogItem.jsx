@@ -8,7 +8,7 @@ export default ({ src, date, time, hashtag, title, description }) => {
         <div className='BlogItem'>
             <div className='BlogItem__header'>
                 <p className='BlogItem__header_item'>{date}</p>
-                <p className='BlogItem__header_item'>Время чтения: {time} мин</p>
+                <p className='BlogItem__header_item'>{time}</p>
             </div>
             <div className='BlogItem_img'>
                 <img src={src} alt="" />

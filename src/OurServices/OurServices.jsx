@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
 import './OurServices.scss';
 import CTA from '../CTA/CTA';
-export default () => {
+import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
+
+export default observer(() => {
+
+    const { t } = useTranslation();
 
     const [activeElement, setactiveElement] = useState(0);
 
@@ -23,25 +28,25 @@ export default () => {
                     <img src="/coloredDuga.svg" alt="" />
                 </div>
                 <div className='OurServices_note_content'>
-                    Мы предлагаем не только проверенные аккаунты, но и полный спектр услуг для арбитражников: от настройки прокси до помощи с залива трафика.
+                    {t('Мы предлагаем не только проверенные аккаунты, но и полный спектр услуг для арбитражников: от настройки прокси до помощи с залива трафика.')}
                 </div>
                 <div className='OurServices_note_duga OurServices_note_duga_right free_img'>
                     <img src="/coloredDuga.svg" alt="" />
                 </div>
             </div>
             <div className='OurServices_header'>
-                Наши услуги
+                {t('Наши услуги')}
             </div>
             <div className='OurServices_list'>
                 {
                     [
-                        'ФАРМ-СЕРВИС',
-                        'ТЕХНИЧЕСКОЕ СОПРОВОЖДЕНИЕ',
-                        'СПЕНДОВЫЕ АККАУНТЫ GOOGLE ADS',
-                        'АККАУНТЫ С ПРЕДВАРИТЕЛЬНЫМ ПРОГРЕВОМ',
-                        'КОНСАЛТИНГ ПО GOOGLE ADS',
-                        'ВСЕ ВИДЫ ВЕРИФИКАЦИИ',
-                        'ПЛАТЕЖНЫЕ РЕШЕНИЯ'
+                        t('ФАРМ-СЕРВИС'),
+                        t('ТЕХНИЧЕСКОЕ СОПРОВОЖДЕНИЕ'),
+                        t('СПЕНДОВЫЕ АККАУНТЫ GOOGLE ADS'),
+                        t('АККАУНТЫ С ПРЕДВАРИТЕЛЬНЫМ ПРОГРЕВОМ'),
+                        t('КОНСАЛТИНГ ПО GOOGLE ADS'),
+                        t('ВСЕ ВИДЫ ВЕРИФИКАЦИИ'),
+                        t('ПЛАТЕЖНЫЕ РЕШЕНИЯ')
                     ].map((el, index) => {
                         return <div className={`OurServices_element ${index === activeElement && 'OurServices_element_active'}`} style={{
                             transform: `rotate3d(1, 0, 0, ${-(index - activeElement) * 15}deg)
@@ -65,4 +70,4 @@ export default () => {
             </div>
         </div>
     )
-}
+})

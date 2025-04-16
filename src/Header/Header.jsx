@@ -9,22 +9,21 @@ import { observer } from 'mobx-react-lite';
 
 
 export default observer(() => {
-
-
-
     const location = useLocation();
     const hideLayout = location.pathname === '/request';
-    if (hideLayout) return
 
-    const [mmOpened, setmmOpened] = useState(false);
-
+    // Always call hooks at the top level
     const [showedMMButton, setshowedMMButton] = useState(false);
+    const [mmOpened, setmmOpened] = useState(false);
 
     useEffect(() => {
         setTimeout(() => {
-            setshowedMMButton(mmOpened)
+            setshowedMMButton(mmOpened);
         }, 200);
-    }, [mmOpened])
+    }, [mmOpened]);
+
+    // Conditionally render the layout part of the JSX
+    if (hideLayout) return null;
 
     return (
         <>
@@ -63,5 +62,5 @@ export default observer(() => {
                 </div>
             </div>
         </>
-    )
-})
+    );
+});

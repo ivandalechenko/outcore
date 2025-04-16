@@ -7,7 +7,12 @@ import './RequestPage.scss';
 import Header from '../Header/Header';
 import MessageToManager from '../MessageToManager/MessageToManager';
 import { useEffect, useState } from 'react';
-export default () => {
+
+import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
+export default observer(() => {
+
+    const { t } = useTranslation();
 
     const handleSumbit = () => {
         console.log('meow');
@@ -52,7 +57,7 @@ export default () => {
                         <div className='RequestPage_header_home_border'>
                             <Link to="/" className='RequestPage_header_home'>
                                 <img src="/arrow.svg" alt="" />
-                                На главную
+                                {t('На главную')}
                             </Link>
                         </div>
                         <div className='RequestPage_header_links'>
@@ -78,7 +83,7 @@ export default () => {
                             <img src="/aboutUsDuga.svg" alt="" />
                         </div>
                         <div className='RequestPage_note_content'>
-                            Наш менеджер свяжется с вами в ближайшее время
+                            {t('Наш менеджер свяжется с вами в ближайшее время')}
                         </div>
                         <div className='RequestPage_note_duga RequestPage_note_duga_right free_img'>
                             <img src="/aboutUsDuga.svg" alt="" />
@@ -86,12 +91,12 @@ export default () => {
                     </div>
                 </div>
                 <div className='RequestPage_title'>
-                    ОСТАВИТЬ ЗАЯВКУ <br /> ДЛЯ <span>Outcore</span> ПОКУПКИ <br /> АККАУНТА
+                    {t('ОСТАВИТЬ ЗАЯВКУ')} <br /> {t('ДЛЯ')} <span>Outcore</span>{t('ПОКУПКИ')} <br />{t('АККАУНТА')}
                 </div>
                 <div className='RequestPage_form'>
-                    <input type="text" placeholder='Имя' />
-                    <input type="text" placeholder='Телеграм' />
-                    <input type="text" placeholder='Email' />
+                    <input type="text" placeholder={t('Имя')} />
+                    <input type="text" placeholder={t('Телеграм')} />
+                    <input type="text" placeholder='Email'/>
                     <div className='RequestPage_form_cta'>
                         <CTA onClick={handleSumbit} />
                     </div>
@@ -99,4 +104,4 @@ export default () => {
             </div>
         </>
     )
-}
+})

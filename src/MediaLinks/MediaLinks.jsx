@@ -1,5 +1,11 @@
 import './MediaLinks.scss';
-export default ({ inline = false }) => {
+import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
+
+export default observer(({ inline = false }) => {
+
+    const { t } = useTranslation();
+
     return (
         <div className={`MediaLinks ${inline && 'MediaLinks_inline'}`}>
             <div className='MediaLinks_elements'>
@@ -25,8 +31,8 @@ export default ({ inline = false }) => {
                 }
             </div>
             <div className='MediaLinks_cta'>
-                Свяжись с нами для покупки аккаунта
+                {t('Свяжись с нами для покупки аккаунта')}
             </div>
         </div>
     )
-}
+})
