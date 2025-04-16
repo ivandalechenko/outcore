@@ -1,9 +1,17 @@
 import './LangChanger.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import languageStore from '../languageStore';
+import { observer } from 'mobx-react-lite';
 
 
-export default () => {
+export default observer(() => {
     const [activeLang, setactiveLang] = useState('RU');
+
+    useEffect(() => {
+        languageStore.setLanguage(activeLang.toLowerCase());
+    }, [activeLang])
+
     return (
         <div className='LangChanger'>
             {
@@ -21,4 +29,4 @@ export default () => {
             }
         </div>
     )
-}
+})

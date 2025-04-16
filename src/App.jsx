@@ -7,10 +7,17 @@ import RequestPage from './RequestPage/RequestPage';
 import BlogPage from './BlogPage/BlogPage';
 import Accounts from './Pages/Accounts/Accounts';
 import Services from './Pages/Services/Services';
+import { useEffect } from 'react';
+import languageStore from './languageStore';
 
 
 
 export default () => {
+
+
+  useEffect(() => {
+    languageStore.setLanguage(languageStore.activeLanguage)
+  }, [])
 
   return (
 

@@ -1,7 +1,12 @@
 export default [
     {
         tags: ['Event Insights', 'Shoto'],
-        name: 'Typical SEO Mistakes: Why your website ranks low',
+        // name: 'Typical SEO Mistakes: Why your website ranks low',
+        name: {
+            ru: 'Мяу',
+            en: 'Meow',
+            ua: "Котикiв немаэ, тiкi пес патрон гав га"
+        },
         img: '/blog/1.webp',
         date: '02.02.2025',
         minutesToRead: '5',

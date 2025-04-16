@@ -2,6 +2,7 @@ import './MiniBlog.scss';
 
 import BlogElements from "../BlogElements";
 import { useEffect, useMemo, useState } from 'react';
+import languageStore from '../languageStore';
 
 export default () => {
 
@@ -63,6 +64,7 @@ export default () => {
                                 </div>
                                 <div className='MiniBlog_element_header'>
                                     {el.name}
+                                    {/* {el.name[languageStore.activeLanguage]} */}
                                 </div>
                                 <div className='MiniBlog_element_text'>
                                     {el.text.slice(0, 120)}{el.text.length > 120 && '...'}

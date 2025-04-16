@@ -5,10 +5,11 @@ import MessageToManager from '../MessageToManager/MessageToManager';
 import NavLinks from '../NavLinks/NavLinks';
 import { Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { observer } from 'mobx-react-lite';
 
 
+export default observer(() => {
 
-export default () => {
 
 
     const location = useLocation();
@@ -63,4 +64,4 @@ export default () => {
             </div>
         </>
     )
-}
+})

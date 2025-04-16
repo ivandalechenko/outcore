@@ -1,16 +1,21 @@
 import { Link } from 'react-router-dom';
 import './NavLinks.scss';
+import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 
-export default () => {
+export default observer(() => {
+
+    const { t } = useTranslation();
+
     return (
         <>
             {
                 [
-                    { name: "Главная", path: "/" },
+                    { name: t('Главная'), path: "/" },
                     { name: "Аккаунты", path: "/accounts" },
                     { name: "Услуги", path: "/services" },
                     { name: "Блог", path: "/blog" },
-                    { name: "Контакты", path: "/contacts" }, // добавь такой роут если нужно
+                    { name: "Контакты", path: "/contacts" },
                 ].map((el, index) => {
                     return (
                         <div className='NavLink' key={`NavLink${index}`}>
@@ -24,3 +29,4 @@ export default () => {
         </>
     )
 }
+)
