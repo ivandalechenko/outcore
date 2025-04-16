@@ -11,8 +11,8 @@
     background-size: 250% 100%;
     background-position: 0% 0%;
     transition: background-position 500ms;
-    @media(max-width: 370px){
-        min-width: 300px;
+    @media(max-width: 420px){
+        min-width: 280px;
     }
 
     pointer-events: all;
