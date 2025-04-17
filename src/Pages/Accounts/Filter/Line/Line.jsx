@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Line.scss';
 
-const Line = ({ title, minValue, maxValue }) => {
+const Line = ({ title, minValue, maxValue, valueMin, valueMax, onChange }) => {
 
   const [min, setMin] = useState(0);
   const [max, setMax] = useState(100);
@@ -32,6 +32,24 @@ const Line = ({ title, minValue, maxValue }) => {
     setMax(val);
   };
 
+  const realMin = Math.floor(((maxValue - minValue) / 100) * min + minValue);
+  const realMax = Math.floor(((maxValue - minValue) / 100) * max + minValue);
+
+  useEffect(() => {
+    if (onChange) {
+      onChange({ min: realMin, max: realMax });            
+    }
+  }, [realMin, realMax]);
+
+    useEffect(() => {
+      if (valueMin !== undefined && valueMax !== undefined) {
+        const minPercent = ((valueMin - minValue) / (maxValue - minValue)) * 100;
+        const maxPercent = ((valueMax - minValue) / (maxValue - minValue)) * 100;
+        setMin(minPercent);
+        setMax(maxPercent);
+      }
+    }, [valueMin, valueMax, minValue, maxValue]);
+
   return (
     <div className="Line">
 
@@ -41,7 +59,7 @@ const Line = ({ title, minValue, maxValue }) => {
             {title}
           </div>
           <div className='Line_value_nubmers'>
-            <span>{Math.floor(((maxValue - minValue) / 100) * min + minValue)}</span> – <span>{Math.floor((maxValue - minValue) / 100 * max + minValue)}</span>
+            <span>{realMin}</span> – <span>{realMax}</span>
           </div>
         </div>
         <div className="Line_container">

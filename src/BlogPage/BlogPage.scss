@@ -10,6 +10,7 @@
     @media(max-width: 950px) {
         padding: 0px;
         margin-top: 50px;
+        gap: 20px;
     }
 
     &__decor {
@@ -115,6 +116,11 @@
                 min-width: 980px;
                 justify-content: start;
                 overflow-x: auto;
+                -ms-overflow-style: none;  // IE и Edge
+                scrollbar-width: none;     // Firefox
+            }
+            &::-webkit-scrollbar {
+                display: none;
             }
 
             @media(max-width: 950px) {

@@ -66,7 +66,7 @@ i18n.use(initReactI18next).init({
 		// Btn
 		"Купить аккаунт": {
 			ua: "Придбати",
-			en: "Buy an account",
+			en: "Buy account",
 		},
 		// Advantages
 		"5 лет": {
@@ -590,7 +590,7 @@ i18n.use(initReactI18next).init({
 	// Request
 	"На главную": {
 		ua: "На головну",
-		en: "To the homepage",
+		en: "To homepage",
 	},
 	"Наш менеджер свяжется с вами в ближайшее время": {
 		ua: "Наш менеджер зв'яжеться з вами найближчим часом",
@@ -611,6 +611,14 @@ i18n.use(initReactI18next).init({
 	"АККАУНТА": {
 		ua: "АКАУНТА",
 		en: "ACCOUNT",
+	},
+	"Имя": {
+		ua: "Ім'я",
+		en: "Name",
+	},
+	"Телеграм": {
+		ua: "Телеграм",
+		en: "Telegram",
 	},
 	}),
 	lng: 'ru',

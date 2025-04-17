@@ -1,10 +1,12 @@
 import './DropDown.scss';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
-export default observer(({ state, items }) => {
+
+
+export default observer(({ state, items, onChange, resetTrigger }) => {
   const { t } = useTranslation();
-  
+
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItems, setSelectedItems] = useState([]);
 
@@ -22,7 +24,6 @@ export default observer(({ state, items }) => {
     geo: 'country'
   };
 
-  // Вычисляем уникальные значения по нужному полю из items
   const options = useMemo(() => {
     if (!items) return [];
     const field = fieldMap[state];
@@ -30,19 +31,30 @@ export default observer(({ state, items }) => {
     return [...new Set(items.map(item => item[field]))];
   }, [items, state]);
 
-  const title = titles[state] || 'Выбор';
-
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
   const toggleItem = (item) => {
+    let updated;
     if (selectedItems.includes(item)) {
-      setSelectedItems(selectedItems.filter((i) => i !== item));
+      updated = selectedItems.filter((i) => i !== item);
     } else {
-      setSelectedItems([...selectedItems, item]);
+      updated = [...selectedItems, item];
     }
+    setSelectedItems(updated);
+    onChange?.(updated);
   };
+
+  const title = titles[state] || 'Выбор';
+
+  useEffect(() => {
+    setSelectedItems([]);
+  }, [resetTrigger]); //при изменении — сбрасываем
+
+  useEffect(() => {
+    onChange?.(selectedItems);
+  }, [selectedItems]);
 
   return (
     <div className='DropDown'>
@@ -66,4 +78,4 @@ export default observer(({ state, items }) => {
       )}
     </div>
   );
-})
+});
