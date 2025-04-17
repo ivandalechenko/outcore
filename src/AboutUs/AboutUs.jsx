@@ -1,14 +1,40 @@
+import { useRef } from 'react';
 import CTA from '../CTA/CTA';
 import './AboutUs.scss';
 import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
 export default observer(() => {
-
     const { t } = useTranslation();
 
+
+    const scope = useRef(null)
+
+    useGSAP(() => {
+        for (let i = 0; i < 8; i++) {
+            gsap.fromTo(`.AboutUs_element_num_${i}`, {
+                x: `-200px`,
+                opacity: 0,
+            }, {
+                x: `0px`,
+                opacity: 1,
+                scrollTrigger: {
+                    trigger: `.AboutUs_element_num_${i}`,
+                    scrub: 1,
+                    // markers: true,
+                    start: 'top 65%',
+                    end: 'bottom 65%',
+                }
+            })
+        }
+    }, { scope: scope })
+
+
+
     return (
-        <div className='AboutUs sizecontainer '>
+        <div className='AboutUs sizecontainer ' ref={scope}>
             <div className='AboutUs_header'>
                 &nbsp;&nbsp;{t('Про')}
                 <br />
@@ -20,7 +46,7 @@ export default observer(() => {
                 {
                     [
                         {
-                            header:  t('Топовые Tier 1 аккаунты'),
+                            header: t('Топовые Tier 1 аккаунты'),
                             content: t('Все аккаунты получены напрямую от ведущих маркетинговых агентств Европы и США.')
                         },
                         {
@@ -44,7 +70,7 @@ export default observer(() => {
                             content: t('Помимо аккаунтов мы предоставляем необходимые сервисы и рекомендации для стабильной работы.')
                         }
                     ].map((el, index) => {
-                        return <div className={`AboutUs_element AboutUs_element_${index % 6}`}>
+                        return <div className={`AboutUs_element AboutUs_element_num_${index} AboutUs_element_${index % 6}`}>
                             <div className='AboutUs_element_header'>
                                 <div className='AboutUs_element_header_text'>
                                     {el.header}

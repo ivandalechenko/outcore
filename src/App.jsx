@@ -11,6 +11,15 @@ import { useEffect } from 'react';
 import languageStore from './languageStore';
 
 
+import { TextPlugin } from "gsap/TextPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(TextPlugin);
+gsap.registerPlugin(ScrollTrigger);
+
+
 
 export default () => {
 

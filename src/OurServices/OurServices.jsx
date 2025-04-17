@@ -3,6 +3,9 @@ import './OurServices.scss';
 import CTA from '../CTA/CTA';
 import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
+import { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
 export default observer(() => {
 
@@ -10,19 +13,42 @@ export default observer(() => {
 
     const [activeElement, setactiveElement] = useState(0);
 
-    let interval
-    useEffect(() => {
-        interval = setInterval(() => {
-            setactiveElement(prev => (prev + 1) % 7)
-        }, 2000);
+    // let interval
+    // useEffect(() => {
+    //     interval = setInterval(() => {
+    //         setactiveElement(prev => (prev + 1) % 7)
+    //     }, 2000);
 
-        return () => {
-            clearInterval(interval)
-        }
-    }, [])
+    //     return () => {
+    //         clearInterval(interval)
+    //     }
+    // }, [])
+
+
+
+    const scope = useRef(null)
+
+
+    useGSAP(() => {
+        gsap.to('.OurServices_list', {
+            y: '0px',
+            scrollTrigger: {
+                trigger: '.OurServices_list',
+                scrub: 1,
+                // markers: true,
+                start: 'top 60%',
+                end: 'bottom 60%',
+                onUpdate: self => {
+                    const percent = Math.round(self.progress * 6);
+                    console.log('Progress:', percent + '%');
+                    setactiveElement(percent)
+                }
+            }
+        })
+    }, { scope: scope })
 
     return (
-        <div className='OurServices '>
+        <div className='OurServices ' ref={scope}>
             <div className='OurServices_note'>
                 <div className='OurServices_note_duga free_img'>
                     <img src="/coloredDuga.svg" alt="" />

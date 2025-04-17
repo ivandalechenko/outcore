@@ -1,14 +1,37 @@
+import { useGSAP } from '@gsap/react';
 import './Advantages.scss';
 import { observer } from 'mobx-react-lite';
+import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import gsap from 'gsap';
 
 
 export default observer(() => {
 
     const { t } = useTranslation();
+    const scope = useRef(null)
+
+    useGSAP(() => {
+        for (let i = 0; i < 5; i++) {
+            gsap.fromTo(`.Advantages_element_${i}`, {
+                x: `-200px`,
+                opacity: 0,
+            }, {
+                x: `0px`,
+                opacity: 1,
+                scrollTrigger: {
+                    trigger: `.Advantages_element_${i}`,
+                    scrub: 1,
+                    start: 'top 65%',
+                    end: 'bottom 65%',
+                }
+            })
+        }
+    }, { scope: scope })
+
 
     return (
-        <div className='Advantages container'>
+        <div className='Advantages container' ref={scope}>
             <div className='Advantages_list'>
                 {
                     [
@@ -36,7 +59,7 @@ export default observer(() => {
                         return <>
                             {(index > 0 && index % 2 === 0) && <div className='Advantages_element_del'></div>}
                             {index === 4 && <div className='Advantages_element'></div>}
-                            <div className={`Advantages_element ${index % 2 === 0 && 'Advantages_element_odd'}`} key={`advantage-${index}`}>
+                            <div className={`Advantages_element Advantages_element_${index} ${index % 2 === 0 && 'Advantages_element_odd'}`} key={`advantage-${index}`}>
                                 <div className='Advantages_element_title'>
                                     {el.title}
                                 </div>

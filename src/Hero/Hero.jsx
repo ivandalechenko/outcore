@@ -46,6 +46,8 @@ export default () => {
     }, []);
 
 
+
+
     return (
         <div className='Hero'>
             <div className='Hero_decor'>
