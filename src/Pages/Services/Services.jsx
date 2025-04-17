@@ -3,6 +3,8 @@ import { useState } from 'react';
 import CTA from '../../CTA/CTA';
 import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
+import { motion, AnimatePresence } from 'framer-motion';
+
 export default observer(() => {
 
     const { t } = useTranslation();
@@ -54,7 +56,7 @@ export default observer(() => {
     
     const toggleItem = (index) => {
         setOpenedIndex(prev => (prev === index ? null : index));
-      };
+    };
 
 
       const renderContent = (el) => {
@@ -301,7 +303,20 @@ export default observer(() => {
                             {t('Подробнее')}
                             <img src="/arrowDownCorner.png" alt="" />
                         </div>
-                        {isOpen && renderContent(el)}
+                        <AnimatePresence initial={false}>
+                            {isOpen && (
+                                <motion.div
+                                key="content"
+                                initial={{ opacity: 0, height: '0px'}}
+                                animate={{ opacity: 1, height: 'auto' }}
+                                exit={{ opacity: 0, height: '0px' }}
+                                transition={{ duration: 0.2 }}
+                                className='Services__container_el'
+                                >
+                                {renderContent(el)}
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </div>
             )})}
         </div>
