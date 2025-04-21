@@ -6,15 +6,24 @@ const Line = ({ title, minValue, maxValue, currentMin, currentMax, onChange }) =
   const [minPercent, setminPercent] = useState(0);
   const [maxPercent, setmaxPercent] = useState(100);
 
-  useEffect(() => {
-    const newCurrentMin = Math.max((minPercent * (maxValue / 100)), minValue)
-    const newCurrentMax = Math.max((maxPercent * (maxValue / 100)), minValue)
+  const newCurrentMin = Math.floor(Math.max((minPercent * (maxValue / 100)), minValue));
+  const newCurrentMax = Math.floor(Math.max((maxPercent * (maxValue / 100)), minValue));
 
+  useEffect(() => {
     // console.log(`minPercent: ${minPercent}, maxPercent: ${maxPercent}`);
     // console.log(`newCurrentMin: ${newCurrentMin}, newCurrentMax: ${newCurrentMax}`);
 
     onChange({ min: newCurrentMin, max: newCurrentMax })
   }, [minPercent, maxPercent])
+
+  useEffect(() => {
+    //Очистка
+    if (currentMin === minValue && currentMax === maxValue) {    
+      //я не могу понять как можно менять визуально переменную, то фильтр работает, а при очистке значения не сбрасываються
+      setminPercent(0);
+      setmaxPercent(100);
+    }
+  }, [currentMin, currentMax, minValue, maxValue]);
 
 
   return (
@@ -26,7 +35,7 @@ const Line = ({ title, minValue, maxValue, currentMin, currentMax, onChange }) =
             {title}
           </div>
           <div className='Line_value_nubmers'>
-            <span>{currentMin}</span> – <span>{currentMax}</span>
+            <span>{newCurrentMin}</span> – <span>{newCurrentMax}</span>
           </div>
         </div>
         <div className="Line_container">
