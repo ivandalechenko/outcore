@@ -30,7 +30,7 @@ export default observer(() => {
     { id: 3731, currency: 'USD', spend: 507, age: 2024, profile: 'old pay', country: 'az', price: 220 },
     { id: 3729, currency: 'SEK', spend: 39100, age: 2020, profile: 'old pay', country: 'se', price: 600 },
     { id: 3728, currency: 'NOK', spend: 72700, age: 2018, profile: 'Reset', country: 'no', price: 900 },
-    { id: 1488, currency: 'UAH', spend: 777777, age: 2026, profile: 'cuck old pay', country: 'ua', price: 666 },
+    { id: 1488, currency: 'UAH', spend: 777777, age: 2026, profile: 'old pay', country: 'ua', price: 666 },
     { id: 3731, currency: 'USDD', spend: 507, age: 2024, profile: 'old pay', country: 'az', price: 220 }
   ];
 
@@ -120,9 +120,11 @@ export default observer(() => {
               key={'Спенд'}
               minValue={minSpend}
               maxValue={maxSpend}
-              valueMin={filters.spend.min}
-              valueMax={filters.spend.max}
-              onChange={({ min, max }) => updateRange('spend', { min, max })}
+              currentMin={filters.spend.min}
+              currentMax={filters.spend.max}
+              onChange={({ min, max }) => {
+                updateRange('spend', { min, max })
+              }}
             />
           </div>
           <div className='Accounts__mm_filter_age MobFilterEl'>
@@ -159,14 +161,14 @@ export default observer(() => {
             ))}
           </div>
           <div className='Accounts__mm_filter_price MobFilterLine'>
-            <Line
+            {/* <Line
               title={t('Цена $')}
               minValue={minPrice}
               maxValue={maxPrice}
               valueMin={filters.price.min}
               valueMax={filters.price.max}
               onChange={({ min, max }) => updateRange('price', { min, max })}
-            />
+            /> */}
           </div>
           <div className='Accounts__mm_filter_btns MobFilterEl'>
             <Btn title={t('Очистить')} onClick={resetFilters} />

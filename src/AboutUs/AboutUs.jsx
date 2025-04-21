@@ -24,8 +24,8 @@ export default observer(() => {
                     trigger: `.AboutUs_element_num_${i}`,
                     scrub: 1,
                     // markers: true,
-                    start: 'top 65%',
-                    end: 'bottom 65%',
+                    start: 'top 85%',
+                    end: 'bottom 85%',
                 }
             })
         }

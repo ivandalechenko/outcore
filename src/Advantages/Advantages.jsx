@@ -22,8 +22,8 @@ export default observer(() => {
                 scrollTrigger: {
                     trigger: `.Advantages_element_${i}`,
                     scrub: 1,
-                    start: 'top 65%',
-                    end: 'bottom 65%',
+                    start: 'top 85%',
+                    end: 'bottom 85%',
                 }
             })
         }

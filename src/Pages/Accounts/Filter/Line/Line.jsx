@@ -1,54 +1,21 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Line.scss';
 
-const Line = ({ title, minValue, maxValue, valueMin, valueMax, onChange }) => {
+const Line = ({ title, minValue, maxValue, currentMin, currentMax, onChange }) => {
 
-  const [min, setMin] = useState(0);
-  const [max, setMax] = useState(100);
-
-  const slider1 = useRef(null);
-  const slider2 = useRef(null);
-  const track = useRef(null);
-  const minGap = 0;
-
-  const updateTrack = () => {
-    if (!slider1.current || !slider2.current || !track.current) return;
-    const percent1 = (min / 100) * 100;
-    const percent2 = (max / 100) * 100;
-    track.current.style.background = `linear-gradient(to right, #fff2 ${percent1}%, #0201FF ${percent1}%, #81DBDF ${percent2}%, #fff2 ${percent2}%)`;
-  };
-
-
-
-  useEffect(updateTrack, [min, max]);
-
-  const slideOne = (e) => {
-    const val = Math.min(+e.target.value, max - minGap);
-    setMin(val);
-  };
-
-  const slideTwo = (e) => {
-    const val = Math.max(+e.target.value, min + minGap);
-    setMax(val);
-  };
-
-  const realMin = Math.floor(((maxValue - minValue) / 100) * min + minValue);
-  const realMax = Math.floor(((maxValue - minValue) / 100) * max + minValue);
+  const [minPercent, setminPercent] = useState(0);
+  const [maxPercent, setmaxPercent] = useState(100);
 
   useEffect(() => {
-    if (onChange) {
-      onChange({ min: realMin, max: realMax });            
-    }
-  }, [realMin, realMax]);
+    const newCurrentMin = Math.max((minPercent * (maxValue / 100)), minValue)
+    const newCurrentMax = Math.max((maxPercent * (maxValue / 100)), minValue)
 
-    useEffect(() => {
-      if (valueMin !== undefined && valueMax !== undefined) {
-        const minPercent = ((valueMin - minValue) / (maxValue - minValue)) * 100;
-        const maxPercent = ((valueMax - minValue) / (maxValue - minValue)) * 100;
-        setMin(minPercent);
-        setMax(maxPercent);
-      }
-    }, [valueMin, valueMax, minValue, maxValue]);
+    // console.log(`minPercent: ${minPercent}, maxPercent: ${maxPercent}`);
+    // console.log(`newCurrentMin: ${newCurrentMin}, newCurrentMax: ${newCurrentMax}`);
+
+    onChange({ min: newCurrentMin, max: newCurrentMax })
+  }, [minPercent, maxPercent])
+
 
   return (
     <div className="Line">
@@ -59,19 +26,20 @@ const Line = ({ title, minValue, maxValue, valueMin, valueMax, onChange }) => {
             {title}
           </div>
           <div className='Line_value_nubmers'>
-            <span>{realMin}</span> – <span>{realMax}</span>
+            <span>{currentMin}</span> – <span>{currentMax}</span>
           </div>
         </div>
         <div className="Line_container">
-          <div className="Line_slider-track" ref={track}></div>
+          <div className="Line_slider-track" style={{
+            background: `linear-gradient(to right, #fff2 ${minPercent}%, #0201FF ${minPercent}%, #81DBDF ${maxPercent}%, #fff2 ${maxPercent}%)`
+          }} />
           <div className='lefttInpt'>
             <input
               type="range"
               min="0"
               max="100"
-              value={min}
-              onChange={slideOne}
-              ref={slider1}
+              value={minPercent}
+              onChange={(e) => setminPercent(+e.target.value)}
             />
           </div>
           <div className='rightInpt'>
@@ -80,9 +48,8 @@ const Line = ({ title, minValue, maxValue, valueMin, valueMax, onChange }) => {
               type="range"
               min="0"
               max="100"
-              value={max}
-              onChange={slideTwo}
-              ref={slider2}
+              value={maxPercent}
+              onChange={(e) => setmaxPercent(+e.target.value)}
             />
           </div>
         </div>
