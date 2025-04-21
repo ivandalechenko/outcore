@@ -45,8 +45,8 @@ export default observer(({ items, minPrice, maxPrice, minSpend, maxSpend, onChan
         key='Спенд'
         minValue={minSpend}
         maxValue={maxSpend}
-        valueMin={spendRange.min}
-        valueMax={spendRange.max}
+        currentMin={spendRange.min}
+        currentMax={spendRange.max}
         onChange={setSpendRange}
       />
       <DropDown state='age' items={items} onChange={setAge} resetTrigger={resetTrigger}/>
@@ -56,8 +56,8 @@ export default observer(({ items, minPrice, maxPrice, minSpend, maxSpend, onChan
         title={t('Цена')}
         minValue={minPrice}
         maxValue={maxPrice}
-        valueMin={priceRange.min}
-        valueMax={priceRange.max}
+        currentMin={priceRange.min}
+        currentMax={priceRange.max}
         onChange={setPriceRange}
       />
       <Btn title={t('Очистить')} onClick={btnClickClear} />

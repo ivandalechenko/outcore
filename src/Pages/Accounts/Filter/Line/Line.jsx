@@ -6,10 +6,10 @@ const Line = ({ title, minValue, maxValue, currentMin, currentMax, onChange }) =
   const [minPercent, setminPercent] = useState(0);
   const [maxPercent, setmaxPercent] = useState(100);
 
-  const newCurrentMin = Math.floor(Math.max((minPercent * (maxValue / 100)), minValue));
-  const newCurrentMax = Math.floor(Math.max((maxPercent * (maxValue / 100)), minValue));
-
   useEffect(() => {
+    const newCurrentMin = Math.floor(Math.max((minPercent * (maxValue / 100)), minValue));
+    const newCurrentMax = Math.floor(Math.max((maxPercent * (maxValue / 100)), minValue));
+
     // console.log(`minPercent: ${minPercent}, maxPercent: ${maxPercent}`);
     // console.log(`newCurrentMin: ${newCurrentMin}, newCurrentMax: ${newCurrentMax}`);
 
@@ -18,13 +18,14 @@ const Line = ({ title, minValue, maxValue, currentMin, currentMax, onChange }) =
 
   useEffect(() => {
     //Очистка
-    if (currentMin === minValue && currentMax === maxValue) {    
-      //я не могу понять как можно менять визуально переменную, то фильтр работает, а при очистке значения не сбрасываються
+    if (currentMin === minValue && currentMax === maxValue) {         
       setminPercent(0);
       setmaxPercent(100);
+
+      // console.log(`minPercent: ${minPercent}, maxPercent: ${maxPercent}`);
+      // console.log(`newCurrentMin: ${Math.floor(Math.max((minPercent * (maxValue / 100)), minValue))}, newCurrentMax: ${Math.floor(Math.max((maxPercent * (maxValue / 100)), minValue))}`); 
     }
   }, [currentMin, currentMax, minValue, maxValue]);
-
 
   return (
     <div className="Line">
@@ -35,7 +36,7 @@ const Line = ({ title, minValue, maxValue, currentMin, currentMax, onChange }) =
             {title}
           </div>
           <div className='Line_value_nubmers'>
-            <span>{newCurrentMin}</span> – <span>{newCurrentMax}</span>
+            <span>{Math.floor(Math.max((minPercent * (maxValue / 100)), minValue))}</span> – <span>{Math.floor(Math.max((maxPercent * (maxValue / 100)), minValue))}</span>
           </div>
         </div>
         <div className="Line_container">

@@ -161,14 +161,15 @@ export default observer(() => {
             ))}
           </div>
           <div className='Accounts__mm_filter_price MobFilterLine'>
-            {/* <Line
+            <Line
               title={t('Цена $')}
+              key={'Цена'}
               minValue={minPrice}
               maxValue={maxPrice}
-              valueMin={filters.price.min}
-              valueMax={filters.price.max}
+              currentMin={filters.price.min}
+              currentMax={filters.price.max}
               onChange={({ min, max }) => updateRange('price', { min, max })}
-            /> */}
+            />
           </div>
           <div className='Accounts__mm_filter_btns MobFilterEl'>
             <Btn title={t('Очистить')} onClick={resetFilters} />
