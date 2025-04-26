@@ -156,7 +156,7 @@
         &_header {
             margin-top: 16px;
             color: #0201FF;
-            font-size: 30px;
+            font-size: 26px;
             font-weight: 700;
             @media(max-width: 470px){
                 font-size: 15px;
@@ -165,8 +165,9 @@
 
         &_text {
             margin-top: 16px;
-            font-size: 20px;
+            font-size: 18px;
             color: #000;
+            max-width: 470px;
             @media(max-width: 470px){
                 font-size: 12px;
             }

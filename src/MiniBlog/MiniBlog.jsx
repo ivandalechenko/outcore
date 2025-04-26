@@ -51,7 +51,7 @@ export default observer(() => {
                                         {el.date}
                                     </div>
                                     <div className='MiniBlog_element_minutesToRead'>
-                                        {t('Время чтения:')} {el.minutesToRead[languageStore.activeLanguage]} {t('мин')}
+                                        {t('Время чтения:')} {el.minutesToRead[languageStore.activeLanguage]} 
                                     </div>
                                 </div>
                                 <div className='MiniBlog_element_img'>

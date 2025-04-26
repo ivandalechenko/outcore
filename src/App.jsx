@@ -36,6 +36,7 @@ export default () => {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/2" element={<HomePage />} />
           <Route path="/request" element={<RequestPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path='/accounts' element={<Accounts />} />

@@ -9,7 +9,7 @@
 
     @media(max-width: 950px) {
         padding: 0px;
-        margin-top: 50px;
+        margin-top: 50px !important;
         gap: 20px;
     }
 
@@ -61,12 +61,12 @@
 
     &__title {
         width: 100%;
-        font-size: 260px;
+        font-size: 200px;
         font-weight: 500;
         text-align: center;
 
         @media(max-width: 1700px) {
-            font-size: 200px;
+            font-size: 170px;
         }
 
         @media(max-width: 1340px) {
@@ -96,7 +96,7 @@
 
         &_title {
             font-weight: 500;
-            font-size: 35px;
+            font-size: 30px;
 
             @media(max-width: 1040px) {
                 width: 100%;
@@ -209,14 +209,14 @@
             background: transparent;
             border: none;
             color: rgba($color: #FFFFFF, $alpha: .4);
-            font-size: 25px;
+            font-size: 20px;
             cursor: pointer;
             transform: color 300ms;
 
             &.active {
                 color: #fff;
                 font-weight: 600;
-                font-size: 25px;
+                font-size: 20px;
             }
         }
     }

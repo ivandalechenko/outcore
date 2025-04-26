@@ -16,6 +16,7 @@ export default observer(() => {
                     { name: t('Услуги'), path: "/services" },
                     { name: t('Блог'), path: "/blog" },
                     { name: t('Контакты'), path: "/contacts" },
+                    { name: t('Главная 2'), path: "/2" },
                 ].map((el, index) => {
                     return (
                         <div className='NavLink' key={`NavLink${index}`}>

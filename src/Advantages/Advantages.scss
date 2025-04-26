@@ -44,7 +44,7 @@
             &_small {
                 left: -300px;
                 top: -100px;
-                font-size: 80px;
+                font-size: 60px;
                 font-weight: 500;
                 white-space: nowrap;
 
@@ -63,7 +63,7 @@
                     -webkit-text-fill-color: transparent;
                     display: inline;
                     font-weight: 600;
-                    font-size: 26vw;
+                    font-size: 23vw;
                 }
             }
         }
@@ -113,12 +113,12 @@
         }
 
         &_title {
-            font-size: 140px;
+            font-size: 120px;
             font-weight: 500;
             white-space: nowrap;
 
             @media(max-width: 1950px) {
-                font-size: 100px;
+                font-size: 80px;
             }
 
             @media(max-width: 1650px) {
@@ -134,7 +134,7 @@
         &_text {
             font-size: 20px;
             font-weight: 500;
-            width: 310px;
+            max-width: 308px;
 
             @media(max-width: 1650px) {
                 width: 100%;

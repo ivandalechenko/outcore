@@ -22,7 +22,7 @@
         gap: 26px;
 
         &_content {
-            font-size: 20px;
+            font-size: 18px;
             max-width: 370px;
             text-align: center;
             color: #0201FF88;
@@ -36,7 +36,7 @@
     }
 
     &_header {
-        font-size: 80px;
+        font-size: 60px;
         font-weight: 500;
         color: #000;
         text-align: center;
@@ -70,11 +70,11 @@
 
         &_content {
             color: #0201FF33;
-            font-size: 85px;
+            font-size: 60px;
             transition: color 300ms;
 
             @media(max-width: 1400px) {
-                font-size: 50px;
+                font-size: 40px;
             }
 
             @media(max-width: 950px) {

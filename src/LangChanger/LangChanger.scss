@@ -6,8 +6,11 @@
     padding: 3px;
     border-radius: 36px;
     max-width: 42px;
-
-    @media(max-width: 670px) {
+    // @media(max-width: 1000px){
+    //     width: 300px;
+    //     flex-direction: row;
+    // }
+    @media(max-width: 1000px) {
         flex-wrap: nowrap;
         justify-content: center;
         max-width: fit-content;

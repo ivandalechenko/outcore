@@ -71,6 +71,9 @@ export default () => {
                 <div className='Hero_decor_rightHand free_img' ref={rightHand}>
                     <img src="/handRight.webp" alt="" />
                 </div>
+                {/* <video autoPlay loop className='Hero_decor_video'>
+                    <source src='/1.mp4' type='video/mp4' />
+                </video> */}
             </div>
             <HeroCta />
         </div>
