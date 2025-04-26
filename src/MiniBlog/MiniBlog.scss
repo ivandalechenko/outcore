@@ -1,6 +1,7 @@
 .MiniBlog {
     margin-top: 500px;
-    @media(max-width: 950px){
+
+    @media(max-width: 950px) {
         margin-top: 200px;
     }
 
@@ -64,10 +65,12 @@
         margin: 0 auto;
         font-weight: 500;
         line-height: 80px;
-        @media(max-width: 650px){
+
+        @media(max-width: 650px) {
             font-size: 50px;
         }
-        @media(max-width: 400px){
+
+        @media(max-width: 400px) {
             font-size: 40px;
         }
     }
@@ -79,10 +82,12 @@
         height: 700px;
 
         margin-top: 80px;
-        @media(max-width: 650px){
+
+        @media(max-width: 650px) {
             height: 700px;
         }
-        @media(max-width: 470px){
+
+        @media(max-width: 470px) {
             height: 500px;
         }
     }
@@ -94,18 +99,19 @@
         // max-height: 600px;
         background: white;
         border-radius: 10px;
-        padding: 10px 20px 40px 20px;
-        @media(max-width: 650px){
+        padding: 20px;
+
+        @media(max-width: 650px) {
             min-width: 400px;
             max-width: 400px;
             min-height: 500px;
-            padding: 10px 20px 40px 20px;
+            padding: 20px 30px;
         }
-        @media(max-width: 470px){
+
+        @media(max-width: 470px) {
             min-width: 250px;
             max-width: 250px;
             min-height: 300px;
-            padding: 5px 10px 20px 10px;
         }
 
         &_wrapper {
@@ -117,16 +123,22 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+
+            &_mt {
+                margin-top: 16px;
+            }
         }
 
         &_date,
         &_minutesToRead {
             font-size: 18px;
             color: #0008;
-            @media(max-width: 650px){
+
+            @media(max-width: 650px) {
                 font-size: 14px;
             }
-            @media(max-width: 470px){
+
+            @media(max-width: 470px) {
                 font-size: 10px;
                 line-height: 80%;
             }
@@ -145,7 +157,8 @@
             color: black;
             font-size: 18px;
             font-weight: 600;
-            @media(max-width: 470px){
+
+            @media(max-width: 470px) {
                 font-size: 10px;
                 line-height: 1px;
             }
@@ -161,14 +174,13 @@
         }
 
         &_header {
-            margin-top: 16px;
             color: #0201FF;
             font-size: 26px;
             font-weight: 700;
-            @media(max-width: 470px){
+
+            @media(max-width: 470px) {
                 font-size: 15px;
                 line-height: 15px;
-                margin-top: 10px;
             }
         }
 
@@ -177,7 +189,8 @@
             font-size: 18px;
             color: #000;
             max-width: 470px;
-            @media(max-width: 470px){
+
+            @media(max-width: 470px) {
                 font-size: 12px;
                 line-height: 12px;
                 margin-top: 10px;

@@ -2,7 +2,7 @@ import './Hero.scss';
 import { useEffect, useRef } from 'react';
 import HeroCta from './HeroCta/HeroCta';
 
-export default () => {
+export default ({ type = 0 }) => {
     const target = useRef({ x: 0, y: 0, rot: 0 });
     const leftState = useRef({ x: 0, y: 0, rot: 0 });
     const rightState = useRef({ x: 0, y: 0, rot: 0 });
@@ -50,32 +50,46 @@ export default () => {
 
     return (
         <div className='Hero'>
-            <div className='Hero_decor'>
-                <div className='Hero_decor_leftHand free_img' ref={leftHand}>
-                    <img src="/handLeft.webp" alt="" />
-                </div>
-                <div className='Hero_decor_crystall free_img'>
-                    <div className='Hero_decor_crystall_light_large free_img'>
-                        <div className='Hero_decor_crystall_light_large_inner'></div>
+            <div className={`Hero_decor ${type > 0 && `Hero_decor_vid`}`}>
+                {(type === 0 || !type) && <>
+                    <div className='Hero_decor_leftHand free_img' ref={leftHand}>
+                        <img src="/handLeft.webp" alt="" />
                     </div>
-                    <div className='Hero_decor_crystall_light_blue free_img'>
-                        <div className='Hero_decor_crystall_light_blue_inner'></div>
+                    <div className='Hero_decor_crystall free_img'>
+                        <div className='Hero_decor_crystall_light_large free_img'>
+                            <div className='Hero_decor_crystall_light_large_inner'></div>
+                        </div>
+                        <div className='Hero_decor_crystall_light_blue free_img'>
+                            <div className='Hero_decor_crystall_light_blue_inner'></div>
+                        </div>
+                        <div className='Hero_decor_crystall_light_green free_img'>
+                            <div className='Hero_decor_crystall_light_green_inner'></div>
+                        </div>
+                        <div className='Hero_decor_crystall_item free_img'>
+                            <img src="/crystall.webp" alt="" />
+                        </div>
                     </div>
-                    <div className='Hero_decor_crystall_light_green free_img'>
-                        <div className='Hero_decor_crystall_light_green_inner'></div>
+                    <div className='Hero_decor_rightHand free_img' ref={rightHand}>
+                        <img src="/handRight.webp" alt="" />
                     </div>
-                    <div className='Hero_decor_crystall_item free_img'>
-                        <img src="/crystall.webp" alt="" />
-                    </div>
-                </div>
-                <div className='Hero_decor_rightHand free_img' ref={rightHand}>
-                    <img src="/handRight.webp" alt="" />
-                </div>
-                {/* <video autoPlay loop className='Hero_decor_video'>
-                    <source src='/1.mp4' type='video/mp4' />
-                </video> */}
+                </>}
+                {
+                    type > 0 && <>
+                        {/* <div className='Hero_decor_video free_img'> */}
+                        <div className='Hero_decor_video_fade free_img'>
+                            <div className='Hero_decor_video_fade_inner'></div>
+                        </div>
+                        <video key={`video-${type}`} autoPlay loop muted playsInline className='Hero_decor_video'>
+                            <source src={`/${type - 1}.mp4`} type='video/mp4' />
+                        </video>
+                        <div className='Hero_decor_video_fade Hero_decor_video_fade_r free_img'>
+                            <div className='Hero_decor_video_fade_inner'></div>
+                        </div>
+                        {/* </div> */}
+                    </>
+                }
             </div>
             <HeroCta />
-        </div>
+        </div >
     )
 }

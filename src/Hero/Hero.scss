@@ -5,10 +5,54 @@
         z-index: -1;
         width: 100%;
         min-height: 600px;
+        max-height: 600px;
         pointer-events: none;
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
+
+        &_vid {
+            position: relative;
+            align-items: start !important;
+            top: -160px;
+
+            @media(max-width: 1000px) {
+                top: -60px;
+            }
+        }
+
+        &_video {
+
+            min-width: 100vw;
+            max-height: 100vh;
+
+            object-fit: cover;
+
+            @media(max-width: 1200px) {
+                min-height: 100vh;
+            }
+
+            &_fade {
+                width: 100% !important;
+                align-items: start !important;
+
+                &_inner {
+                    min-width: 100vw;
+                    min-height: 200px;
+                    background: linear-gradient(to bottom, #000, #0000);
+                }
+
+                &_r {
+                    align-items: end !important;
+
+                    .Hero_decor_video_fade_inner {
+                        rotate: 180deg;
+                    }
+                }
+
+            }
+        }
 
         &_crystall {
 
@@ -160,6 +204,7 @@
                 }
             }
         }
+
         // &_video{
         //     width: 100vw;
         //     height: 100vh;

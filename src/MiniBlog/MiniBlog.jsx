@@ -51,7 +51,7 @@ export default observer(() => {
                                         {el.date}
                                     </div>
                                     <div className='MiniBlog_element_minutesToRead'>
-                                        {t('Время чтения:')} {el.minutesToRead[languageStore.activeLanguage]} 
+                                        {t('Время чтения:')} {el.minutesToRead[languageStore.activeLanguage]}
                                     </div>
                                 </div>
                                 <div className='MiniBlog_element_img'>
@@ -66,7 +66,7 @@ export default observer(() => {
                                         })
                                     }
                                 </div>
-                                <div className='MiniBlog_element_header'>
+                                <div className='MiniBlog_element_header MiniBlog_element_header_mt'>
                                     {el.name[languageStore.activeLanguage]}
                                 </div>
                                 <div className='MiniBlog_element_text'>

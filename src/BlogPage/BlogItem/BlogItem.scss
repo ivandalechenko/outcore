@@ -1,4 +1,4 @@
-.BlogItem{
+.BlogItem {
     width: calc(33% - 40px);
     display: flex;
     flex-wrap: wrap;
@@ -8,44 +8,54 @@
     border-radius: 10px;
     padding: 40px;
     gap: 20px;
-    @media(max-width: 1250px){
+
+    @media(max-width: 1250px) {
         padding-top: 20px !important;
     }
-    @media(max-width: 950px){
+
+    @media(max-width: 950px) {
         width: 90%;
     }
-    @media(max-width: 500px){
+
+    @media(max-width: 500px) {
         padding: 15px;
     }
-    &__header{
+
+    &__header {
         width: 100%;
         display: flex;
         justify-content: space-between;
         gap: 10px;
-        @media(max-width: 1250px){
+
+        @media(max-width: 1250px) {
             flex-wrap: wrap;
         }
-        &_item{
+
+        &_item {
             color: rgba($color: #000000, $alpha: .5);
             font-size: 16px;
             font-weight: 400;
             line-height: 10%;
-            @media(max-width: 1250px){
+
+            @media(max-width: 1250px) {
                 width: 100%;
                 text-align: center;
             }
         }
     }
-    &_img{
+
+    &_img {
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        img{
+
+        img {
             width: 100%;
         }
     }
-    &__tag{
+
+    &__tag {
         width: 100%;
         color: #000000;
         font-family: 'Gilroy';
@@ -55,36 +65,42 @@
         gap: 5px;
         line-height: 10%;
         flex-wrap: wrap;
-        &_item{
+
+        &_item {
             color: #000000;
             font-family: 'Gilroy';
             font-size: 16px;
             font-weight: 500;
         }
     }
-    &__text{
+
+    &__text {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: start;
         align-items: start;
         gap: 10px;
-        &_title{
+
+        &_title {
             color: #0201FF;
             font-weight: 700;
             font-size: 25px;
             max-width: 400px;
             line-height: 90%;
-            @media(max-width: 500px){
+
+            @media(max-width: 500px) {
                 font-size: 20px;
             }
         }
-        &_description{
+
+        &_description {
             color: #000000;
             font-weight: 400;
             font-size: 16px;
             line-height: 90%;
-            @media(max-width: 500px){
+
+            @media(max-width: 500px) {
                 font-size: 12px;
             }
         }

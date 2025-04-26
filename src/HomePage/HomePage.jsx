@@ -7,10 +7,10 @@ import AboutUs from '../AboutUs/AboutUs';
 import OurServices from '../OurServices/OurServices';
 import MiniBlog from '../MiniBlog/MiniBlog';
 
-export default () => {
+export default ({ type = 0 }) => {
     return (
         <div className='HomePage'>
-            <Hero />
+            <Hero type={type} />
             <Note />
             <Advantages />
             <AboutUs />
