@@ -40,7 +40,7 @@ export default [
         },
     },
     {
-        tags: ['Event Insights', 'Meow', 'Test'],
+        tags: ['Event Insights', 'Test'],
         name: {
             en: 'Typical SEO Mistakes: Why your website ranks low',
             ru: 'Типичные ошибки SEO: Почему ваш сайт плохо индексируется',

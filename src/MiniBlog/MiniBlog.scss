@@ -63,6 +63,7 @@
         max-width: 1150px;
         margin: 0 auto;
         font-weight: 500;
+        line-height: 80px;
         @media(max-width: 650px){
             font-size: 50px;
         }
@@ -87,24 +88,24 @@
     }
 
     &_element {
-        min-width: 580px;
-        max-width: 580px;
-        min-height: 600px;
+        min-width: 500px;
+        max-width: 500px;
+        min-height: 550px;
         // max-height: 600px;
         background: white;
         border-radius: 10px;
-        padding: 40px;
+        padding: 10px 20px 40px 20px;
         @media(max-width: 650px){
             min-width: 400px;
             max-width: 400px;
             min-height: 500px;
-            padding: 20px;
+            padding: 10px 20px 40px 20px;
         }
         @media(max-width: 470px){
             min-width: 250px;
             max-width: 250px;
             min-height: 300px;
-            padding: 10px;
+            padding: 5px 10px 20px 10px;
         }
 
         &_wrapper {
@@ -122,8 +123,12 @@
         &_minutesToRead {
             font-size: 18px;
             color: #0008;
+            @media(max-width: 650px){
+                font-size: 14px;
+            }
             @media(max-width: 470px){
                 font-size: 10px;
+                line-height: 80%;
             }
         }
 
@@ -142,6 +147,7 @@
             font-weight: 600;
             @media(max-width: 470px){
                 font-size: 10px;
+                line-height: 1px;
             }
 
             &s {
@@ -150,6 +156,7 @@
                 flex-wrap: wrap;
                 column-gap: 8px;
                 row-gap: 4px;
+                line-height: 10%;
             }
         }
 
@@ -160,6 +167,8 @@
             font-weight: 700;
             @media(max-width: 470px){
                 font-size: 15px;
+                line-height: 15px;
+                margin-top: 10px;
             }
         }
 
@@ -170,6 +179,8 @@
             max-width: 470px;
             @media(max-width: 470px){
                 font-size: 12px;
+                line-height: 12px;
+                margin-top: 10px;
             }
         }
 

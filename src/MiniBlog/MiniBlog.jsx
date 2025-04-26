@@ -30,7 +30,7 @@ export default observer(() => {
     const scrollOffset = useMemo(() => {
         if (windowWidth <= 470) return 260;
         if (windowWidth <= 650) return 400;
-        return 570;
+        return 530;
     }, [windowWidth]);
 
     return (
