@@ -1,6 +1,7 @@
 import './Hero.scss';
 import { useEffect, useRef } from 'react';
 import HeroCta from './HeroCta/HeroCta';
+import Hls from 'hls.js';
 
 export default ({ type = 0 }) => {
     const target = useRef({ x: 0, y: 0, rot: 0 });
@@ -46,6 +47,71 @@ export default ({ type = 0 }) => {
     }, []);
 
 
+    const video1 = useRef(null)
+    const video2 = useRef(null)
+
+    useEffect(() => {
+        let hls1;
+
+        if (video1.current) {
+            if (Hls.isSupported()) {
+                hls1 = new Hls();
+                hls1.loadSource('https://speed-video.qteam.dev/outcore/1/master.m3u8');
+                hls1.attachMedia(video1.current);
+                hls1.on(Hls.Events.MANIFEST_PARSED, () => {
+                    video1.current.play();
+                });
+            } else if (video1.current.canPlayType('application/vnd.apple.mpegurl')) {
+                video1.current.src = 'https://speed-video.qteam.dev/outcore/1/master.m3u8';
+                video1.current.play();
+            }
+
+            const handleEnded = () => {
+                console.log('video1 ended');
+                video1.current.style.opacity = 0;
+
+                if (video2.current) {
+                    if (video2.current.readyState >= 3) {
+                        video2.current.style.opacity = 1;
+                        video2.current.play().catch(console.error);
+                    } else {
+                        video2.current.addEventListener('canplay', () => {
+                            video2.current.style.opacity = 1;
+                            video2.current.play().catch(console.error);
+                        }, { once: true });
+                    }
+                }
+            };
+
+            video1.current.addEventListener('ended', handleEnded);
+            return () => {
+                video1.current.removeEventListener('ended', handleEnded);
+                if (hls1) hls1.destroy();
+            };
+        }
+    }, []);
+
+    useEffect(() => {
+        let hls2;
+
+        if (video2.current) {
+            if (Hls.isSupported()) {
+                hls2 = new Hls();
+                hls2.loadSource('https://speed-video.qteam.dev/outcore/2/master.m3u8');
+                hls2.attachMedia(video2.current);
+            } else if (video2.current.canPlayType('application/vnd.apple.mpegurl')) {
+                video2.current.src = 'https://speed-video.qteam.dev/outcore/2/master.m3u8';
+            }
+            video2.current.style.opacity = 0;
+        }
+
+        return () => {
+            if (hls2) hls2.destroy();
+        };
+    }, []);
+
+
+
 
 
     return (
@@ -79,9 +145,10 @@ export default ({ type = 0 }) => {
                         <div className='Hero_decor_video_fade free_img'>
                             <div className='Hero_decor_video_fade_inner'></div>
                         </div>
-                        <video key={`video-${type}`} autoPlay loop muted playsInline className='Hero_decor_video'>
-                            <source src={`/${type - 1}.mp4`} type='video/mp4' />
-                        </video>
+                        <div className='Hero_decor_video_2_wrapper free_img'>
+                            <video loop muted playsInline className='Hero_decor_video' ref={video2} />
+                        </div>
+                        <video autoPlay muted playsInline className='Hero_decor_video' ref={video1} />
                         <div className='Hero_decor_video_fade Hero_decor_video_fade_r free_img'>
                             <div className='Hero_decor_video_fade_inner'></div>
                         </div>

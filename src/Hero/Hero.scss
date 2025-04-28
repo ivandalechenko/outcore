@@ -33,9 +33,16 @@
                 min-height: 100vh;
             }
 
+            &_2_wrapper {
+                width: 100% !important;
+                align-items: start !important;
+                z-index: 1;
+            }
+
             &_fade {
                 width: 100% !important;
                 align-items: start !important;
+                z-index: 3;
 
                 &_inner {
                     min-width: 100vw;
