@@ -59,11 +59,15 @@ export default ({ type = 0 }) => {
                 hls1.loadSource('https://speed-video.qteam.dev/outcore/1/master.m3u8');
                 hls1.attachMedia(video1.current);
                 hls1.on(Hls.Events.MANIFEST_PARSED, () => {
-                    video1.current.play();
+                    video1.current.addEventListener('canplay', () => {
+                        video1.current.play().catch(console.error);
+                    }, { once: true });
                 });
             } else if (video1.current.canPlayType('application/vnd.apple.mpegurl')) {
                 video1.current.src = 'https://speed-video.qteam.dev/outcore/1/master.m3u8';
-                video1.current.play();
+                video1.current.addEventListener('canplay', () => {
+                    video1.current.play().catch(console.error);
+                }, { once: true });
             }
 
             const handleEnded = () => {
@@ -146,9 +150,14 @@ export default ({ type = 0 }) => {
                             <div className='Hero_decor_video_fade_inner'></div>
                         </div>
                         <div className='Hero_decor_video_2_wrapper free_img'>
-                            <video loop muted playsInline className='Hero_decor_video' ref={video2} />
+                            <video loop muted playsInline
+                                preload="auto"
+                                crossOrigin="anonymous"
+                                className='Hero_decor_video' ref={video2} />
                         </div>
-                        <video autoPlay muted playsInline className='Hero_decor_video' ref={video1} />
+                        <video autoPlay muted playsInline
+                            preload="auto"
+                            crossOrigin="anonymous" className='Hero_decor_video' ref={video1} />
                         <div className='Hero_decor_video_fade Hero_decor_video_fade_r free_img'>
                             <div className='Hero_decor_video_fade_inner'></div>
                         </div>
