@@ -14,8 +14,8 @@ export default observer(() => {
     const services = [
         {
             type: 'proxy',
-            title: t('Прокси-сервисы'),
-            description: t('Готовые к работе аккаунты с высоким дневным лимитом, низкими рисками блокировок и историей трат на белые ниши.')
+            title: t('Спендовые аккаунты Google Ads'),
+            description: t('Готовые к запуску рекламные аккаунты от белого рекламного агентства уровня Premier Partner Google.')
         },
         {
             type: 'farm',
@@ -24,7 +24,7 @@ export default observer(() => {
         },
         {
             type: 'progrev',
-            title: t('Аккаунты с прогревом'),
+            title: t('Аккаунты с предварительным прогревом'),
             description: t('Фарм-аккаунты, полностью верифицированные, прогретые на белые вертикали и передаваемые вместе с доменом.')
         },
         {
@@ -35,22 +35,22 @@ export default observer(() => {
         {
             type: 'payment',
             title: t('Платежные решения'),
-            description: t('Мы проводим профессиональную верификацию Google Ads-аккаунтов вручную, гарантируя высокий траст и стабильность работы.')
+            // description: t('Мы проводим профессиональную верификацию Google Ads-аккаунтов вручную, гарантируя высокий траст и стабильность работы.')
         },
         {
             type: 'google',
             title: t('Инсайдерские услуги Google Ads'),
-            description: t('Мы проводим профессиональную верификацию Google Ads-аккаунтов вручную, гарантируя высокий траст и стабильность работы.')
+            // description: t('Мы проводим профессиональную верификацию Google Ads-аккаунтов вручную, гарантируя высокий траст и стабильность работы.')
         },
         {
             type: 'tech',
             title: t('Техническое сопровождение'),
-            description: t('Мы проводим профессиональную верификацию Google Ads-аккаунтов вручную, гарантируя высокий траст и стабильность работы.')
+            // description: t('Мы проводим профессиональную верификацию Google Ads-аккаунтов вручную, гарантируя высокий траст и стабильность работы.')
         },
         {
             type: 'consalting',
             title: t('Консалтинг по Google Ads'),
-            description: t('Мы проводим профессиональную верификацию Google Ads-аккаунтов вручную, гарантируя высокий траст и стабильность работы.')
+            // description: t('Мы проводим профессиональную верификацию Google Ads-аккаунтов вручную, гарантируя высокий траст и стабильность работы.')
         },
     ]    
     
@@ -106,7 +106,7 @@ export default observer(() => {
                                     <li>{t('Передача – удаленный рабочий стол с приватным прокси-решением')}</li>
                                 </div>
                                 <p className='Services__farm__title_footer'>
-                                    {t('Стоимость:')} <span className='Services__farm__title_footer_bold'> $75 + $15 за продление каждый месяц</span>
+                                    {t('Стоимость:')} <span className='Services__farm__title_footer_bold'> {t('$75 + $15 за продление каждый месяц')}</span>
                                 </p>
                             </div>
                             <div className='Services__farm_description'>
@@ -144,7 +144,7 @@ export default observer(() => {
                                     <li>{t('Возможность оплаты нашим VCC, использовавшимся на аккаунте')}</li>
                                 </div>
                                 <p className='Services__farm__title_footer'>
-                                    {t('Стоимость:')} <span className='Services__farm__title_footer_bold'> $75 + $15 за продление каждый месяц</span>
+                                    {t('Стоимость:')} <span className='Services__farm__title_footer_bold'> {t('$75 + $15 за продление каждый месяц')}</span>
                                 </p>
                             </div>
                             <div className='Services__farm_description'>
@@ -158,9 +158,8 @@ export default observer(() => {
                                 </div>
                                 <p className='Services__farm_description_title'>{t('Стоимость:')}</p>
                                 <div className='Services__farm_description_list'>
-                                    <li>{t('50 спенд – $250 ')}</li>
-                                    <li>{t('100 спенд – $350 ')}</li>
-                                    <li>{t('200 спенд – $500')}</li>
+                                    <li>{t('$100+ спенд – $350')}</li>
+                                    <li>{t('$200+ спенд – $500')}</li>
                                 </div>
                             </div>
                             <div className='Services__proxy_btn'>
@@ -202,7 +201,7 @@ export default observer(() => {
                         <div className='Services__proxy'>
                             <div className='Services__farm__title'>
                                 <div className='Services__farm__title_list'>
-                                    <li>{t('Виртуальные карты (VCC) – проверенные BIN\'ы (EU, USA) ')}</li>
+                                    <li>{t('Виртуальные карты (VCC) – проверенные BIN`ы (EU, USA)')}</li>
                                     <li>{t('Агентские кредитные линии – комиссия от 5%')}</li>
                                 </div>
                             </div>

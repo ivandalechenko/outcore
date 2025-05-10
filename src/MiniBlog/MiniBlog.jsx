@@ -51,7 +51,7 @@ export default observer(() => {
                                         {el.date}
                                     </div>
                                     <div className='MiniBlog_element_minutesToRead'>
-                                        {t('Время чтения:')} {el.minutesToRead[languageStore.activeLanguage]}
+                                        {el.minutesToRead[languageStore.activeLanguage]}
                                     </div>
                                 </div>
                                 <div className='MiniBlog_element_img'>
@@ -70,8 +70,8 @@ export default observer(() => {
                                     {el.name[languageStore.activeLanguage]}
                                 </div>
                                 <div className='MiniBlog_element_text'>
-                                    {typeof el.text === 'object' ? el.text[languageStore.activeLanguage].slice(0, 120) : el.text.slice(0, 120)}
-                                    {el.text.length > 120 && '...'}
+                                    {typeof el.text === 'object' ? el.text[languageStore.activeLanguage].slice(0, 250) : el.text.slice(0, 250)}
+                                    {el.text.length > 250 && '...'}
                                 </div>
                             </div>
                         </div>
@@ -91,7 +91,7 @@ export default observer(() => {
                     <img src="/aboutUsDuga.svg" alt="" />
                 </div>
                 <div className='MiniBlog_note_content'>
-                    {t('Мы регулярно организуем мероприятия для арбитражников и маркетологов, где делимся опытом, последними трендами и лайфхаками с Google Ads.')}
+                    {t('Мы регулярно присутствуем на мероприятих для арбитражников и маркетологов, где делимся опытом, последними трендами и лайфхаками с Google Ads.')}
                 </div>
                 <div className='MiniBlog_note_duga MiniBlog_note_duga_right free_img'>
                     <img src="/aboutUsDuga.svg" alt="" />

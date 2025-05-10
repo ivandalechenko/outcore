@@ -163,27 +163,19 @@ i18n.use(initReactI18next).init({
 			ua: "Фарм-сервіс",
 			en: "Farm Service",
 		},
-		"ТЕХНИЧЕСКОЕ СОПРОВОЖДЕНИЕ": {
-			ua: "Технічний супровід",
-			en: "Technical support",
-		},
-		"СПЕНДОВЫЕ АККАУНТЫ GOOGLE ADS": {
+		"Спендовые аккаунты Google Ads": {
 			ua: "Спендові акаунти Google Ads",
 			en: "Spend accounts Google Ads",
 		},
-		"АККАУНТЫ С ПРЕДВАРИТЕЛЬНЫМ ПРОГРЕВОМ": {
+		"Аккаунты с предварительным прогревом": {
 			ua: "Акаунти з попереднім прогрівом",
 			en: "Pre-warmed accounts",
 		},
-		"КОНСАЛТИНГ ПО GOOGLE ADS": {
-			ua: "Консалтинг по Google Ads",
-			en: "Google Ads consulting",
-		},
-		"ВСЕ ВИДЫ ВЕРИФИКАЦИИ": {
+		"Все виды верификации": {
 			ua: "Усі види верифікації",
 			en: "All types of verification",
 		},
-		"ПЛАТЕЖНЫЕ РЕШЕНИЯ": {
+		"Платежные решения": {
 			ua: "Платіжні рішення",
 			en: "Payment solutions",
 		},
@@ -200,9 +192,9 @@ i18n.use(initReactI18next).init({
 			ua: "хв",
 			en: "min",
 		},
-		"Мы регулярно организуем мероприятия для арбитражников и маркетологов, где делимся опытом, последними трендами и лайфхаками с Google Ads.": {
-			ua: "Ми регулярно організовуємо заходи для арбітражників і маркетологів, де ділимося досвідом, останніми трендами та лайфхаками з Google Ads.",
-			en: "We regularly organize events for arbitrageurs and marketers, where we share experience, the latest trends, and Google Ads life hacks.",
+		"Мы регулярно присутствуем на мероприятих для арбитражников и маркетологов, где делимся опытом, последними трендами и лайфхаками с Google Ads.": {
+			ua: "Ми регулярно відвідуємо заходи для арбітражників і маркетологів, де ділимося досвідом, останніми трендами та лайфхаками з Google Ads.",
+			en: "We regularly attend events for affiliate marketers and advertisers, where we share our experience, the latest trends, and Google Ads hacks.",
 		},
 		// Footer
 		"Свяжись с нами для покупки аккаунта": {
@@ -511,7 +503,7 @@ i18n.use(initReactI18next).init({
 			ua: "Комерційна діяльність – $300 (1-9 днів)",
 			en: "Commercial activity – $300 (1-9 days)"
 		},
-		"Виртуальные карты (VCC) – проверенные BIN'ы (EU, USA)": {
+		"Виртуальные карты (VCC) – проверенные BIN`ы (EU, USA)": {
 			ua: "Віртуальні картки (VCC) – перевірені BIN'и (EU, USA)",
 			en: "Virtual cards (VCC) – verified BINs (EU, USA)"
 		},
@@ -616,6 +608,74 @@ i18n.use(initReactI18next).init({
 			ua: "Телеграм",
 			en: "Telegram",
 		},
+		"Оставить заявку": {
+			ua: "Залишити заявку",
+			en: "Submit a request"
+		},
+		"Готовые к запуску рекламные аккаунты от белого рекламного агентства уровня Premier Partner Google.": {
+			ua: "Готові до запуску рекламні акаунти від білого рекламного агентства рівня Premier Partner Google.",
+			en: "Ready-to-run ad accounts from a white-hat advertising agency with Google Premier Partner status."
+		},
+		"$100+ спенд – $350": {
+			ua: "$100+ витрат – $350",
+			en: "$100+ spend – $350"
+		},
+		"$200+ спенд – $500": {
+			ua: "$200+ витрат – $500",
+			en: "$200+ spend – $500"
+		},
+		"Ручной фарм без автоматизации и ботов": {
+			ua: "Ручне фармування без автоматизації та ботів",
+			en: "Manual farming without automation and bots"
+		},
+		"Чистые прокси": {
+			ua: "Чисті проксі",
+			en: "Clean proxies"
+		},
+		"Реальные SIM-карты": {
+			ua: "Реальні SIM-картки",
+			en: "Real SIM cards"
+		},
+		"Полная верификация": {
+			ua: "Повна верифікація",
+			en: "Full verification"
+		},
+		"Передача вместе с доменом": {
+			ua: "Передача разом з доменом",
+			en: "Transfer along with the domain"
+		},
+		"Идут в комплекте с VDS": {
+			ua: "Йдуть у комплекті з VDS",
+			en: "Comes with VDS"
+		},
+		"Возможность оплаты нашим VCC, использовавшимся на аккаунте": {
+			ua: "Можливість оплати нашим VCC, що використовувалося на акаунті",
+			en: "Payment with our VCC used on the account"
+		},
+		"$75 + $15 за продление каждый месяц": {
+			ua: "$75 + $15 за продовження кожного місяця",
+			en: "$75 + $15 for renewal every month"
+		},
+		"Благодаря белой тематике и истории открученного бюджета аккаунты легко проходят модерацию и стартуют без блокировок.": {
+			ua: "Завдяки білій тематиці та історії витрат акаунти легко проходять модерацію та запускаються без блокувань.",
+			en: "Thanks to the white-hat niche and spending history, accounts pass moderation easily and launch without blocks."
+		},
+		"Вы сможете работать с серьезными бюджетами, не тратя время на ограничения и постепенный разгон.": {
+			ua: "Ви зможете працювати з великими бюджетами, не витрачаючи час на обмеження та поступовий розгін.",
+			en: "You can work with large budgets without wasting time on limitations or gradual warm-ups."
+		},
+		"Нет следов предыдущих нарушений, связанных с серыми и черными тематиками.": {
+			ua: "Жодних слідів попередніх порушень, пов'язаних із сірими чи чорними тематиками.",
+			en: "No traces of past violations related to gray or black-hat niches."
+		},
+		"Благодаря высокой живучести аккаунтов можно спокойно тестировать новые связки и запускать масштабные рекламные кампании.": {
+			ua: "Завдяки високій живучості акаунтів можна спокійно тестувати нові зв'язки та запускати масштабні рекламні кампанії.",
+			en: "Thanks to the high durability of the accounts, you can safely test new funnels and run large-scale ad campaigns."
+		},
+		"Кроме аккаунтов предоставляем необходимые сервисы и рекомендации для стабильной работы.": {
+			ua: "Окрім акаунтів, надаємо необхідні сервіси та рекомендації для стабільної роботи.",
+			en: "In addition to accounts, we provide essential services and recommendations for stable performance."
+		}
 	}),
 	lng: 'ru',
 	fallbackLng: 'ru',

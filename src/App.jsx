@@ -7,7 +7,7 @@ import RequestPage from './RequestPage/RequestPage';
 import BlogPage from './BlogPage/BlogPage';
 import Accounts from './Pages/Accounts/Accounts';
 import Services from './Pages/Services/Services';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import languageStore from './languageStore';
 
 
@@ -15,6 +15,7 @@ import { TextPlugin } from "gsap/TextPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import Preloader from './Pages/Preloader/Preloader';
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(ScrollTrigger);
@@ -23,10 +24,23 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default () => {
 
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     languageStore.setLanguage(languageStore.activeLanguage)
   }, [])
+
+  useEffect(() => {
+    languageStore.setLanguage(languageStore.activeLanguage);
+
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1900);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) return <Preloader />;
 
   return (
 
