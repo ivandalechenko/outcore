@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import HeroCta from './HeroCta/HeroCta';
 import Hls from 'hls.js';
 
-export default ({ type = 0 }) => {
+export default ({ type = 2 }) => {
     const target = useRef({ x: 0, y: 0, rot: 0 });
     const leftState = useRef({ x: 0, y: 0, rot: 0 });
     const rightState = useRef({ x: 0, y: 0, rot: 0 });

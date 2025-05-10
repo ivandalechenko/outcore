@@ -7,7 +7,7 @@ import AboutUs from '../AboutUs/AboutUs';
 import OurServices from '../OurServices/OurServices';
 import MiniBlog from '../MiniBlog/MiniBlog';
 
-export default ({ type = 0 }) => {
+export default ({ type = 2 }) => {
     return (
         <div className='HomePage'>
             <Hero type={type} />
