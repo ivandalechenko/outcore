@@ -93,9 +93,12 @@ export default observer(() => {
             <div className='AboutUs_cta'>
                 <CTA />
             </div>
-            <div className='AboutUs_decor'>
-                <div className='AboutUs_abstract free_img'>
-                    <img src="/abstract2.webp" alt="" />
+            <div className='AboutUs_decor_wrapper'>
+                <div className='AboutUs_decor'>
+                    <div className='AboutUs_abstract free_img'>
+                        <img src="/abstract2.webp" alt="" />
+                    </div>
+                    <div className='AboutUs_decor_lines AboutUs_decor_lines_1 free_img'></div>
                 </div>
             </div>
         </div>

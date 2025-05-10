@@ -17,7 +17,13 @@
         display: flex;
         justify-content: center;
         // position: relative;
-        // z-index: ;
+        // z-index: ;}
+        &_wrapper{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
     &_abstract {
@@ -54,6 +60,7 @@
         font-size: 130px;
         font-weight: 500;
         line-height: 120px;
+        max-height: 300px;
 
         @media(max-width: 1800px) {
             line-height: 140px;

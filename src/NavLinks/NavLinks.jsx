@@ -12,7 +12,7 @@ export default observer(() => {
             {
                 [
                     { name: t('Главная'), path: "/" },
-                    { name: t('Главная 2'), path: "/2" },
+                    // { name: t('Главная 2'), path: "/2" },
                     { name: t('Аккаунты'), path: "/accounts" },
                     { name: t('Услуги'), path: "/services" },
                     { name: t('Блог'), path: "/blog" },

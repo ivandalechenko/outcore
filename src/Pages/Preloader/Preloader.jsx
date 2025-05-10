@@ -5,7 +5,6 @@ export default function Preloader() {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    // Эмуляция загрузки на 3 секунды
     const timer = setTimeout(() => {
       setVisible(false);
     }, 1900);
