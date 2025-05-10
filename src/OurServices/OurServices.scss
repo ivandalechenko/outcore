@@ -7,6 +7,47 @@
         margin-top: 20vw
     }
 
+    &_line {
+
+        &_wrapper {
+            align-items: end !important;
+            width: 100% !important;
+        }
+
+        &_inner {
+            width: 100% !important;
+            background: #fff;
+            min-height: 50px;
+        }
+
+        @keyframes lineMove {
+            0% {
+                transform: translate(0px, 0px);
+            }
+
+            100% {
+                transform: translate(0px, 300px);
+            }
+        }
+
+        @keyframes lineScale {
+            0% {
+                min-height: 50px;
+            }
+
+            100% {
+                min-height: 0px;
+            }
+        }
+
+        &s {
+            align-items: end !important;
+            width: 100% !important;
+            flex-wrap: wrap;
+        }
+
+    }
+
     &_cta {
         margin-top: 60px;
         display: flex;

@@ -8,6 +8,7 @@ import PolicyAndRights from '../PolicyAndRights/PolicyAndRights';
 import { useLocation } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
+import CTA from '../CTA/CTA';
 
 export default observer(() => {
 
@@ -21,17 +22,19 @@ export default observer(() => {
             <div className='Footer_info'>
                 <div className='Footer_header'>
                     {t('Контакты')}
+                    <MediaLinks />
+                    <a href="mailto:Contact@outcore.io" className='Footer_header_email'>Contact@outcore.io</a>
                 </div>
                 <div className='Footer_content'>
                     <div className='Footer_row'>
                         <div className='Footer_links'>
                             <NavLinks />
                         </div>
-                        <MessageToManager />
+                        <CTA text={t('Оставить заявку')} skin={'blue'}/>
                         <LangChanger />
                     </div>
+                    <div className='Footer_row_end_bouncer'></div>
                     <div className='Footer_row Footer_row_end'>
-                        <MediaLinks />
                         <PolicyAndRights />
                         <img src="/designBy.svg" alt="" />
                     </div>
@@ -46,13 +49,14 @@ export default observer(() => {
                         <div className='Footer_mob_media'>
                             <MediaLinks />
                         </div>
+                        <a href="mailto:Contact@outcore.io" className='Footer_header_email'>Contact@outcore.io</a>
                     </div>
                     <div className='Footer_mob_right'>
                         <NavLinks />
                     </div>
                 </div>
-                <div className='Footer_mob_row'>
-                    <MessageToManager />
+                <div className='Footer_mob_row Footer_mob_row_cta'>
+                    <CTA text={t('Оставить заявку')} skin={'blue'}/>
                 </div>
                 <div className='Footer_mob_row Footer_mob_row_lang'>
                     <LangChanger />

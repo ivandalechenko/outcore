@@ -7,7 +7,7 @@ import RequestPage from './RequestPage/RequestPage';
 import BlogPage from './BlogPage/BlogPage';
 import Accounts from './Pages/Accounts/Accounts';
 import Services from './Pages/Services/Services';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import languageStore from './languageStore';
 
 
@@ -15,6 +15,7 @@ import { TextPlugin } from "gsap/TextPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import Preloader from './Pages/Preloader/Preloader';
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(ScrollTrigger);
@@ -23,28 +24,49 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default () => {
 
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     languageStore.setLanguage(languageStore.activeLanguage)
   }, [])
 
+  useEffect(() => {
+    languageStore.setLanguage(languageStore.activeLanguage);
+
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1900);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // if (loading) return <Preloader />;
+
   return (
 
-
-    <div className="App">
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          {/* <Route path="/2" element={<HomePage type={2} />} /> */}
-          <Route path="/request" element={<RequestPage />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path='/accounts' element={<Accounts />} />
-          <Route path='/services' element={<Services />} />
-        </Routes>
-        <Footer />
-      </Router>
-    </div>
+    <>
+      <div className='App_loadingWrapper' style={{
+        pointerEvents: 'none',
+        transition: `opacity 500ms`,
+        opacity: loading ? 1 : 0
+      }}>
+        <Preloader />
+      </div>
+      <div className="App">
+        <Router>
+          <Header />
+          <Routes>
+            {/* <Route path="/" element={<HomePage />} /> */}
+            <Route path="/" element={<HomePage type={2} />} />
+            <Route path="/request" element={<RequestPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path='/accounts' element={<Accounts />} />
+            <Route path='/services' element={<Services />} />
+          </Routes>
+          <Footer />
+        </Router>
+      </div>
+    </>
 
 
   )

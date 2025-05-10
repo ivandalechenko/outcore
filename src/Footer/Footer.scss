@@ -63,11 +63,28 @@
         &_media {
             margin-top: 20px;
         }
-
+        &_left{
+            @media(max-width: 1000px){
+                order: 1;
+                display: flex;
+                justify-content: center;
+                align-items: start;
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
         &_right {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
+            @media(max-width: 1000px){
+                order: 2;
+                justify-content: start;
+                align-items: start;
+                .NavLink{
+                    text-align: left !important;
+                }
+            }
 
             .NavLink {
                 width: 100%;
@@ -77,16 +94,26 @@
 
         &_row {
             width: 100%;
+            @media(max-width: 1000px){
+                flex-direction: column;
+            }
 
             &_top {
                 display: flex;
                 justify-content: space-between;
+                gap: 20px;
             }
 
             &_lang {
                 display: flex;
                 justify-content: start;
                 justify-content: start;
+            }
+            &_cta{
+                display: flex;
+                justify-content: center;
+                align-items: start;
+                width: 100%;
             }
         }
     }
@@ -113,6 +140,18 @@
         min-width: fit-content;
         font-size: 30px;
         font-weight: 700;
+        display: flex;
+        justify-content: start;
+        flex-direction: column;
+        align-items: start;
+        gap: 10px;
+        &_email{
+            text-decoration: underline;
+            color: rgba(255, 255, 255, 0.5333333333);
+            font-size: 16px;
+            font-family: 'Gilroy';
+            letter-spacing: 1px;
+        }
     }
 
     &_row {
@@ -124,6 +163,10 @@
 
         &_end {
             align-items: end;
+            width: 50%;
+            &_bouncer{
+                width: 50%;
+            }
         }
     }
 

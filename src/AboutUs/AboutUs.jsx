@@ -15,17 +15,17 @@ export default observer(() => {
     useGSAP(() => {
         for (let i = 0; i < 8; i++) {
             gsap.fromTo(`.AboutUs_element_num_${i}`, {
-                x: `-200px`,
+                y: `100px`,
                 opacity: 0,
             }, {
-                x: `0px`,
+                y: `0px`,
                 opacity: 1,
                 scrollTrigger: {
                     trigger: `.AboutUs_element_num_${i}`,
                     scrub: 1,
                     // markers: true,
-                    start: 'top 85%',
-                    end: 'bottom 85%',
+                    start: 'top 95%',
+                    end: 'top 95%',
                 }
             })
         }
@@ -55,19 +55,23 @@ export default observer(() => {
                         },
                         {
                             header: t('Минимальная вероятность банов'),
+                            content: t('Благодаря белой тематике и истории открученного бюджета аккаунты легко проходят модерацию и стартуют без блокировок.')
                         },
                         {
                             header: t('Высокие дневные лимиты'),
+                            content: t('Вы сможете работать с серьезными бюджетами, не тратя время на ограничения и постепенный разгон.'),
                         },
                         {
                             header: t('Чистая рекламная история'),
+                            content: t('Нет следов предыдущих нарушений, связанных с серыми и черными тематиками.'),
                         },
                         {
                             header: t('Идеально подходят для тестов и масштабирования'),
+                            content: t('Благодаря высокой живучести аккаунтов можно спокойно тестировать новые связки и запускать масштабные рекламные кампании.'),
                         },
                         {
                             header: t('Дополнительные инструменты'),
-                            content: t('Помимо аккаунтов мы предоставляем необходимые сервисы и рекомендации для стабильной работы.')
+                            content: t('Кроме аккаунтов предоставляем необходимые сервисы и рекомендации для стабильной работы.')
                         }
                     ].map((el, index) => {
                         return <div className={`AboutUs_element AboutUs_element_num_${index} AboutUs_element_${index % 6}`}>
@@ -89,9 +93,12 @@ export default observer(() => {
             <div className='AboutUs_cta'>
                 <CTA />
             </div>
-            <div className='AboutUs_decor'>
-                <div className='AboutUs_abstract free_img'>
-                    <img src="/abstract2.webp" alt="" />
+            <div className='AboutUs_decor_wrapper'>
+                <div className='AboutUs_decor'>
+                    <div className='AboutUs_abstract free_img'>
+                        <img src="/abstract2.webp" alt="" />
+                    </div>
+                    <div className='AboutUs_decor_lines AboutUs_decor_lines_1 free_img'></div>
                 </div>
             </div>
         </div>
