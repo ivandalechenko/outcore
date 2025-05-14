@@ -61,7 +61,8 @@ export default () => {
             <Route path="/request" element={<RequestPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path='/accounts' element={<Accounts />} />
-            <Route path='/services' element={<Services />} />
+            <Route path='/services/' element={<Services />} />
+            <Route path='/services/:id' element={<Services />} />
           </Routes>
           <Footer />
         </Router>

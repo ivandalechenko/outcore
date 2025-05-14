@@ -6,10 +6,13 @@ import { useTranslation } from 'react-i18next';
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 export default observer(() => {
 
     const { t } = useTranslation();
+     const { id } = useParams();
 
     const [activeElement, setactiveElement] = useState(0);
 
@@ -36,8 +39,8 @@ export default observer(() => {
                 trigger: '.OurServices',
                 scrub: 1,
                 // markers: true,
-                start: '50% 80%',
-                end: 'bottom 80%',
+                start: '60% 80%',
+                end: 'bottom 60%',
                 onUpdate: self => {
                     const percent = Math.round(self.progress * 6);
                     console.log('Progress:', percent + '%');
@@ -49,6 +52,37 @@ export default observer(() => {
 
     const linesCount = 5;
     const linesTime = 20;
+
+    const listEl = [
+        {
+            text: t('ФАРМ-СЕРВИС'),
+            id: 'farm'
+        },
+        {
+            text: t('ТЕХНИЧЕСКОЕ СОПРОВОЖДЕНИЕ'),
+            id: 'warmup'
+        },
+        {
+            text: t('СПЕНДОВЫЕ АККАУНТЫ GOOGLE ADS'),
+            id: 'spendAcc'
+        },
+        {
+            text: t('АККАУНТЫ С ПРЕДВАРИТЕЛЬНЫМ ПРОГРЕВОМ'),
+            id: 'warmup'
+        },
+        {
+            text: t('КОНСАЛТИНГ ПО GOOGLE ADS'),
+            id: 'consalting'
+        },
+        {
+            text: t('ВСЕ ВИДЫ ВЕРИФИКАЦИИ'),
+            id: 'verefication'
+        },
+        {
+            text: t('ПЛАТЕЖНЫЕ РЕШЕНИЯ'),
+            id: 'payment'
+        }
+    ]
 
     return (
         <>
@@ -70,15 +104,7 @@ export default observer(() => {
                     </div>
                     <div className='OurServices_list'>
                         {
-                            [
-                                t('ФАРМ-СЕРВИС'),
-                                t('ТЕХНИЧЕСКОЕ СОПРОВОЖДЕНИЕ'),
-                                t('СПЕНДОВЫЕ АККАУНТЫ GOOGLE ADS'),
-                                t('АККАУНТЫ С ПРЕДВАРИТЕЛЬНЫМ ПРОГРЕВОМ'),
-                                t('КОНСАЛТИНГ ПО GOOGLE ADS'),
-                                t('ВСЕ ВИДЫ ВЕРИФИКАЦИИ'),
-                                t('ПЛАТЕЖНЫЕ РЕШЕНИЯ')
-                            ].map((el, index) => {
+                           listEl.map((el, index) => {
                                 return <div className={`OurServices_element ${index === activeElement && 'OurServices_element_active'}`} style={{
                                     transform: `rotate3d(1, 0, 0, ${-(index - activeElement) * 15}deg)
                              translate(0px, ${(index - activeElement) * 50}px)`,
@@ -86,9 +112,9 @@ export default observer(() => {
                                     <div className='OurServices_element_arrow OurServices_element_arrow_right free_img'>
                                         <img src="/triangle.svg" alt="" />
                                     </div>
-                                    <div className='OurServices_element_content'>
-                                        {el}
-                                    </div>
+                                    <Link to={`/services/${el.id}`} className='OurServices_element_content'>
+                                        {el.text}
+                                    </Link>
                                     <div className='OurServices_element_arrow OurServices_element_arrow_left free_img'>
                                         <img src="/triangle.svg" alt="" />
                                     </div>

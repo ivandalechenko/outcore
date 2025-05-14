@@ -60,9 +60,9 @@ i18n.use(initReactI18next).init({
 			en: "We specialize in providing unique and effective solutions, developed with the specific needs of arbitrage teams and solo media buyers working with Google Ads in mind.",
 		},
 		// Btn
-		"Купить аккаунт": {
-			ua: "Придбати",
-			en: "Buy account",
+		"Связаться с нами": {
+			ua: "Зв'язатися з нами",
+			en: "Contact us",
 		},
 		// Advantages
 		"5 лет": {

@@ -89,7 +89,7 @@ export default ({ type = 2 }) => {
 
             video1.current.addEventListener('ended', handleEnded);
             return () => {
-                video1.current.removeEventListener('ended', handleEnded);
+                // video1.current.removeEventListener('ended', handleEnded);
                 if (hls1) hls1.destroy();
             };
         }
