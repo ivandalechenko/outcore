@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 export default observer(() => {
 
     const { t } = useTranslation();
+    const { id } = useParams();
 
     const [activeElement, setactiveElement] = useState(0);
 
@@ -50,6 +51,37 @@ export default observer(() => {
 
     const linesCount = 5;
     const linesTime = 20;
+
+    const listEl = [
+        {
+            text: t('ФАРМ-СЕРВИС'),
+            id: 'farm'
+        },
+        {
+            text: t('ТЕХНИЧЕСКОЕ СОПРОВОЖДЕНИЕ'),
+            id: 'warmup'
+        },
+        {
+            text: t('СПЕНДОВЫЕ АККАУНТЫ GOOGLE ADS'),
+            id: 'spendAcc'
+        },
+        {
+            text: t('АККАУНТЫ С ПРЕДВАРИТЕЛЬНЫМ ПРОГРЕВОМ'),
+            id: 'warmup'
+        },
+        {
+            text: t('КОНСАЛТИНГ ПО GOOGLE ADS'),
+            id: 'consalting'
+        },
+        {
+            text: t('ВСЕ ВИДЫ ВЕРИФИКАЦИИ'),
+            id: 'verefication'
+        },
+        {
+            text: t('ПЛАТЕЖНЫЕ РЕШЕНИЯ'),
+            id: 'payment'
+        }
+    ]
 
     return (
         <>

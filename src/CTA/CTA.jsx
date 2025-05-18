@@ -11,7 +11,7 @@ export default observer(({ skin = '', text = '' }) => {
         <Link to={'/request'} className={`CTA CTA_${skin}`}>
             <div className='CTA_text'>
                 {
-                    text ? text : t('Купить аккаунт')
+                    text ? text : t('Связаться с нами')
                     
                 }
             </div>

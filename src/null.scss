@@ -131,6 +131,11 @@ textarea {
 html {
     background: #000;
     scroll-behavior: smooth;
+    scrollbar-width: none;          /* Firefox */
+    -ms-overflow-style: none; 
+    &::-webkit-scrollbar {
+  display: none;                  /* Chrome и Safari */
+}  
 }
 
 
@@ -153,9 +158,8 @@ html {
 .text__gradient {
     background: linear-gradient(to right,
             #0201ff 17%,
-            #23cccd 40%,
-            #23cccd 90%,
-            #efedf4 100%);
+            #23cccd 50%,
+            #efedf4 80%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

@@ -28,9 +28,9 @@ export default observer(() => {
     }, []);
 
     const scrollOffset = useMemo(() => {
-        if (windowWidth <= 470) return 260;
-        if (windowWidth <= 650) return 400;
-        return 530;
+        if (windowWidth <= 470) return 235;
+        if (windowWidth <= 650) return 380;
+        return 470;
     }, [windowWidth]);
 
     return (
@@ -70,8 +70,8 @@ export default observer(() => {
                                     {el.name[languageStore.activeLanguage]}
                                 </div>
                                 <div className='MiniBlog_element_text'>
-                                    {typeof el.text === 'object' ? el.text[languageStore.activeLanguage].slice(0, 250) : el.text.slice(0, 250)}
-                                    {el.text.length > 250 && '...'}
+                                    {typeof el.text === 'object' ? el.text[languageStore.activeLanguage].slice(0, 150) : el.text.slice(0, 150)}
+                                    ...
                                 </div>
                             </div>
                         </div>
