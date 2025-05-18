@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 export default observer(() => {
 
@@ -104,13 +104,13 @@ export default observer(() => {
                     <div className='OurServices_list'>
                         {
                             [
-                                { text: t('ФАРМ-СЕРВИС'), link: `proxy` },
-                                { text: t('ТЕХНИЧЕСКОЕ СОПРОВОЖДЕНИЕ'), link: `` },
-                                { text: t('СПЕНДОВЫЕ АККАУНТЫ GOOGLE ADS'), link: `` },
-                                { text: t('АККАУНТЫ С ПРЕДВАРИТЕЛЬНЫМ ПРОГРЕВОМ'), link: `` },
-                                { text: t('КОНСАЛТИНГ ПО GOOGLE ADS'), link: `` },
-                                { text: t('ВСЕ ВИДЫ ВЕРИФИКАЦИИ'), link: `` },
-                                { text: t('ПЛАТЕЖНЫЕ РЕШЕНИЯ'), link: `` }
+                                { text: t('ФАРМ-СЕРВИС'), link: `farm` },
+                                { text: t('ТЕХНИЧЕСКОЕ СОПРОВОЖДЕНИЕ'), link: `tech` },
+                                { text: t('СПЕНДОВЫЕ АККАУНТЫ GOOGLE ADS'), link: `proxy` },
+                                { text: t('АККАУНТЫ С ПРЕДВАРИТЕЛЬНЫМ ПРОГРЕВОМ'), link: `progrev` },
+                                { text: t('КОНСАЛТИНГ ПО GOOGLE ADS'), link: `consalting` },
+                                { text: t('ВСЕ ВИДЫ ВЕРИФИКАЦИИ'), link: `verification` },
+                                { text: t('ПЛАТЕЖНЫЕ РЕШЕНИЯ'), link: `payment` }
                             ].map((el, index) => {
 
                                 return <Link to={`/services/${el.link}`} className={`OurServices_element ${index === activeElement && 'OurServices_element_active'}`} style={{
