@@ -23,7 +23,7 @@ export default observer(() => {
                 scrollTrigger: {
                     trigger: `.AboutUs_element_num_${i}`,
                     scrub: 1,
-                    // markers: true,
+                    markers: true,
                     start: 'top 95%',
                     end: 'top 95%',
                 }
@@ -74,7 +74,7 @@ export default observer(() => {
                             content: t('Кроме аккаунтов предоставляем необходимые сервисы и рекомендации для стабильной работы.')
                         }
                     ].map((el, index) => {
-                        return <div className={`AboutUs_element AboutUs_element_num_${index} AboutUs_element_${index % 6}`}>
+                        return <div className={`AboutUs_element AboutUs_element_num_${index} AboutUs_element_${index % 6}`} style={{zIndex: index + 1}}>
                             <div className='AboutUs_element_header'>
                                 <div className='AboutUs_element_header_text'>
                                     {el.header}
