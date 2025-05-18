@@ -70,8 +70,8 @@ export default observer(() => {
                                     {el.name[languageStore.activeLanguage]}
                                 </div>
                                 <div className='MiniBlog_element_text'>
-                                    {typeof el.text === 'object' ? el.text[languageStore.activeLanguage].slice(0, 250) : el.text.slice(0, 250)}
-                                    {el.text.length > 250 && '...'}
+                                    {typeof el.text === 'object' ? el.text[languageStore.activeLanguage].slice(0, 150) : el.text.slice(0, 150)}
+                                    ...
                                 </div>
                             </div>
                         </div>
