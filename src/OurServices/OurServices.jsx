@@ -112,7 +112,7 @@ export default observer(() => {
                                     <div className='OurServices_element_arrow OurServices_element_arrow_right free_img'>
                                         <img src="/triangle.svg" alt="" />
                                     </div>
-                                    <Link to={`/services/${el.id}`} className='OurServices_element_content'>
+                                    <Link to={`/services`} className='OurServices_element_content'>
                                         {el.text}
                                     </Link>
                                     <div className='OurServices_element_arrow OurServices_element_arrow_left free_img'>
