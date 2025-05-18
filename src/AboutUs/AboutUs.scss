@@ -112,10 +112,15 @@
         width: 100%;
         position: relative;
         min-height: 200px;
+        transition: transform 400ms;
 
         @media(max-width: 720px) {
             padding: 30px 50px;
             padding-bottom: 45px;
+        }
+
+        &_selected {
+            transform: translate(-100px, 0px);
         }
 
         &_header {

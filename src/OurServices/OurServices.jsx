@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { Link } from 'react-router-dom';
 
 export default observer(() => {
 
@@ -36,8 +37,8 @@ export default observer(() => {
                 trigger: '.OurServices',
                 scrub: 1,
                 // markers: true,
-                start: '50% 80%',
-                end: 'bottom 80%',
+                start: '50% 60%',
+                end: '100% 60%',
                 onUpdate: self => {
                     const percent = Math.round(self.progress * 6);
                     console.log('Progress:', percent + '%');
@@ -71,15 +72,16 @@ export default observer(() => {
                     <div className='OurServices_list'>
                         {
                             [
-                                t('ФАРМ-СЕРВИС'),
-                                t('ТЕХНИЧЕСКОЕ СОПРОВОЖДЕНИЕ'),
-                                t('СПЕНДОВЫЕ АККАУНТЫ GOOGLE ADS'),
-                                t('АККАУНТЫ С ПРЕДВАРИТЕЛЬНЫМ ПРОГРЕВОМ'),
-                                t('КОНСАЛТИНГ ПО GOOGLE ADS'),
-                                t('ВСЕ ВИДЫ ВЕРИФИКАЦИИ'),
-                                t('ПЛАТЕЖНЫЕ РЕШЕНИЯ')
+                                { text: t('ФАРМ-СЕРВИС'), link: `proxy` },
+                                { text: t('ТЕХНИЧЕСКОЕ СОПРОВОЖДЕНИЕ'), link: `` },
+                                { text: t('СПЕНДОВЫЕ АККАУНТЫ GOOGLE ADS'), link: `` },
+                                { text: t('АККАУНТЫ С ПРЕДВАРИТЕЛЬНЫМ ПРОГРЕВОМ'), link: `` },
+                                { text: t('КОНСАЛТИНГ ПО GOOGLE ADS'), link: `` },
+                                { text: t('ВСЕ ВИДЫ ВЕРИФИКАЦИИ'), link: `` },
+                                { text: t('ПЛАТЕЖНЫЕ РЕШЕНИЯ'), link: `` }
                             ].map((el, index) => {
-                                return <div className={`OurServices_element ${index === activeElement && 'OurServices_element_active'}`} style={{
+
+                                return <Link to={`/services/${el.link}`} className={`OurServices_element ${index === activeElement && 'OurServices_element_active'}`} style={{
                                     transform: `rotate3d(1, 0, 0, ${-(index - activeElement) * 15}deg)
                              translate(0px, ${(index - activeElement) * 50}px)`,
                                 }}>
@@ -87,12 +89,12 @@ export default observer(() => {
                                         <img src="/triangle.svg" alt="" />
                                     </div>
                                     <div className='OurServices_element_content'>
-                                        {el}
+                                        {el.text}
                                     </div>
                                     <div className='OurServices_element_arrow OurServices_element_arrow_left free_img'>
                                         <img src="/triangle.svg" alt="" />
                                     </div>
-                                </div>
+                                </Link>
                             })
                         }
                     </div>

@@ -1,18 +1,33 @@
 import './Services.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CTA from '../../CTA/CTA';
 import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useParams } from 'react-router-dom';
 
 export default observer(() => {
 
     const { t } = useTranslation();
 
     const [openedIndex, setOpenedIndex] = useState(null);
-    
+
+    const params = useParams()
+
+
+    useEffect(() => {
+        document.querySelector(`#pageTop`).scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+            if (params.serviceType) {
+                document.querySelector(`#${params.serviceType}`).scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 1000);
+    }, [])
+
+
     const services = [
         {
+            link: 'proxy',
             type: 'proxy',
             title: t('Спендовые аккаунты Google Ads'),
             description: t('Готовые к запуску рекламные аккаунты от белого рекламного агентства уровня Premier Partner Google.')
@@ -52,14 +67,14 @@ export default observer(() => {
             title: t('Консалтинг по Google Ads'),
             // description: t('Мы проводим профессиональную верификацию Google Ads-аккаунтов вручную, гарантируя высокий траст и стабильность работы.')
         },
-    ]    
-    
+    ]
+
     const toggleItem = (index) => {
         setOpenedIndex(prev => (prev === index ? null : index));
     };
 
 
-      const renderContent = (el) => {
+    const renderContent = (el) => {
         switch (el.type) {
             case 'proxy':
                 return (
@@ -84,7 +99,7 @@ export default observer(() => {
                                 <a><li className='Services__proxy_text_li'>{t('Какие инструменты использовать?')}</li></a>
                             </div>
                             <div className='Services__proxy_btn'>
-                                <CTA text={t('Хочу')}/>
+                                <CTA text={t('Хочу')} />
                             </div>
                         </div>
                     </>
@@ -122,7 +137,7 @@ export default observer(() => {
                                 </p>
                             </div>
                             <div className='Services__proxy_btn'>
-                                <CTA text={t('Хочу')}/>
+                                <CTA text={t('Хочу')} />
                             </div>
                         </div>
                     </>
@@ -163,7 +178,7 @@ export default observer(() => {
                                 </div>
                             </div>
                             <div className='Services__proxy_btn'>
-                                <CTA text={t('Хочу')}/>
+                                <CTA text={t('Хочу')} />
                             </div>
                         </div>
                     </>
@@ -189,7 +204,7 @@ export default observer(() => {
                                 </div>
                             </div>
                             <div className='Services__proxy_btn'>
-                                <CTA text={t('Хочу')}/>
+                                <CTA text={t('Хочу')} />
                             </div>
                         </div>
                     </>
@@ -206,7 +221,7 @@ export default observer(() => {
                                 </div>
                             </div>
                             <div className='Services__proxy_btn'>
-                                <CTA text={t('Хочу')}/>
+                                <CTA text={t('Хочу')} />
                             </div>
                         </div>
                     </>
@@ -231,7 +246,7 @@ export default observer(() => {
                                 </div>
                             </div>
                             <div className='Services__proxy_btn'>
-                                <CTA text={t('Хочу')}/>
+                                <CTA text={t('Хочу')} />
                             </div>
                         </div>
                     </>
@@ -249,7 +264,7 @@ export default observer(() => {
                                 </div>
                             </div>
                             <div className='Services__proxy_btn'>
-                                <CTA text={t('Хочу')}/>
+                                <CTA text={t('Хочу')} />
                             </div>
                         </div>
                     </>
@@ -267,57 +282,59 @@ export default observer(() => {
                                 </div>
                             </div>
                             <div className='Services__proxy_btn'>
-                                <CTA text={t('Хочу')}/>
+                                <CTA text={t('Хочу')} />
                             </div>
                         </div>
                     </>
                 );
         }
-    };    
+    };
 
     return (
-    <div className='Services container sizecontainer'>
-        <h2 className='Services__title'><span className='text__gradient'>{t('Услуги')}</span> {t('для успешного')} <br />{t('залива трафика')}</h2>
-        <div className='Services__decor'>
-            <div className='Services__decor_abstract free_img'>
-                <img src="/abstract1.webp" alt="" />
+        <div className='Services container sizecontainer' id='pageTop'>
+            <h2 className='Services__title'><span className='text__gradient'>{t('Услуги')}</span> {t('для успешного')} <br />{t('залива трафика')}</h2>
+            <div className='Services__decor'>
+                <div className='Services__decor_abstract free_img'>
+                    <img src="/abstract1.webp" alt="" />
+                </div>
+                <div className='Services__decor_abstract2 free_img'>
+                    <img src="/abstract1.webp" alt="" />
+                </div>
+                <div className='Services__decor_abstract3 free_img'>
+                    <img src="/abstract1.webp" alt="" />
+                </div>
             </div>
-            <div className='Services__decor_abstract2 free_img'>
-                <img src="/abstract1.webp" alt="" />
-            </div>
-            <div className='Services__decor_abstract3 free_img'>
-                <img src="/abstract1.webp" alt="" />
-            </div>
-        </div>
-        <div className='Services__container'>
-            {services.map((el, index) => {
-                const isOpen = openedIndex === index;
-                return (
-                    <div className='Services__item'
-                    style={{ bottom: `${index * 20}px`}}
-                    >
-                        <h2 className='Services__item_title'>{el.title}</h2>
-                        <p className='Services__item_description'>{el.description}</p>
-                        <div className='Services__item_continue' onClick={() => toggleItem(index)}>
-                            {t('Подробнее')}
-                            <img src="/arrowDownCorner.png" alt="" />
+            <div className='Services__container'>
+                {services.map((el, index) => {
+                    const isOpen = openedIndex === index;
+                    return (
+                        <div id={el.link} className={`Services__item`}
+                            style={{ bottom: `${index * 20}px` }}
+                        >
+                            <h2 className='Services__item_title'>{el.title}</h2>
+                            <p className='Services__item_description'>{el.description}</p>
+                            <div className='Services__item_continue' onClick={() => toggleItem(index)}>
+                                {t('Подробнее')}
+                                <img src="/arrowDownCorner.png" alt="" />
+                            </div>
+                            <AnimatePresence initial={false}>
+                                {isOpen && (
+                                    <motion.div
+                                        key="content"
+                                        initial={{ opacity: 0, height: '0px' }}
+                                        animate={{ opacity: 1, height: 'auto' }}
+                                        exit={{ opacity: 0, height: '0px' }}
+                                        transition={{ duration: 0.2 }}
+                                        className='Services__container_el'
+                                    >
+                                        {renderContent(el)}
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
                         </div>
-                        <AnimatePresence initial={false}>
-                            {isOpen && (
-                                <motion.div
-                                key="content"
-                                initial={{ opacity: 0, height: '0px'}}
-                                animate={{ opacity: 1, height: 'auto' }}
-                                exit={{ opacity: 0, height: '0px' }}
-                                transition={{ duration: 0.2 }}
-                                className='Services__container_el'
-                                >
-                                {renderContent(el)}
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-                    </div>
-            )})}
+                    )
+                })}
+            </div>
         </div>
-    </div>
-)})
+    )
+})

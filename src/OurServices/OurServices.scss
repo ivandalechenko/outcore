@@ -106,10 +106,12 @@
         justify-content: space-between;
         width: 100%;
         text-align: center;
-        transition: transform 300ms, opacity 300ms;
+        transition: transform 300ms, opacity 300ms, border-bottom 300ms;
         text-transform: uppercase;
 
         &_content {
+            transition: transform 300ms, opacity 300ms, border-bottom 300ms;
+            border-bottom: 5px solid #0000;
             color: #0201FF33;
             font-size: 60px;
             transition: color 300ms;
@@ -163,5 +165,14 @@
                 color: #0201FF;
             }
         }
+
+
+        &:hover {
+            .OurServices_element_content {
+                color: #000081;
+                border-bottom: 5px solid #000081;
+            }
+        }
+
     }
 }
