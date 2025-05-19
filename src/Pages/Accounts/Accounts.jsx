@@ -7,6 +7,9 @@ import Btn from './Filter/Btn/Btn';
 import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
 
+import { useRef } from 'react';
+import gsap from 'gsap';
+
 export default observer(() => {
   const { t } = useTranslation();
 
@@ -89,6 +92,27 @@ export default observer(() => {
     });
     setResetTrigger(prev => !prev); // <-- триггерим сброс
   };
+
+  const headerRef = useRef();
+  const contentRef = useRef();
+
+
+    useEffect(() => {
+    const elems = [headerRef.current, contentRef.current];
+
+    gsap.set(elems, {
+        x: (i) => (i % 2 === 0 ? '-100vw' : '100vw'),
+        opacity: 0
+    });
+
+    gsap.to(elems, {
+        x: 0,
+        opacity: 1,
+        stagger: 0.15,
+        duration: 0.8,
+        ease: 'power3.out',
+    });
+    }, []);
 
   return (
     <>
@@ -179,7 +203,7 @@ export default observer(() => {
       </div>
 
       <div className='Accounts container'>
-        <h2 className='Accounts__title'>
+        <h2 className='Accounts__title' ref={headerRef}>
           <span className='text__gradient'>{t('Выберите')}</span> {t('идеальный')} <br />
           {t('Google аккаунт для залива')}
         </h2>
@@ -189,7 +213,7 @@ export default observer(() => {
           </div>
         </div>
         <div className='Accounts__form_border'>
-          <div className='Accounts__form'>
+          <div className='Accounts__form' ref={contentRef}>
             <div className='Accounts__form_links_wrapper'>
               <div className='Accounts__form_links'>
                 {links.map((el, index) => (

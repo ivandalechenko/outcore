@@ -49,6 +49,30 @@ export default observer(() => {
         })
     }, { scope: scope })
 
+    useGSAP(() => {
+    gsap.to('.OurServices_note_duga:not(.OurServices_note_duga_right)', {
+        x: -1200,
+        scrollTrigger: {
+            trigger: '.OurServices',
+            scrub: 1,
+            start: 'top 40%',
+            end: 'bottom top',
+            // markers: true,
+        }
+    });
+
+    gsap.to('.OurServices_note_duga_right', {
+        x: 1200,
+        scrollTrigger: {
+            trigger: '.OurServices',
+            scrub: 1,
+            start: 'top 40%',
+            end: 'bottom top',
+            // markers: true,
+        }
+    });
+}, { scope });
+
     const linesCount = 5;
     const linesTime = 20;
 

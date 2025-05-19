@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './Preloader.scss';
+import HeroCta from '../../Hero/HeroCta/HeroCta';
 
 export default function Preloader() {
   const [visible, setVisible] = useState(true);
@@ -45,9 +46,10 @@ useEffect(() => {
               </div>
           </div>
           <div className='Preloader_content_percent free_img'>
-            <div className='Preloader_content_percent_text'>
+            {/* <div className='Preloader_content_percent_text'>
               FYI: WE DON'T DO 'ESTIMATED LOADING TIMES. WE'RE TOO BUSY MEETING ACTUAL DEADLINES.
-            </div>
+            </div> */}
+              <HeroCta small preloader/>
             <div className='Preloader_content_percent_percent'>
               {percent}%
             </div>

@@ -10,15 +10,42 @@ import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
 import CTA from '../CTA/CTA';
 
+import { useRef } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default observer(() => {
 
     const { t } = useTranslation();
 
     const location = useLocation();
     const hideLayout = location.pathname === '/request';
+
+
+    const scope = useRef(null);
+
+useGSAP(() => {
+    gsap.from('.Footer_info > *, .Footer_mob > *, .Footer_decor > *', {
+        y: 100,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+            trigger: '.Footer',
+            start: 'top 20%',
+            ned: 'bottom bottom',
+            toggleActions: 'play none none none',
+        }
+    });
+}, { scope });
+
     if (hideLayout) return
     return (
-        <div className='Footer container' id='contacts'>
+        <div className='Footer container' id='contacts' ref={scope}>
             <div className='Footer_info'>
                 <div className='Footer_header'>
                     {t('Контакты')}

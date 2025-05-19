@@ -36,6 +36,7 @@ export default () => {
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2700);
+    // 2700
 
     return () => clearTimeout(timer);
   }, []);

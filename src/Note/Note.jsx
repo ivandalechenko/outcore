@@ -37,6 +37,30 @@ export default observer(() => {
         settext(t('Мы специализируемся на предоставлении уникальных и эффективных решений, разработанных с учетом специфических потребностей арбитражных команд и соло-медиабаеров, работающих с Google Ads.'))
     }, [languageStore.activeLanguage])
 
+    
+    useGSAP(() => {
+    gsap.to('.Note_left', {
+        x: -400,
+        scrollTrigger: {
+            trigger: '.Note',
+            scrub: 1,
+            start: 'top 50%',
+            end: 'bottom top',
+            // markers: true,
+        }
+    });
+
+    gsap.to('.Note_right', {
+        x: 400,
+        scrollTrigger: {
+            trigger: '.Note',
+            scrub: 1,
+            start: 'top 50%',
+            end: 'bottom top',
+            // markers: true,
+        }
+    });
+}, { scope });
 
     return (
         <div className='Note_wrapper' ref={scope}>

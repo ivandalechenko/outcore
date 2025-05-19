@@ -6,6 +6,9 @@ import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useParams } from 'react-router-dom';
 
+import { useRef } from 'react';
+import gsap from 'gsap';
+
 export default observer(() => {
 
     const { t } = useTranslation();
@@ -24,6 +27,26 @@ export default observer(() => {
         }, 1000);
     }, [])
 
+    const headerRef = useRef();
+    const contentRef = useRef();
+
+
+    useEffect(() => {
+    const elems = [headerRef.current, contentRef.current];
+
+    gsap.set(elems, {
+        x: (i) => (i % 2 === 0 ? '-100vw' : '100vw'),
+        opacity: 0
+    });
+
+    gsap.to(elems, {
+        x: 0,
+        opacity: 1,
+        stagger: 0.15,
+        duration: 0.8,
+        ease: 'power3.out',
+    });
+    }, []);
 
     const services = [
         {
@@ -299,7 +322,7 @@ export default observer(() => {
 
     return (
         <div className='Services container sizecontainer' id='pageTop'>
-            <h2 className='Services__title'><span className='text__gradient'>{t('Услуги')}</span> {t('для успешного')} <br />{t('залива трафика')}</h2>
+            <h2 className='Services__title' ref={headerRef}><span className='text__gradient'>{t('Услуги')}</span> {t('для успешного')} <br />{t('залива трафика')}</h2>
             <div className='Services__decor'>
                 <div className='Services__decor_abstract free_img'>
                     <img src="/abstract1.webp" alt="" />
@@ -311,7 +334,7 @@ export default observer(() => {
                     <img src="/abstract1.webp" alt="" />
                 </div>
             </div>
-            <div className='Services__container'>
+            <div className='Services__container' ref={contentRef}>
                 {services.map((el, index) => {
                     const isOpen = openedIndex === index;
                     return (

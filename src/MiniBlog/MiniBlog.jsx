@@ -6,6 +6,13 @@ import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
 import languageStore from '../languageStore';
 
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useRef } from 'react';
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default observer(() => {
 
     const { t } = useTranslation();
@@ -33,8 +40,33 @@ export default observer(() => {
         return 470;
     }, [windowWidth]);
 
+    const scope = useRef(null);
+
+    useGSAP(() => {
+        gsap.to('.MiniBlog_note_duga:not(.MiniBlog_note_duga_right)', {
+            x: -1200,
+            scrollTrigger: {
+                trigger: '.MiniBlog_note',
+                scrub: 1,
+                start: 'top 70%',
+                end: 'bottom top',
+                // markers: true
+            }
+        });
+
+        gsap.to('.MiniBlog_note_duga_right', {
+            x: 1200,
+            scrollTrigger: {
+                trigger: '.MiniBlog_note',
+                scrub: 1,
+                start: 'top 70%',
+                end: 'bottom top',
+            }
+        });
+    }, { scope });
+
     return (
-        <div className='MiniBlog'>
+        <div className='MiniBlog' ref={scope}>
             <div className='MiniBlog_header'>
                 {t('Будьте в центре событий арбитражного мира')}
             </div>

@@ -10,6 +10,10 @@ import { useEffect, useState } from 'react';
 
 import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
+
+import { useRef } from 'react';
+import gsap from 'gsap';
+
 export default observer(() => {
 
     const { t } = useTranslation();
@@ -27,6 +31,30 @@ export default observer(() => {
             setshowedMMButton(mmOpened)
         }, 200);
     }, [mmOpened])
+
+
+    const headerRef = useRef();
+    const decorRef = useRef();
+    const noteRef = useRef();
+    const titleRef = useRef();
+    const formRef = useRef();
+
+    useEffect(() => {
+    const elems = [headerRef.current, decorRef.current, noteRef.current, titleRef.current, formRef.current];
+
+    gsap.set(elems, {
+        x: (i) => (i % 2 === 0 ? '100vw' : '-100vw'),
+        opacity: 0
+    });
+
+    gsap.to(elems, {
+        x: 0,
+        opacity: 1,
+        stagger: 0.15,
+        duration: 0.8,
+        ease: 'power3.out',
+    });
+    }, []);
 
     return (
         <>
@@ -52,7 +80,7 @@ export default observer(() => {
                 }} />
             </div>
             <div className='RequestPage container sizecontainer'>
-                <div className='RequestPage_header'>
+                <div className='RequestPage_header' ref={headerRef}>
                     <div className='RequestPage_header_side'>
                         <div className='RequestPage_header_home_border'>
                             <Link to="/" className='RequestPage_header_home'>
@@ -69,7 +97,7 @@ export default observer(() => {
                         <LangChanger />
                     </div>
                 </div>
-                <div className='RequestPage_decor'>
+                <div className='RequestPage_decor' ref={decorRef}>
                     <div className='RequestPage_decor_abstract free_img'>
                         <img src="/abstract3.webp" alt="" />
                     </div>
@@ -77,7 +105,7 @@ export default observer(() => {
                         Outcore
                     </div>
                 </div>
-                <div className='RequestPage_note'>
+                <div className='RequestPage_note' ref={noteRef}>
                     <div className='RequestPage_note_inner'>
                         <div className='RequestPage_note_duga free_img'>
                             <img src="/aboutUsDuga.svg" alt="" />
@@ -90,10 +118,10 @@ export default observer(() => {
                         </div>
                     </div>
                 </div>
-                <div className='RequestPage_title'>
+                <div className='RequestPage_title' ref={titleRef}>
                     {t('ОСТАВИТЬ ЗАЯВКУ')} <br /> {t('ДЛЯ')} <span>Outcore</span>{t('ПОКУПКИ')} <br />{t('АККАУНТА')}
                 </div>
-                <div className='RequestPage_form'>
+                <div className='RequestPage_form' ref={formRef}>
                     <input type="text" placeholder={t('Имя')} />
                     <input type="text" placeholder={t('Телеграм')} />
                     <input type="text" placeholder='Email'/>

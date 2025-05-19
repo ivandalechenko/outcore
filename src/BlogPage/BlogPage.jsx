@@ -6,6 +6,8 @@ import { useTranslation } from 'react-i18next';
 
 import BlogElements from "../BlogElements";
 
+import gsap from 'gsap';
+
 export default observer(() => {
 
     const { t, i18n } = useTranslation();
@@ -61,9 +63,30 @@ export default observer(() => {
         blogStart.current.scrollIntoView({ behavior: 'smooth' });
     }, [currentPage]);
 
+    const headerRef = useRef();
+    const contentRef = useRef();
+
+
+    useEffect(() => {
+    const elems = [headerRef.current, contentRef.current, blogStart.current];
+
+    gsap.set(elems, {
+        x: (i) => (i % 2 === 0 ? '-100vw' : '100vw'),
+        opacity: 0
+    });
+
+    gsap.to(elems, {
+        x: 0,
+        opacity: 1,
+        stagger: 0.15,
+        duration: 0.8,
+        ease: 'power3.out',
+    });
+    }, []);
+
     return (
         <div className='BlogPage sizecontainer'>
-            <h2 className='BlogPage__title text__gradient'>
+            <h2 className='BlogPage__title text__gradient' ref={headerRef}>
                 {t('Блог Outcore')}
             </h2>
             <div className='BlogPage__decor'>
@@ -83,7 +106,7 @@ export default observer(() => {
                     ))}
                 </div>
             </div>
-            <div className='BlogPage__gallery'>
+            <div className='BlogPage__gallery' ref={contentRef}>
                 {currentGallery.map((el, index) => (
                     <BlogItem
                         key={index}

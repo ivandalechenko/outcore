@@ -165,7 +165,7 @@ export default ({ type = 2 }) => {
                     </>
                 }
             </div>
-            <HeroCta />
+            <HeroCta btn/>
         </div >
     )
 }

@@ -17,6 +17,10 @@
             justify-content: right;
         }
     }
+    &_small{
+        padding: 0px !important;
+        margin: 0 !important;
+    }
 
     &_text {
         font-weight: 500;
@@ -49,6 +53,5 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
     }
 }

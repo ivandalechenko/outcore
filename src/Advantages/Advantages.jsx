@@ -11,13 +11,17 @@ export default observer(() => {
     const { t } = useTranslation();
     const scope = useRef(null)
 
+    const title = useRef();
+
     useGSAP(() => {
         for (let i = 0; i < 5; i++) {
+            const fromX = i % 2 === 0 ? '-200px' : '200px';
+
             gsap.fromTo(`.Advantages_element_${i}`, {
-                x: `-200px`,
+                x: fromX,
                 opacity: 0,
             }, {
-                x: `0px`,
+                x: '0px',
                 opacity: 1,
                 scrollTrigger: {
                     trigger: `.Advantages_element_${i}`,
@@ -25,9 +29,29 @@ export default observer(() => {
                     start: 'top 85%',
                     end: 'bottom 85%',
                 }
-            })
+            });
         }
-    }, { scope: scope })
+    }, { scope });
+
+    useGSAP(() => {
+        gsap.fromTo('.Advantages_decor', 
+        {
+            y: 200,
+            opacity: 0,
+        }, 
+        {
+            y: '0px',
+            opacity: 1,
+            scrollTrigger: {
+                trigger: `.Advantages_decor`,
+                scrub: 1,
+                start: 'top bottom',
+                end: 'bottom 85%',
+                // markers: true,
+            }
+        }
+    );
+    }, {title})
 
 
     return (
@@ -75,12 +99,12 @@ export default observer(() => {
                 <div className='Advantages_decor_abstract free_img'>
                     <img src="/abstract1.webp" alt="" />
                 </div>
-                <div className='Advantages_decor_text_large Advantages_decor_text free_img'>
+                <div className='Advantages_decor_text_large Advantages_decor_text free_img' ref={title}>
                     <div className='Advantages_decor_text_large_inner'>
                         Outcore
                     </div>
                 </div>
-                <div className='Advantages_decor_text_small Advantages_decor_text free_img'>
+                <div className='Advantages_decor_text_small Advantages_decor_text free_img' ref={title}>
                     {t('В цифрах')}
                 </div>
             </div>
