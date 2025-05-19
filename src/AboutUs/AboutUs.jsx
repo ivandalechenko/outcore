@@ -38,7 +38,7 @@ export default observer(() => {
                 scrub: 1,
                 start: '-20% 60%',
                 end: '130% 60%',
-                markers: true,
+                // markers: true,
                 onUpdate: self => {
                     // console.log(self.progress);
                     setselected(Math.round(self.progress * 8) - 1)
