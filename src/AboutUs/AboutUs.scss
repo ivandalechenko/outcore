@@ -108,11 +108,11 @@
         border-radius: 16px;
         padding: 40px 60px;
         padding-bottom: 100px;
-        margin-bottom: -100px;
+        margin-bottom: -200px;
         width: 100%;
         position: relative;
         min-height: 200px;
-        transition: transform 400ms;
+        transition: margin 400ms;
 
         @media(max-width: 720px) {
             padding: 30px 50px;
@@ -120,7 +120,7 @@
         }
 
         &_selected {
-            transform: translate(-100px, 0px);
+            margin-bottom: -100px;
         }
 
         &_header {

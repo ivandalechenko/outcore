@@ -36,9 +36,9 @@ export default observer(() => {
             scrollTrigger: {
                 trigger: `.AboutUs_content`,
                 scrub: 1,
-                start: '0% 40%',
-                end: '100% 40%',
-                // markers: true,
+                start: '-20% 60%',
+                end: '130% 60%',
+                markers: true,
                 onUpdate: self => {
                     // console.log(self.progress);
                     setselected(Math.round(self.progress * 8) - 1)
