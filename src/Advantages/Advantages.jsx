@@ -31,28 +31,24 @@ export default observer(() => {
                 }
             });
         }
-    }, { scope });
-
-    useGSAP(() => {
-        gsap.fromTo('.Advantages_decor', 
-        {
-            y: 200,
-            opacity: 0,
-        }, 
-        {
-            y: '0px',
-            opacity: 1,
-            scrollTrigger: {
-                trigger: `.Advantages_decor`,
-                scrub: 1,
-                start: 'top bottom',
-                end: 'bottom 85%',
-                // markers: true,
+        gsap.fromTo('.Advantages_decor',
+            {
+                y: 200,
+                // opacity: 0,
+            },
+            {
+                y: 0,
+                // opacity: 1,
+                scrollTrigger: {
+                    trigger: `.Advantages_decor`,
+                    scrub: 1,
+                    start: 'top bottom',
+                    end: 'bottom 85%',
+                    // markers: true,
+                }
             }
-        }
-    );
-    }, {title})
-
+        );
+    }, { scope: scope });
 
     return (
         <div className='Advantages container' ref={scope}>

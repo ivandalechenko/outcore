@@ -9,6 +9,7 @@ import Accounts from './Pages/Accounts/Accounts';
 import Services from './Pages/Services/Services';
 import { useEffect, useState } from 'react';
 import languageStore from './languageStore';
+import loadingStore from './loadingStore';
 
 
 import { TextPlugin } from "gsap/TextPlugin";
@@ -16,15 +17,18 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import Preloader from './Pages/Preloader/Preloader';
+import { observer } from 'mobx-react-lite';
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(TextPlugin);
 gsap.registerPlugin(ScrollTrigger);
 
 
 
-export default () => {
 
-  const [loading, setLoading] = useState(true);
+
+export default observer(() => {
+
+  // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     languageStore.setLanguage(languageStore.activeLanguage)
@@ -34,7 +38,7 @@ export default () => {
     languageStore.setLanguage(languageStore.activeLanguage);
 
     const timer = setTimeout(() => {
-      setLoading(false);
+      loadingStore.end()
     }, 2700);
     // 2700
 
@@ -47,9 +51,9 @@ export default () => {
 
     <>
       <div className='App_loadingWrapper' style={{
-        pointerEvents: 'none',
+        pointerEvents: loadingStore.isLoading ? 'all' : 'none',
         transition: `opacity 500ms`,
-        opacity: loading ? 1 : 0
+        opacity: loadingStore.isLoading ? 1 : 0
       }}>
         <Preloader />
       </div>
@@ -72,4 +76,4 @@ export default () => {
 
 
   )
-}
+})

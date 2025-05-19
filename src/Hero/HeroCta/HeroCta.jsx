@@ -4,6 +4,9 @@ import { observer } from 'mobx-react-lite';
 import { useTranslation } from 'react-i18next';
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
+import loadingStore from '../../loadingStore';
+
+
 
 export default observer(({ btn, small, preloader }) => {
 
@@ -15,7 +18,7 @@ export default observer(({ btn, small, preloader }) => {
     useEffect(() => {
         if (preloader) return;
 
-        const tl = gsap.timeline({ delay: 2.7, defaults: { duration: 0.8, ease: 'power3.out' } });
+        const tl = gsap.timeline({ delay: loadingStore.isLoading ? 2.7 : 0, defaults: { duration: 0.8, ease: 'power3.out' } });
 
         tl.from(textRef.current, { x: -100, opacity: 0 });
         if (btn) {
@@ -25,19 +28,19 @@ export default observer(({ btn, small, preloader }) => {
 
     return (
         <div className={`HeroCta container ${small && 'HeroCta_small'}`}>
-        <div ref={preloader ? null : textRef} className={`HeroCta_text ${small && 'HeroCta_text_small'}`}>
-            <span>Outcore</span>{t(' - стабильность')}
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;{t('блекхет рекламы в')}
-            <br />
-            {t('хаосе Google Ads')}
-        </div>
-        {
-            btn &&
-            <div className='HeroCta_wrapper' ref={preloader ? null : btnRef}>
-                <CTA />
+            <div ref={preloader ? null : textRef} className={`HeroCta_text ${small && 'HeroCta_text_small'}`}>
+                <span>Outcore</span>{t(' - стабильность')}
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;{t('блекхет рекламы в')}
+                <br />
+                {t('хаосе Google Ads')}
             </div>
-        }
-    </div>
+            {
+                btn &&
+                <div className='HeroCta_wrapper' ref={preloader ? null : btnRef}>
+                    <CTA />
+                </div>
+            }
+        </div>
     )
 })

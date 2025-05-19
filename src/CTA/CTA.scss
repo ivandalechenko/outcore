@@ -7,8 +7,8 @@
     border: 1px solid white;
     border-radius: 90px;
     padding-left: 40px;
-    background: linear-gradient(to right, #000 40%, #fff 60%);
-    background-size: 250% 100%;
+    background: linear-gradient(to bottom, #000 50%, #fff 50.01%);
+    background-size: 100% 200%;
     background-position: 0% 0%;
     transition: background-position 500ms;
     pointer-events: all;
@@ -32,7 +32,7 @@
     }
 
     &:hover {
-        background-position: 100% 0%;
+        background-position: 0% 100%;
         cursor: pointer;
 
         .CTA_text {
